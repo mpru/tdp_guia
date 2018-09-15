@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Taller de Programación</title>
+  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Taller de Programación" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
+  <meta name="github-repo" content="tdplest/guia" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Taller de Programación" />
+  
+  <meta name="twitter:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
+  
+
+<meta name="author" content="Mgs. Lic. Marcos Prunello">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="elementos-para-la-creacion-de-algoritmos.html">
+<link rel="next" href="estructuras-de-datos.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Guía para el Taller de Programación</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bienvenidos al Taller</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#horario-y-lugar-de-cursado"><i class="fa fa-check"></i>Horario y lugar de cursado</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#consultas"><i class="fa fa-check"></i>Consultas</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#material-de-estudio"><i class="fa fa-check"></i>Material de estudio</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#evaluacion"><i class="fa fa-check"></i>Evaluación</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#campus-virtual"><i class="fa fa-check"></i>Campus virtual</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>2</b> Introducción</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduccion.html"><a href="introduccion.html#una-breve-resena-historica-sobre-la-computacion"><i class="fa fa-check"></i><b>2.1</b> Una breve reseña histórica sobre la computación</a></li>
+<li class="chapter" data-level="2.2" data-path="introduccion.html"><a href="introduccion.html#software-y-hardware"><i class="fa fa-check"></i><b>2.2</b> Software y hardware</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html"><i class="fa fa-check"></i><b>3</b> Problemas, algoritmos y lenguajes de programación</a><ul>
+<li class="chapter" data-level="3.1" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#el-diseno-algoritmico"><i class="fa fa-check"></i><b>3.1</b> El diseño algorítmico</a></li>
+<li class="chapter" data-level="3.2" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#codificacion-creacion-y-edicion-de-programas"><i class="fa fa-check"></i><b>3.2</b> Codificación: creación y edición de programas</a></li>
+<li class="chapter" data-level="3.3" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#errores-de-programacion-y-depuracion"><i class="fa fa-check"></i><b>3.3</b> Errores de programación y depuración</a></li>
+<li class="chapter" data-level="3.4" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#resumiendo"><i class="fa fa-check"></i><b>3.4</b> Resumiendo</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos en SAS/IML</a><ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#que-es-sas"><i class="fa fa-check"></i><b>4.1</b> Qué es SAS</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#como-instalar-sas"><i class="fa fa-check"></i><b>4.2</b> Cómo instalar SAS</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#que-es-sasiml"><i class="fa fa-check"></i><b>4.3</b> Qué es SAS/IML</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#como-usar-iml"><i class="fa fa-check"></i><b>4.4</b> Cómo usar IML</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html"><i class="fa fa-check"></i><b>5</b> Elementos para la creación de algoritmos</a><ul>
+<li class="chapter" data-level="5.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#procesador-ambiente-y-acciones"><i class="fa fa-check"></i><b>5.1</b> Procesador, ambiente y acciones</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#ejemplo-1"><i class="fa fa-check"></i><b>5.1.1</b> Ejemplo 1</a></li>
+<li class="chapter" data-level="5.1.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#ejemplo-2"><i class="fa fa-check"></i><b>5.1.2</b> Ejemplo 2</a></li>
+<li class="chapter" data-level="5.1.3" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#acciones-primitivas-o-compuestas"><i class="fa fa-check"></i><b>5.1.3</b> Acciones primitivas o compuestas</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#objetos-constantes-y-variables"><i class="fa fa-check"></i><b>5.2</b> Objetos, constantes y variables</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#declaracion-de-variables-y-constantes"><i class="fa fa-check"></i><b>5.2.1</b> Declaración de variables y constantes</a></li>
+<li class="chapter" data-level="5.2.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#accion-de-asignacion"><i class="fa fa-check"></i><b>5.2.2</b> Acción de asignación</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores"><i class="fa fa-check"></i><b>5.3</b> Operadores</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores-aritmeticos"><i class="fa fa-check"></i><b>5.3.1</b> Operadores aritméticos</a></li>
+<li class="chapter" data-level="5.3.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores-relacionales"><i class="fa fa-check"></i><b>5.3.2</b> Operadores relacionales</a></li>
+<li class="chapter" data-level="5.3.3" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores-logicos"><i class="fa fa-check"></i><b>5.3.3</b> Operadores lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#entrada-y-salida-de-informacion"><i class="fa fa-check"></i><b>5.4</b> Entrada y salida de información</a></li>
+<li class="chapter" data-level="5.5" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#empleo-de-comentarios-en-el-algoritmo"><i class="fa fa-check"></i><b>5.5</b> Empleo de comentarios en el algoritmo</a></li>
+<li class="chapter" data-level="5.6" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#ejemplo"><i class="fa fa-check"></i><b>5.6</b> Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html"><i class="fa fa-check"></i><b>6</b> Estructuras de Control</a><ul>
+<li class="chapter" data-level="6.1" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-secuenciales"><i class="fa fa-check"></i><b>6.1</b> Estructuras de control secuenciales</a></li>
+<li class="chapter" data-level="6.2" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-condicionales"><i class="fa fa-check"></i><b>6.2</b> Estructuras de control condicionales</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-condicionales-simples"><i class="fa fa-check"></i><b>6.2.1</b> Estructuras condicionales simples</a></li>
+<li class="chapter" data-level="6.2.2" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-condicionales-dobles"><i class="fa fa-check"></i><b>6.2.2</b> Estructuras condicionales dobles</a></li>
+<li class="chapter" data-level="6.2.3" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-condicionales-multiples-o-anidadas"><i class="fa fa-check"></i><b>6.2.3</b> Estructuras condicionales múltiples o anidadas</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas"><i class="fa fa-check"></i><b>6.3</b> Estructuras de control iterativas</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas-con-un-numero-fijo-de-iteraciones"><i class="fa fa-check"></i><b>6.3.1</b> Estructuras de control iterativas con un número fijo de iteraciones</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas-con-un-numero-indeterminado-de-iteraciones"><i class="fa fa-check"></i><b>6.3.2</b> Estructuras de control iterativas con un número indeterminado de iteraciones</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html"><i class="fa fa-check"></i><b>7</b> Estructuras de Datos</a><ul>
+<li class="chapter" data-level="7.1" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#arreglos-unidimensionales"><i class="fa fa-check"></i><b>7.1</b> Arreglos unidimensionales</a></li>
+<li class="chapter" data-level="7.2" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#arreglos-bidimensionales"><i class="fa fa-check"></i><b>7.2</b> Arreglos bidimensionales</a></li>
+<li class="chapter" data-level="7.3" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#arreglos-multidimensionales"><i class="fa fa-check"></i><b>7.3</b> Arreglos multidimensionales</a></li>
+<li class="chapter" data-level="7.4" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#ejemplo-invertir-los-elementos-de-un-vector"><i class="fa fa-check"></i><b>7.4</b> Ejemplo: invertir los elementos de un vector</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="archivos.html"><a href="archivos.html"><i class="fa fa-check"></i><b>8</b> Archivos</a><ul>
+<li class="chapter" data-level="8.1" data-path="archivos.html"><a href="archivos.html#organizacion-de-archivos"><i class="fa fa-check"></i><b>8.1</b> Organización de archivos</a></li>
+<li class="chapter" data-level="8.2" data-path="archivos.html"><a href="archivos.html#operaciones-sobre-archivos"><i class="fa fa-check"></i><b>8.2</b> Operaciones sobre archivos</a></li>
+<li class="chapter" data-level="8.3" data-path="archivos.html"><a href="archivos.html#pseudo-codigo"><i class="fa fa-check"></i><b>8.3</b> Pseudo-código</a></li>
+<li class="chapter" data-level="8.4" data-path="archivos.html"><a href="archivos.html#archivos-de-texto"><i class="fa fa-check"></i><b>8.4</b> Archivos de texto</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="subalgortimos.html"><a href="subalgortimos.html"><i class="fa fa-check"></i><b>9</b> Subalgortimos</a><ul>
+<li class="chapter" data-level="9.1" data-path="subalgortimos.html"><a href="subalgortimos.html#funciones"><i class="fa fa-check"></i><b>9.1</b> Funciones</a></li>
+<li class="chapter" data-level="9.2" data-path="subalgortimos.html"><a href="subalgortimos.html#procedimientos"><i class="fa fa-check"></i><b>9.2</b> Procedimientos</a></li>
+<li class="chapter" data-level="9.3" data-path="subalgortimos.html"><a href="subalgortimos.html#pasaje-de-argumentos"><i class="fa fa-check"></i><b>9.3</b> Pasaje de argumentos</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="subalgortimos.html"><a href="subalgortimos.html#pasaje-por-valor"><i class="fa fa-check"></i><b>9.3.1</b> Pasaje por valor</a></li>
+<li class="chapter" data-level="9.3.2" data-path="subalgortimos.html"><a href="subalgortimos.html#pasaje-por-referencia"><i class="fa fa-check"></i><b>9.3.2</b> Pasaje por referencia</a></li>
+<li class="chapter" data-level="9.3.3" data-path="subalgortimos.html"><a href="subalgortimos.html#ejemplos"><i class="fa fa-check"></i><b>9.3.3</b> Ejemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="subalgortimos.html"><a href="subalgortimos.html#variables-locales-y-globales"><i class="fa fa-check"></i><b>9.4</b> Variables locales y globales</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="subalgortimos.html"><a href="subalgortimos.html#transparencia-referencial"><i class="fa fa-check"></i><b>9.4.1</b> Transparencia referencial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Taller de Programación</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estructuras-de-control" class="section level1">
+<h1><span class="header-section-number">6</span> Estructuras de Control</h1>
+<p>Como mencionamos anteriormente, un algoritmo está compuesto por una sucesión ordenada de comandos que se ejecutan uno detrás de otro. Sin embargo, con frecuencia es necesario recurrir a comandos especiales que alteran o controlan el flujo de las acciones. Por lo tanto, decimos que existen distintas <strong>estructuras de control</strong> que organizan a los algoritmos y que pueden clasificarse en <strong>secuenciales</strong>, <strong>condicionales</strong> e <strong>iterativas</strong>.</p>
+<div id="estructuras-de-control-secuenciales" class="section level2">
+<h2><span class="header-section-number">6.1</span> Estructuras de control secuenciales</h2>
+<p>Las estructuras secuenciales están compuestas por un número definido de acciones que se ubican en un orden específico y se suceden una tras otra. Los ejemplos que hemos discutido anteriormente están conformados por este tipo de estructura.</p>
+</div>
+<div id="estructuras-de-control-condicionales" class="section level2">
+<h2><span class="header-section-number">6.2</span> Estructuras de control condicionales</h2>
+<p>El curso de acción depende del resultado de la comparación una variable con un valor, que puede ser una constante u otra variable. Existen tres tipos de estructuras condicionales: <strong>simples</strong>, <strong>dobles</strong> y <strong>múltiples</strong>.</p>
+<div id="estructuras-condicionales-simples" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Estructuras condicionales simples</h3>
+<p>Representan una toma de decisión y se describen con la siguiente sintaxis:</p>
+<pre class="text"><code>SI &lt;condición&gt; ENTONCES
+    Acción/es
+FIN SI</code></pre>
+<p>La palabra <code>SI</code> indica el comando de comparación, <code>&lt;condición&gt;</code> indica la condición a evaluar y <code>Acción/es</code> son las instrucciones que se realizarán sólo si se cumple la condición. Si la condición no se verifica, no se ejecuta ninguna acción y el algorimo sigue su estructura secuencial a continuación del <code>FIN SI</code>.</p>
+<p>En el siguiente ejemplo utilizaremos esta estructura para determinar si una persona es mayor de edad o no.</p>
+<pre class="text"><code>ALGORITMO: &quot;Determinar mayoría de edad&quot;
+COMENZAR
+    VARIABLE numérica edad
+    LEER edad
+    SI edad &gt;= 18 ENTONCES
+        ESCRIBIR &quot;Es mayor de edad&quot;
+    FIN SI
+FIN</code></pre>
+<p><strong>En IML</strong>. Usamos la estructura <code>if ... then ...;</code>:</p>
+<pre class="text"><code>/* PROGRAMA: Determinar mayoría de edad */
+proc iml;
+    edad = 19;
+    if edad &gt;= 18 then print &quot;Es mayor de edad&quot;;
+quit;</code></pre>
+<p>Si necesitamos ejecutar más de una acción al cumplirse la condición evaluada, debemos encerrarlas dentro de un bloque <code>do</code>, que siempre termina con un <code>end</code>:</p>
+<pre class="text"><code>/* PROGRAMA: Determinar mayoría de edad */
+proc iml;
+    edad = 19;
+    if edad &gt;= 18 then do;
+        print &quot;Es mayor de edad&quot;;
+        print &quot;Su edad es &quot; edad &quot; años&quot;;
+    end;
+quit;</code></pre>
+</div>
+<div id="estructuras-condicionales-dobles" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Estructuras condicionales dobles</h3>
+<p>Este tipo de estructura añade una acción a ejecutarse en el caso de que la condición evaluada no se verifique. La sintaxis es:</p>
+<pre class="text"><code>SI &lt;condición&gt; 
+    ENTONCES
+        Acción/es
+    SI NO
+        Acción/es
+FIN SI</code></pre>
+<p>La palabra <code>ENTONCES</code> antecede a las acciones que se realizan si se cumple la condición y <code>SI NO</code> a las que se realizan si no se verifica la misma. Podemos ampliar el ejemplo anterior para que el algorimo indique también si la persona es menor de edad:</p>
+<pre class="text"><code>ALGORITMO: &quot;Determinar mayoría de edad&quot;
+COMENZAR
+    VARIABLE numérica edad
+    LEER edad
+    SI edad &gt;= 18 
+        ENTONCES
+            ESCRIBIR &quot;Es mayor de edad&quot;
+        SI NO
+            ESCRIBIR &quot;Es menor de edad&quot;
+    FIN SI
+FIN</code></pre>
+<p><strong>En IML</strong>.</p>
+<pre class="text"><code>proc iml;
+    edad = 17;
+    if edad &gt;= 18 then print &quot;Es mayor de edad&quot;;
+    else print &quot;Es menor de edad&quot;;
+quit;</code></pre>
+<p>Nuevamente, si necesitamos ejecutar múltiples acciones debemos encerrarlas dentro de un bloque <code>do</code>:</p>
+<pre class="text"><code>proc iml;
+    edad = 19;
+    if edad &gt;= 18 then do;
+        print &quot;Es mayor de edad&quot;;
+        print &quot;Su edad es &quot; edad &quot; años&quot;;
+    end;
+    else do;
+        print &quot;Es menor de edad&quot;;
+        print &quot;Requerir ingreso acompañado&quot;;
+    end;
+quit;</code></pre>
+</div>
+<div id="estructuras-condicionales-multiples-o-anidadas" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Estructuras condicionales múltiples o anidadas</h3>
+<p>Permiten combinar varias estructuras condicionales para establecer controles más complejos sobre el flujo de las acciones, representando una toma de decisión múltiple. Podemos ejemplificar la sintaxis de la siguiente forma:</p>
+<pre class="text"><code>SI &lt;condición&gt; 
+    ENTONCES
+        Acción/es
+    SI NO
+        SI &lt;condición&gt; 
+            ENTONCES
+                Acción/es
+            SI NO
+                Acción/es
+        FIN SI
+FIN SI</code></pre>
+<p>Imaginemos que el ejemplo anterior de la mayoría de edad se da en el contexto de la entrada a una exhibición, donde los mayores de edad pueden ingresar pero los menores sólo pueden hacerlo si tienen la autorización de un adulto a cargo. Podemos plantear el siguiente algoritmo para determinar si una persona puede ingresar o no:</p>
+<pre class="text"><code>ALGORITMO: &quot;Determinar ingreso&quot;
+COMENZAR
+    VARIABLE numérica edad
+    VARIABLE caracter autorizacion
+    LEER edad
+    SI edad &gt;= 18 
+        ENTONCES
+            ESCRIBIR &quot;Permitir ingreso&quot;
+        SI NO
+            LEER autorizacion
+            SI autorizacion = &quot;OK&quot; 
+                ENTONCES
+                    ESCRIBIR &quot;Permitir ingreso&quot;
+                SI NO
+                    ESCRIBIR &quot;Denegar ingreso&quot;
+            FIN SI
+    FIN SI
+FIN</code></pre>
+<pre class="text"><code>/* PROGRAMA: Determinar ingreso */
+proc iml;
+    edad = 16;
+    autorizacion = &quot;OK&quot;;
+    if edad &gt;= 18 then print &quot;Permitir ingreso&quot;;
+    else do;
+        if autorizacion = &quot;OK&quot; then print &quot;Permitir ingreso&quot;;
+        else print &quot;Denegar ingreso&quot;;
+    end;
+quit;</code></pre>
+</div>
+</div>
+<div id="estructuras-de-control-iterativas" class="section level2">
+<h2><span class="header-section-number">6.3</span> Estructuras de control iterativas</h2>
+<p>Las estructuras de control iterativas son útiles cuando la solución de un problema requiere que se ejecute repetidamente un determinado conjunto de acciones. El número de veces que se debe repetir dicha secuencia de acciones puede ser fijo o variable dependiendo de algún dato en el algoritmo.</p>
+<div id="estructuras-de-control-iterativas-con-un-numero-fijo-de-iteraciones" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Estructuras de control iterativas con un número fijo de iteraciones</h3>
+<p>Se aplican cuando se conoce de antemano el número exacto de veces que se debe repetir una secuencia de acciones. Por ejemplo, si deseamos mostrar en pantalla la tabla de multiplicar del número 8 completa podríamos hacer:</p>
+<pre class="text"><code>ALGORIMO: &quot;Mostrar tabla del 8&quot;
+COMENZAR
+    VARIABLE numérica resultado
+    resultado &lt;- 8 * 1
+    ESCRIBIR &quot;8 x 1 = &quot;, resultado
+    resultado &lt;- 8 * 2
+    ESCRIBIR &quot;8 x 2 = &quot;, resultado
+    resultado &lt;- 8 * 3
+    ESCRIBIR &quot;8 x 3 = &quot;, resultado
+    ...
+    resultado &lt;- 8 * 10
+    ESCRIBIR &quot;8 x 10 = &quot;, resultado
+FIN</code></pre>
+<p>Es evidente que hay dos acciones que se repiten a través de todo el algorimo con una leve variación en el número por el cual se está multiplicando al 8. Esto puede resumirse así:</p>
+<pre class="text"><code>ALGORIMO: &quot;Mostrar tabla del 8&quot;
+COMENZAR
+    VARIABLE numérica resultado
+    PARA i DESDE 1 HASTA 10 HACER
+        resultado &lt;- 8 * i
+        ESCRIBIR &quot;8 x &quot; i &quot; = &quot; resultado
+    FIN PARA
+FIN</code></pre>
+<p>De manera general, la sintaxis para este tipo de estructuras es:</p>
+<pre class="text"><code>PARA &lt;variable&gt; DESDE &lt;valor1&gt; HASTA &lt;valor2&gt; CON PASO &lt;valor3&gt; HACER
+    Acción/es
+FIN PARA</code></pre>
+<p>Dado un valor inicial <code>&lt;valor1&gt;</code> asignado a la <code>&lt;variable&gt;</code>, esta se irá aumentando o disminuyendo según el paso <code>&lt;valor3&gt;</code> hasta llegar a tomar el valor <code>&lt;valor3&gt;</code>. Si no se indica el paso se asume que la variable aumenta de uno en uno.</p>
+<p><strong>En IML</strong>.</p>
+<pre class="text"><code>/* PROGRAMA: Mostrar tabla del 8 */
+proc iml;
+    do i = 1 to 10;
+        resultado = 8 * i;
+        print &quot;8 x &quot; i &quot; = &quot; resultado;
+    end;
+quit;</code></pre>
+</div>
+<div id="estructuras-de-control-iterativas-con-un-numero-indeterminado-de-iteraciones" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Estructuras de control iterativas con un número indeterminado de iteraciones</h3>
+<p>En otras circunstancias se puede necesitar repetir un bloque de acciones sin conocer con exactitud cuántas veces, si no que esto depende de algún otro aspecto del ALGORITMO. Las iteraciones pueden continuar <em>mientras que</em> o <em>hasta que</em> se verifique alguna condición, dando lugar a dos tipos de estructuras.</p>
+<div id="mientras-que" class="section level4">
+<h4><span class="header-section-number">6.3.2.1</span> Mientras que</h4>
+<p>El conjunto de sentencias se repite mientras que se siga evaluando como <code>VERDADERO</code> una condición declarada al inicio del bloque. Cuando la condición ya no se cumple, el proceso deja de ejecutarse. La sintaxis es:</p>
+<pre class="text"><code>MIENTRAS QUE &lt;condición&gt; HACER
+    Acción/es
+FIN MIENTRAS</code></pre>
+<p>El siguiente ejemplo describe el algoritmo para escribir los múltiplos de 8 menores a 150 utilizando este tipo de estructura:</p>
+<pre class="text"><code>ALGORITMO: &quot;Múltiplos de 8 menores a 150&quot;
+COMENZAR
+    VARIABLE numérica multiplo
+    multiplo &lt;- 8
+    MIENTRAS QUE multiplo &lt; 150 HACER
+        ESCRIBIR multiplo
+        multiplo &lt;- multiplo + 8
+    FIN MIENTRAS
+FIN</code></pre>
+<!-- que pasaria si ponemos al reves
+multiplo <- multiplo + 8
+ESCRIBIR multiplo
+pondria un resultado de mas!!!! porque la evaluacion la hace antes de actualizar el valor
+-->
+<p>Observaciones:</p>
+<ul>
+<li>La evaluación de la condición se lleva a cabo antes de cada iteración, incluyendo la primera. Si la condición es <code>FALSO</code> inicialmente, entonces las acciones en el cuerpo de la estructura no se ejecutan nunca.</li>
+<li>La evaluación de la condición <strong>sólo</strong> se lleva a cabo al inicio de cada iteración. Si la condición se vuelve <code>FALSO</code> en algún punto durante la ejecución de un bloque, el programa no lo nota hasta que se termine de ejecutar el bloque y la condición sea evaluada antes de comenzar la próxima iteración.</li>
+</ul>
+<p><strong>En IML</strong>.</p>
+<pre class="text"><code>/* PROGRAMA: Múltiplos de 8 menores a 150 */
+proc iml;
+    multiplo = 8;
+    do while (multiplo &lt; 150);
+        print multiplo;
+        multiplo = multiplo + 8;
+    end;
+quit;</code></pre>
+</div>
+<div id="hasta-que" class="section level4">
+<h4><span class="header-section-number">6.3.2.2</span> Hasta que</h4>
+<p>A diferencia de la estructura <em>mientras que</em>, la estructura <em>hasta que</em> repite el bloque de acciones hasta que se cumpla una condición, es decir, se ejecuta mientras que dicha condición sea evaluada como <code>FALSA</code>. La sintaxis es:</p>
+<pre class="text"><code>REPETIR
+    Acción/es
+HASTA QUE &lt;condición&gt;</code></pre>
+<p>El algoritmo del ejemplo anterior puede ser re escrito con este tipo de estructura:</p>
+<pre class="text"><code>ALGORITMO: &quot;Múltiplos de 8 menores a 150&quot;
+COMENZAR
+    VARIABLE numérica multiplo
+    multiplo &lt;- 8
+    REPETIR
+        ESCRIBIR multiplo
+        multiplo &lt;- multiplo + 8
+    HASTA QUE multiplo &gt;= 150
+FIN</code></pre>
+<p>Observación: en la estructura <em>mientras que</em> podría ser que el conjunto de sentencias nunca llegue a ejecutarse si desde partida la condición evaluada ya es falsa. Por el contrario, en la estructura <em>hasta que</em> el proceso se realiza al menos una vez, dado que la condición se evalúa al final.</p>
+<p><strong>En IML</strong>.</p>
+<pre class="text"><code>/* PROGRAMA: Múltiplos de 8 menores a 150 */
+proc iml;
+    multiplo = 8;
+    do until (multiplo &gt;= 150);
+        print multiplo;
+        multiplo = multiplo + 8;
+    end;
+quit;</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="elementos-para-la-creacion-de-algoritmos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estructuras-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/tdplest/guia/edit/master/05-EstructurasControl.Rmd",
+"text": "Edit"
+},
+"download": ["guia-tdp.pdf", "guia-tdp.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

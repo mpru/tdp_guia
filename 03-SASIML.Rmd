@@ -1,0 +1,38 @@
+# Primeros pasos en SAS/IML
+
+## Qué es SAS
+
+- **SAS** es un paquete de programas orientados al análisis estadístico desarrollado por **SAS Institute** a finales de los años sesenta.
+- Este instituto se inició a finales de los años sesenta como un proyecto en la Universidad de Carolina del Norte para crear un *sistema de análisis estadístico* (**S**tatistical **A**nalysis **S**ystem) originalmente utilizado por los departamentos de Agricultura de algunas universidades.
+- En 1976 se convirtió en una compañía y privada y desde entonces tomó relevancia y gran prestigio en la comunidad estadística internacional.
+
+## Cómo instalar SAS
+
+- SAS no es un software libre y como tal para poder instalarlo y hacer uso del mismo se debe adquirir una licencia.
+- Sin embargo, disponen de una versión gratuita pensada para estudiantes universitarios llamada [SAS University Edition](https://www.sas.com/en_us/software/university-edition.html).
+- El link anterior lleva a la página oficial que detalla todos los pasos para poder instalar y usar esta versión gratuita.
+- Como alternativa, el siguiente [video](https://www.youtube.com/watch?v=932o9X-8QzM) también provee instrucciones detalladas para Windows.
+
+```{r, echo=F}
+knitr::include_url("https://www.youtube.com/embed/932o9X-8QzM")
+```
+
+## Qué es SAS/IML
+
+- IML son las siglas de *Interactive Matrix Language*.
+- Es decir, IML es un lenguaje de programación que hace foco en la utilización y manejo de vectores y matrices, permiendo hacer con ellos cómputos de alto nivel.
+- Permite interactuar con otros procedimientos de SAS, acceder a archivos, y crear gráficos entre otras cosas.
+- Incluye un variado conjunto de funciones y operadores para asistir en la programación.
+- Leer la guía sobre IML disponible en el Campus Virtual.
+
+## Cómo usar IML
+
+- El procedimiento de SAS que implementa este lenguaje se llama de la misma forma, por lo cual todo el código de nuestros programas estará siempre encerrado en bloques del estilo:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+proc iml;
+    ...
+    líneas de código
+    ...
+quit;
+```

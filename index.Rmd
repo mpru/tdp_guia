@@ -1,0 +1,38 @@
+--- 
+title: "Taller de Programación"
+subtitle: "Guía para las clases"
+author: Mgs. Lic. Marcos Prunello
+date: "22-07-2018"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: tdplest/guia
+description: "Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario"
+---
+
+# Bienvenidos al Taller
+
+La presente es una breve guía que resume los conceptos más importantes a desarrollar en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario. La misma irá siendo revisada a lo largo del cuatrimestre y no está exenta de presentar errores o expresar ideas que puedan ser mejoradas. ¡Esperamos que juntos podamos enriquecerla al dar nuestros primeros pasos en la programación!
+
+## Horario y lugar de cursado {-}
+Lunes de 8:00 a 11:00 en el Laboratorio de Computación de la Escuela de Estadística.
+
+## Consultas {-}
+A través del Foro de Consultas en el Campus Virtual o al finalizar las clases.
+
+## Material de estudio {-}
+El material de estudio está compuesto por esta guía, prácticas y algunas presentaciones en diapositivas, que, junto con cualquier otro material que necesitemos, estarán disponibles en nuestro espacio en el Campus Virtual de la UNR.
+
+Todo el material disponible (guía, diapositivas, prácticas, publicación online) fue creado utilizando el lenguaje de programación estadística `R` y las herramientas del entorno de desarrollo integrado `RStudio`.
+
+## Evaluación {-}
+
+Tendremos tres Actividades Evaluativas (AE) cuyos detalles serán explicados oportunamente en el cuatrimestre. Las tres notas se promediarán para obtener una Nota Final con las siguientes ponderaciones: 20% AE1, 40% AE2 y 40% AE3. Si la Nota Final es mayor o igual a ocho (8), se promueve la materia; si es es mayor o igual a seis (6) y menor a ocho (8), se alcanza la condición de regular; y si es menor a seis (6), el alumno es libre.
+
+Habrá una única instancia opcional de recuperación al final del cuatrimestre de carácter integrador para aquellos que no alcanzaron la promoción, cuya nota no reemplaza a ninguna actividad evalulativa. Si la misma es mayor o igual a ocho (8) se alcanza la promoción y en caso contrario se conserva la condición ya obtenida.
+
+## Campus virtual {-}
+Además de alojar todo el material del curso, utilizaremos este espacio para la entrega de trabajos y para realizar consultas, que esperamos puedan ser debatidas y respondidas entre los mismos estudiantes.

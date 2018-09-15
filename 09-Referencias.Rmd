@@ -1,0 +1,6 @@
+`r if (knitr:::is_html_output()) '# Referencias {-}'`
+
+---
+nocite: | 
+  @xie2015, @casale2012, @roberts2008, @erre2017, @somolinos2010
+...

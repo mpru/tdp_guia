@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Taller de Programación</title>
+  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Taller de Programación" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
+  <meta name="github-repo" content="tdplest/guia" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Taller de Programación" />
+  
+  <meta name="twitter:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
+  
+
+<meta name="author" content="Mgs. Lic. Marcos Prunello">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="primeros-pasos-en-sasiml.html">
+<link rel="next" href="estructuras-de-control.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Guía para el Taller de Programación</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bienvenidos al Taller</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#horario-y-lugar-de-cursado"><i class="fa fa-check"></i>Horario y lugar de cursado</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#consultas"><i class="fa fa-check"></i>Consultas</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#material-de-estudio"><i class="fa fa-check"></i>Material de estudio</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#evaluacion"><i class="fa fa-check"></i>Evaluación</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#campus-virtual"><i class="fa fa-check"></i>Campus virtual</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>2</b> Introducción</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduccion.html"><a href="introduccion.html#una-breve-resena-historica-sobre-la-computacion"><i class="fa fa-check"></i><b>2.1</b> Una breve reseña histórica sobre la computación</a></li>
+<li class="chapter" data-level="2.2" data-path="introduccion.html"><a href="introduccion.html#software-y-hardware"><i class="fa fa-check"></i><b>2.2</b> Software y hardware</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html"><i class="fa fa-check"></i><b>3</b> Problemas, algoritmos y lenguajes de programación</a><ul>
+<li class="chapter" data-level="3.1" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#el-diseno-algoritmico"><i class="fa fa-check"></i><b>3.1</b> El diseño algorítmico</a></li>
+<li class="chapter" data-level="3.2" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#codificacion-creacion-y-edicion-de-programas"><i class="fa fa-check"></i><b>3.2</b> Codificación: creación y edición de programas</a></li>
+<li class="chapter" data-level="3.3" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#errores-de-programacion-y-depuracion"><i class="fa fa-check"></i><b>3.3</b> Errores de programación y depuración</a></li>
+<li class="chapter" data-level="3.4" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#resumiendo"><i class="fa fa-check"></i><b>3.4</b> Resumiendo</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos en SAS/IML</a><ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#que-es-sas"><i class="fa fa-check"></i><b>4.1</b> Qué es SAS</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#como-instalar-sas"><i class="fa fa-check"></i><b>4.2</b> Cómo instalar SAS</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#que-es-sasiml"><i class="fa fa-check"></i><b>4.3</b> Qué es SAS/IML</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#como-usar-iml"><i class="fa fa-check"></i><b>4.4</b> Cómo usar IML</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html"><i class="fa fa-check"></i><b>5</b> Elementos para la creación de algoritmos</a><ul>
+<li class="chapter" data-level="5.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#procesador-ambiente-y-acciones"><i class="fa fa-check"></i><b>5.1</b> Procesador, ambiente y acciones</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#ejemplo-1"><i class="fa fa-check"></i><b>5.1.1</b> Ejemplo 1</a></li>
+<li class="chapter" data-level="5.1.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#ejemplo-2"><i class="fa fa-check"></i><b>5.1.2</b> Ejemplo 2</a></li>
+<li class="chapter" data-level="5.1.3" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#acciones-primitivas-o-compuestas"><i class="fa fa-check"></i><b>5.1.3</b> Acciones primitivas o compuestas</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#objetos-constantes-y-variables"><i class="fa fa-check"></i><b>5.2</b> Objetos, constantes y variables</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#declaracion-de-variables-y-constantes"><i class="fa fa-check"></i><b>5.2.1</b> Declaración de variables y constantes</a></li>
+<li class="chapter" data-level="5.2.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#accion-de-asignacion"><i class="fa fa-check"></i><b>5.2.2</b> Acción de asignación</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores"><i class="fa fa-check"></i><b>5.3</b> Operadores</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores-aritmeticos"><i class="fa fa-check"></i><b>5.3.1</b> Operadores aritméticos</a></li>
+<li class="chapter" data-level="5.3.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores-relacionales"><i class="fa fa-check"></i><b>5.3.2</b> Operadores relacionales</a></li>
+<li class="chapter" data-level="5.3.3" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores-logicos"><i class="fa fa-check"></i><b>5.3.3</b> Operadores lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#entrada-y-salida-de-informacion"><i class="fa fa-check"></i><b>5.4</b> Entrada y salida de información</a></li>
+<li class="chapter" data-level="5.5" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#empleo-de-comentarios-en-el-algoritmo"><i class="fa fa-check"></i><b>5.5</b> Empleo de comentarios en el algoritmo</a></li>
+<li class="chapter" data-level="5.6" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#ejemplo"><i class="fa fa-check"></i><b>5.6</b> Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html"><i class="fa fa-check"></i><b>6</b> Estructuras de Control</a><ul>
+<li class="chapter" data-level="6.1" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-secuenciales"><i class="fa fa-check"></i><b>6.1</b> Estructuras de control secuenciales</a></li>
+<li class="chapter" data-level="6.2" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-condicionales"><i class="fa fa-check"></i><b>6.2</b> Estructuras de control condicionales</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-condicionales-simples"><i class="fa fa-check"></i><b>6.2.1</b> Estructuras condicionales simples</a></li>
+<li class="chapter" data-level="6.2.2" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-condicionales-dobles"><i class="fa fa-check"></i><b>6.2.2</b> Estructuras condicionales dobles</a></li>
+<li class="chapter" data-level="6.2.3" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-condicionales-multiples-o-anidadas"><i class="fa fa-check"></i><b>6.2.3</b> Estructuras condicionales múltiples o anidadas</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas"><i class="fa fa-check"></i><b>6.3</b> Estructuras de control iterativas</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas-con-un-numero-fijo-de-iteraciones"><i class="fa fa-check"></i><b>6.3.1</b> Estructuras de control iterativas con un número fijo de iteraciones</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas-con-un-numero-indeterminado-de-iteraciones"><i class="fa fa-check"></i><b>6.3.2</b> Estructuras de control iterativas con un número indeterminado de iteraciones</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html"><i class="fa fa-check"></i><b>7</b> Estructuras de Datos</a><ul>
+<li class="chapter" data-level="7.1" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#arreglos-unidimensionales"><i class="fa fa-check"></i><b>7.1</b> Arreglos unidimensionales</a></li>
+<li class="chapter" data-level="7.2" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#arreglos-bidimensionales"><i class="fa fa-check"></i><b>7.2</b> Arreglos bidimensionales</a></li>
+<li class="chapter" data-level="7.3" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#arreglos-multidimensionales"><i class="fa fa-check"></i><b>7.3</b> Arreglos multidimensionales</a></li>
+<li class="chapter" data-level="7.4" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#ejemplo-invertir-los-elementos-de-un-vector"><i class="fa fa-check"></i><b>7.4</b> Ejemplo: invertir los elementos de un vector</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="archivos.html"><a href="archivos.html"><i class="fa fa-check"></i><b>8</b> Archivos</a><ul>
+<li class="chapter" data-level="8.1" data-path="archivos.html"><a href="archivos.html#organizacion-de-archivos"><i class="fa fa-check"></i><b>8.1</b> Organización de archivos</a></li>
+<li class="chapter" data-level="8.2" data-path="archivos.html"><a href="archivos.html#operaciones-sobre-archivos"><i class="fa fa-check"></i><b>8.2</b> Operaciones sobre archivos</a></li>
+<li class="chapter" data-level="8.3" data-path="archivos.html"><a href="archivos.html#pseudo-codigo"><i class="fa fa-check"></i><b>8.3</b> Pseudo-código</a></li>
+<li class="chapter" data-level="8.4" data-path="archivos.html"><a href="archivos.html#archivos-de-texto"><i class="fa fa-check"></i><b>8.4</b> Archivos de texto</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="subalgortimos.html"><a href="subalgortimos.html"><i class="fa fa-check"></i><b>9</b> Subalgortimos</a><ul>
+<li class="chapter" data-level="9.1" data-path="subalgortimos.html"><a href="subalgortimos.html#funciones"><i class="fa fa-check"></i><b>9.1</b> Funciones</a></li>
+<li class="chapter" data-level="9.2" data-path="subalgortimos.html"><a href="subalgortimos.html#procedimientos"><i class="fa fa-check"></i><b>9.2</b> Procedimientos</a></li>
+<li class="chapter" data-level="9.3" data-path="subalgortimos.html"><a href="subalgortimos.html#pasaje-de-argumentos"><i class="fa fa-check"></i><b>9.3</b> Pasaje de argumentos</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="subalgortimos.html"><a href="subalgortimos.html#pasaje-por-valor"><i class="fa fa-check"></i><b>9.3.1</b> Pasaje por valor</a></li>
+<li class="chapter" data-level="9.3.2" data-path="subalgortimos.html"><a href="subalgortimos.html#pasaje-por-referencia"><i class="fa fa-check"></i><b>9.3.2</b> Pasaje por referencia</a></li>
+<li class="chapter" data-level="9.3.3" data-path="subalgortimos.html"><a href="subalgortimos.html#ejemplos"><i class="fa fa-check"></i><b>9.3.3</b> Ejemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="subalgortimos.html"><a href="subalgortimos.html#variables-locales-y-globales"><i class="fa fa-check"></i><b>9.4</b> Variables locales y globales</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="subalgortimos.html"><a href="subalgortimos.html#transparencia-referencial"><i class="fa fa-check"></i><b>9.4.1</b> Transparencia referencial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Taller de Programación</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="elementos-para-la-creacion-de-algoritmos" class="section level1">
+<h1><span class="header-section-number">5</span> Elementos para la creación de algoritmos</h1>
+<div id="procesador-ambiente-y-acciones" class="section level2">
+<h2><span class="header-section-number">5.1</span> Procesador, ambiente y acciones</h2>
+<p>Hemos definido a un algoritmo como una lista de instrucciones que serán traducidas con un lenguaje de programación para ser ejecutadas por computadora. En este sentido, el concepto físico de la máquina o computadora hacer referencia a la necesidad de contar con un <strong>procesador</strong> para resolver el problema. Se define como <strong>procesador</strong> a todo agente capaz de entender las órdenes del programa y ejecutarlas.</p>
+<p>Para cumplir con esto, el procesador empleará ciertos recursos que forman parte del sistema en el cual se ejecuta el programa. Por ejemplo, utilizará dispositivos de almacenamiento para guardar datos o dispositivos de salida para comunicar el resultado. Todos los elementos disponibles para ser utilizados por el procesador constituyen su <strong>entorno</strong> o <strong>ambiente</strong>.</p>
+<p>Cada una de las instrucciones que componen el algoritmo modifican el entorno de alguna manera y se denominan <strong>acciones</strong>.</p>
+<div id="ejemplo-1" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Ejemplo 1</h3>
+<ul>
+<li><strong>Problema</strong>: preparar una tortilla de 6 huevos.</li>
+<li><strong>Entorno</strong>: una mesa, una hornalla, una sartén, un plato, un tenedor, aceite, una fuente con huevos, un tarro de basura.</li>
+<li><strong>Procesador</strong>: un adulto.</li>
+<li><strong>Acciones comprensibles por el procesador</strong>: agarrar un huevo, romper un huevo en un plato, batir huevos, poner aceite, poner en la sartén, poner al fuego, retirar del fuego, tirar las cáscaras, encender el fuego.</li>
+</ul>
+<p>¿Cuál es un algoritmo adecuado para solucionar este problema? Podría ser:</p>
+<pre class="text"><code>ALGORITMO: &quot;Preparar una tortilla de 6 huevos&quot;
+COMENZAR
+    ROMPER seis huevos en un plato
+    TIRAR las cáscaras en el tacho
+    BATIR los huevos
+    CALENTAR aceite en la sartén
+    PONER el contenido del plato en la sartén
+    ESPERAR diez minutos
+    RETIRAR la tortilla del fuego
+    APAGAR el fuego
+FIN</code></pre>
+</div>
+<div id="ejemplo-2" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Ejemplo 2</h3>
+<ul>
+<li><strong>Problema</strong>: calcular el factorial del número 5.</li>
+<li><strong>Entorno</strong>: se dispone de una calculadora común.</li>
+<li><strong>Procesador</strong>: un adulto.</li>
+<li><strong>Acciones comprensibles por el procesador</strong>: pulsar teclas de la calculadora.</li>
+</ul>
+<p>¿Cuál es un algoritmo adecuado para solucionar este problema? Podría ser:</p>
+<pre class="text"><code>ALGORITMO: &quot;Calcular 5!&quot;
+COMENZAR
+    PULSAR [ON]
+    PULSAR [1]
+    PULSAR [X]
+    PULSAR [2]
+    PULSAR [X]
+    PULSAR [3]
+    PULSAR [X]
+    PULSAR [4]
+    PULSAR [X]
+    PULSAR [5]
+    PULSAR [=]
+    MOSTRAR la pantalla
+FIN</code></pre>
+</div>
+<div id="acciones-primitivas-o-compuestas" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Acciones primitivas o compuestas</h3>
+<p>Las acciones del algoritmo pueden clasificarse en función de su complejidad:</p>
+<ul>
+<li><strong>Primitivas</strong>: acción sencilla directamente realizable por el procesador.</li>
+<li><strong>Compuestas</strong>: compuestas por una sucesión de acciones primitivas.</li>
+</ul>
+<p>La descripción de un algoritmo en términos de acciones compuestas puede facilitar su comprensión, pero al desarrollar el programa será necesario descomponerlas en acciones primitivas que son las que realmente ejecuta el procesador. Por ejemplo, la acción compuesta en el ejemplo de la tortilla de “romper seis huevos en un plato” puede descomponerse en acciones más simples:</p>
+<pre class="text"><code>REPETIR 6 VECES
+    TOMAR un huevo
+    GOLPEAR el huevo para generar una fractura en la cáscara
+    EJERCER presión sobre la cáscara
+    DERRAMAR la clara y la yema sobre el plato</code></pre>
+</div>
+</div>
+<div id="objetos-constantes-y-variables" class="section level2">
+<h2><span class="header-section-number">5.2</span> Objetos, constantes y variables</h2>
+<p>El procesador debe manipular distintas piezas de información que llamamos <strong>objetos</strong> y que componen al entorno. Según los valores que pueden representar, los objetos pueden ser de tipo:</p>
+<ul>
+<li><strong>Numérico</strong>: Representan valores escalares de forma numérica y permiten realizar operaciones aritméticas comunes. Ejemplo: 230, 2.</li>
+<li><strong>Caracter</strong>: Representan texto, no es posible hacer operaciones matemáticas con ellos y van entre comillas. Ejemplo: “hola”, “chau123”</li>
+<li><strong>Lógicos</strong>: Sólo pueden tener dos valores (<em>verdadero</em> o <em>falso</em>), ya que representan el resultado de la comparación entre otros objetos.</li>
+</ul>
+<p>De manera general, al nombre de un objeto se le dice <strong>identificador</strong>, el cual es una secuencia de caracteres alfanuméricos que sirve para identificarlo a lo largo del algoritmo. Nombrar los objetos hace posible referirse a los mismos, lo cual es esencial para cualquier tipo de procesamiento simbólico.</p>
+<p>Ciertos objetos almacenan temporalmente un valor durante la ejecución de un proceso y su contenido puede cambiar mientras corre el programa. Este tipo de objetos recibien el nombre de <strong>variables</strong>. Por ejemplo, en un programa creado para un comercio puede existir un objeto llamado <em>stock</em> (identificador) de tipo numérico que reprsenta la cantidad de artículos disponibles y cuyo valor se modifica cada vez que se registra una nueva venta. Podemos pensar a una variable como una caja que contiene una etiqueta con su identificador y un valor, por ejemplo, una simple letra (como “k”, tipo caracter) o un valor numérico (como “2019”, tipo numérico).</p>
+<div class="figure" style="text-align: center"><span id="fig:cajas"></span>
+<img src="images/09_cajas.JPG" alt="Las variables A y B contienen a los valores 5 y 2 respectivamente." width="50%" />
+<p class="caption">
+Figure 5.1: Las variables A y B contienen a los valores 5 y 2 respectivamente.
+</p>
+</div>
+<p>Si un objeto tiene siempre necesariamente un valor fijo, se dice que es una <strong>constante</strong>. El valor es siempre el mismo para cualquier ejecución del programa, es decir, no puede cambiar de una ejecución a otra. Son ejemplos de constantes el número de meses del año, las constantes matemáticas tales como el número π, los factores de conversión de unidades de medida, etc. Las constantes pueden usarse literalmente, es decir, usando explícitamente el valor, o también a través de un objeto que asocie un identificador al valor constante (por ejemplo, asociar el nombre “pi” a la constante 3.14159265).</p>
+<div id="declaracion-de-variables-y-constantes" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Declaración de variables y constantes</h3>
+<p>Al expresar nuestros algoritmos en pseudocódigo tomaremos la costumbre de declarar al inicio del mismo las variables y constantes necesarias para resolver el problema, explicitando su identificador y determinando el tipo de valor que guarda. Muchos lenguajes de programación utilizan esta declaración para reservar en la memoria de la computadora un espacio para almacenar la información correspondiente de manera adecuada.</p>
+<p><strong>En IML</strong>. IML es un lenguaje dinámico que no requiere la declaración previa de las variables que serán utilizadas, sino que estas pueden definirse dinámicamente a lo largo del programa. Por eso, incluiremos declaración de variables y constantes sólo en los algoritmos.</p>
+</div>
+<div id="accion-de-asignacion" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Acción de asignación</h3>
+<p>Para hacer que una variable guarde un determinado valor se recurre a una <strong>acción de asignación</strong>. Mediante asignaciones podemos dar valores iniciales a las variables, modificar el valor que tenían hasta el momento o guardar en ellas resultados intermedios o finales del algoritmo.</p>
+<p>En pseudocódigo expresaremos a la asignación como se muestra en estos ejemplos:</p>
+<pre class="text"><code>lugarNacimiento &lt;- &quot;Bombal&quot;
+pesoNacimiento &lt;- 3.423</code></pre>
+<p>Si intervienen variables en la expresión a la derecha de una acción de asignación, se usará el valor que tenga la variable en ese momento. Por ejemplo, la siguiente secuencia de acciones en un algoritmo:</p>
+<pre class="text"><code>meses &lt;- 2
+dias &lt;- meses
+meses &lt;- 7
+saldo &lt;- meses</code></pre>
+<p>resultará en que las variables <code>meses</code>, <code>dias</code> y <code>saldo</code> tengan almacenados los valores 7, 2 y 7 respectivamente. Un caso particular se da cuando a una variable se le asigna el valor de una operación de la que forma parte la misma variable. Por ejemplo:</p>
+<pre class="text"><code>dias &lt;- dias + 30</code></pre>
+<p><strong>En IML</strong>. La asignación se realiza a través del símbolo =. El código para el ejemplo anterior es:</p>
+<pre class="text"><code>proc iml;
+    meses = 2;
+    dias = meses;
+    meses = 7;
+    saldo = meses;
+    print meses dias saldo;
+quit;</code></pre>
+</div>
+</div>
+<div id="operadores" class="section level2">
+<h2><span class="header-section-number">5.3</span> Operadores</h2>
+<p>El desarrollo de un algoritmo involucra la necesidad de efectuar operaciones de distinto tipo: suma, resta, concatenación, procesos lógicos, etc. Los elementos que describen el tipo de operación a realizar entre dos objetos se denominan <strong>operadores</strong>.</p>
+<div id="operadores-aritmeticos" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Operadores aritméticos</h3>
+<p>Permiten realizar operaciones matemáticas con objetos de tipo numérico.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-12">Table 5.1: </span>Signos para operadores aritméticos que se pueden utilizar en el pseudocódigo.</caption>
+<thead>
+<tr class="header">
+<th align="left">Signo</th>
+<th align="left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">+</td>
+<td align="left">Suma</td>
+</tr>
+<tr class="even">
+<td align="left">-</td>
+<td align="left">Resta</td>
+</tr>
+<tr class="odd">
+<td align="left">*</td>
+<td align="left">Multiplicación</td>
+</tr>
+<tr class="even">
+<td align="left">/</td>
+<td align="left">División</td>
+</tr>
+<tr class="odd">
+<td align="left">**</td>
+<td align="left">Potenciación</td>
+</tr>
+<tr class="even">
+<td align="left">MOD</td>
+<td align="left">Resto de la división entera</td>
+</tr>
+</tbody>
+</table>
+<!-- # funcion modulo en iml r = mod(a, q); -->
+<p>Los operadores aritméticos actúan con un orden de prioridad establecido, tal como estamos acostumbrados en matemática. Las expresiones entre paréntesis se evalúan primero. Si hay paréntesis anidados se evalúan desde adentro hacia afuera. Dentro de una misma expresión, los operadores se evalúan en este orden:</p>
+<ol style="list-style-type: decimal">
+<li>Potenciación</li>
+<li>Multiplicación, división, módulo</li>
+<li>Suma, resta</li>
+</ol>
+<p>Si la expresión presenta operadores con igual nivel de prioridad, se evalúan de izquierda a derecha. Ejemplos:</p>
+<pre class="text"><code>4 + 2 * 4 = 12
+23 * 2 / 5 = 9.2
+3 + 5 * (10 - (2 + 4)) = 23
+2.1 * 1.5 + 12.3 = 15.45
+2.1 * (1.5 + 12.3) = 28.98
+1 MOD 4 = 1
+8 * (7 - 6 + 5) MOD (1 + 8 / 2) - 1 = ...</code></pre>
+<!-- Rpta: 
+8 * 6 MOD 5 - 1
+48 MOD 5 -1
+3 - 1
+2
+-->
+<p><strong>En IML</strong>. Se utilizan los mismos símbolos, excepto para el operador módulo, cuya sintaxis es, por ejemplo, <code>mod(7, 4)</code> si se quiere obtener el resto de la división de 7 por 4.</p>
+</div>
+<div id="operadores-relacionales" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Operadores relacionales</h3>
+<p>Sirven para comparar dos valores de cualquier tipo y dan como resultado un valor lógico: <em>verdadero</em> (“V”) o <em>falso</em> (“F”).</p>
+<table>
+<caption><span id="tab:unnamed-chunk-14">Table 5.2: </span>Signos para operadores lógicos que se pueden utilizar en el pseudocódigo.</caption>
+<thead>
+<tr class="header">
+<th align="left">Signo</th>
+<th align="left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">&gt;</td>
+<td align="left">Mayor que</td>
+</tr>
+<tr class="even">
+<td align="left">&lt;</td>
+<td align="left">Menor que</td>
+</tr>
+<tr class="odd">
+<td align="left">&gt;=</td>
+<td align="left">Mayor o igual que</td>
+</tr>
+<tr class="even">
+<td align="left">&lt;=</td>
+<td align="left">Menor o igual que</td>
+</tr>
+<tr class="odd">
+<td align="left">=</td>
+<td align="left">Igual a</td>
+</tr>
+<tr class="even">
+<td align="left">^=</td>
+<td align="left">Distinto a</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplos:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-15">Table 5.3: </span>Ejemplos de la utilización de operadores relacionales.</caption>
+<thead>
+<tr class="header">
+<th align="left">Operación relacional</th>
+<th align="left">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">5 &gt; 3</td>
+<td align="left">verdadero</td>
+</tr>
+<tr class="even">
+<td align="left">5 &lt;= 3</td>
+<td align="left">falso</td>
+</tr>
+<tr class="odd">
+<td align="left">3 * 4 = 10 + 2</td>
+<td align="left">verdadero</td>
+</tr>
+<tr class="even">
+<td align="left">3 * 4 ^= 15 - 4</td>
+<td align="left">verdadero</td>
+</tr>
+</tbody>
+</table>
+<p><strong>En IML</strong>. Se usan estos mismos símbolos.</p>
+</div>
+<div id="operadores-logicos" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Operadores lógicos</h3>
+<p>Mientras que los operadores relacionales comparan cualquier tipo de valores, los operadores lógicos sólo toman operandos de tipo lógico y producen también un resultado lógico. Los operadores lógicos que utilizaremos son <strong>Y</strong>, <strong>O</strong> y <strong>NO</strong>.</p>
+<ul>
+<li>El operador lógico <strong>Y</strong> devuelve un valor <strong>verdadero</strong> sólo si son verdaderas las dos expresiones que vincula. Ejemplo: (3 &gt; 2) Y (3 &gt; 5) ≡ V Y F ≡ F.</li>
+<li>El operador lógico <strong>O</strong> devuelve un valor <strong>verdadero</strong> si al menos una de las dos expresiones que vincula es verdadera. Ejemplo: (3 &gt; 2) O (3 &gt; 5) ≡ V O F ≡ V.</li>
+<li>El operador lógico <strong>NO</strong>, niega un valor lógico, es decir, devuelve el opuesto. Ejemplo: NO (3 &gt; 2) ≡ NO V ≡ F.</li>
+</ul>
+<p>Las <strong>tablas de la verdad</strong> se utilizan para mostrar el resultado de los distintos tipos de operaciones lógicas:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-16">Table 5.4: </span>Tabla de la verdad.</caption>
+<thead>
+<tr class="header">
+<th align="left">Valor1</th>
+<th align="left">Operador</th>
+<th align="left">Valor2</th>
+<th align="left">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">F</td>
+<td align="left">Y</td>
+<td align="left">F</td>
+<td align="left">F</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="left">Y</td>
+<td align="left">V</td>
+<td align="left">F</td>
+</tr>
+<tr class="odd">
+<td align="left">V</td>
+<td align="left">Y</td>
+<td align="left">F</td>
+<td align="left">F</td>
+</tr>
+<tr class="even">
+<td align="left">V</td>
+<td align="left">Y</td>
+<td align="left">V</td>
+<td align="left">V</td>
+</tr>
+<tr class="odd">
+<td align="left">F</td>
+<td align="left">O</td>
+<td align="left">F</td>
+<td align="left">F</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="left">O</td>
+<td align="left">V</td>
+<td align="left">V</td>
+</tr>
+<tr class="odd">
+<td align="left">V</td>
+<td align="left">O</td>
+<td align="left">F</td>
+<td align="left">V</td>
+</tr>
+<tr class="even">
+<td align="left">V</td>
+<td align="left">O</td>
+<td align="left">V</td>
+<td align="left">V</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">NO</td>
+<td align="left">F</td>
+<td align="left">V</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">NO</td>
+<td align="left">V</td>
+<td align="left">F</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo: expresar con símbolos la expresión “x no es igual a 2 ni a 3”.</p>
+<p>Expresiones correctas:</p>
+<pre class="text"><code>x ^&gt; 2 Y x ^&gt; 3
+NO(x = 2 O x = 3)</code></pre>
+<p>Expresión incorrecta:</p>
+<pre class="text"><code>x ^= 2 O x ^= 3</code></pre>
+<p>Las Leyes de Morgan nos ayudan a trabajar en este tipo de casos:</p>
+<ul>
+<li><strong>NO (Valor1 O Valor2)</strong> <em>es equivalente a</em> <strong>NO Valor1 Y NO Valor2</strong></li>
+<li><strong>NO (Valor1 Y Valor2)</strong> <em>es equivalente a</em> <strong>NO Valor1 O NO Valor2</strong></li>
+</ul>
+<p>Otra consideración es que expresiones que tienen sentido en matemática, pueden no tenerlo en programación y deben ser re estructuradas en las formas antes vistas. Por ejemplo, si queremos evaluar si es <code>V</code> o <code>F</code>la expresión <code>0 &lt; x &lt; 10</code>, debemos evaluar <code>0 &lt; x Y x &lt; 10</code>.</p>
+<p><strong>En IML</strong>. El operador Y se escribe como “&amp;”, el operador O es “|” y el operador NO es “^”.</p>
+</div>
+</div>
+<div id="entrada-y-salida-de-informacion" class="section level2">
+<h2><span class="header-section-number">5.4</span> Entrada y salida de información</h2>
+<p>En la resolución de problemas puede ser necesario requerir que un usuario provea información, y registrar la misma como un valor que debe ser asignado a una variable. Para esto podemos utilizar la acción <code>LEER</code> dentro del algoritmo. Cuando deseamos mostrar un resultado en un mensaje empleamos la acción <code>ESCRIBIR</code>. Las palabras o frases literales que se desean mostrar en el mensaje deben estar encerradas entre comillas porque son cadenas de texto, mientras que si se desea mostrar el valor de una variable se debe escribir su identificador sin comillas.</p>
+<p><strong>En IML</strong>. La acción <code>LEER</code> la ejecutaremos mediante la asignación directa de un valor a una variable a través del símbolo “=”. La acción <code>ESCRIBIR</code> será ejecutada a través de la sentencia <code>print</code> para obtener un resultado en la ventana de Output.</p>
+</div>
+<div id="empleo-de-comentarios-en-el-algoritmo" class="section level2">
+<h2><span class="header-section-number">5.5</span> Empleo de comentarios en el algoritmo</h2>
+<p>A medida que los algoritmos se hacen más complejos, suele ser necesario añadir en el mismo ciertos comentarios que no son acciones que el procesador debe ejecutar, sino que cumplen con la función de explicar alguna característica del algoritmo a otra persona que lo esté leyendo (o a uno mismo si lo leemos nuevamente en el futuro).</p>
+<p>Cada vez que deseemos incluir un comentario, lo haremos en una línea que comience con el símbolo “\\”.</p>
+</div>
+<div id="ejemplo" class="section level2">
+<h2><span class="header-section-number">5.6</span> Ejemplo</h2>
+<p>Los conceptos enunciados anteriormente pueden verse ejemplificados en el siguiente algoritmo para calcular el área de un círculo</p>
+<pre class="text"><code>ALGORITMO: &quot;Calcular área de un círculo&quot;
+COMENZAR
+    CONSTANTE numérica pi
+    VARIABLE numérica radio, area
+    pi &lt;- 3.1416
+    LEER radio
+    area &lt;- pi * radio ** 2
+    ESCRIBIR &quot;El área del círculo es &quot; area
+FIN</code></pre>
+<p><strong>En IML</strong>:</p>
+<pre class="text"><code>/* PROGRAMA: Calcular área de un círculo */
+proc iml;
+    pi = 3.14159265358979;
+    radio = 5;
+    area = pi * radio ** 2;
+    print &quot;El área del círculo es &quot; area;
+quit;</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="primeros-pasos-en-sasiml.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estructuras-de-control.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/tdplest/guia/edit/master/04-Elementos.Rmd",
+"text": "Edit"
+},
+"download": ["guia-tdp.pdf", "guia-tdp.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,317 @@
+# Estructuras de Control
+
+Como mencionamos anteriormente, un algoritmo está compuesto por una sucesión ordenada de comandos que se ejecutan uno detrás de otro. Sin embargo, con frecuencia es necesario recurrir a comandos especiales que alteran o controlan el flujo de las acciones. Por lo tanto, decimos que existen distintas **estructuras de control** que organizan a los algoritmos y que pueden clasificarse en **secuenciales**, **condicionales** e **iterativas**.
+
+## Estructuras de control secuenciales
+
+Las estructuras secuenciales están compuestas por un número definido de acciones que se ubican en un orden específico y se suceden una tras otra. Los ejemplos que hemos discutido anteriormente están conformados por este tipo de estructura.
+
+## Estructuras de control condicionales
+
+El curso de acción depende del resultado de la comparación una variable con un valor, que puede ser una constante u otra variable. Existen tres tipos de estructuras condicionales: **simples**, **dobles** y **múltiples**.
+
+### Estructuras condicionales simples
+
+Representan una toma de decisión y se describen con la siguiente sintaxis:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+SI <condición> ENTONCES
+    Acción/es
+FIN SI
+```
+
+La palabra `SI` indica el comando de comparación, `<condición>` indica la condición a evaluar y `Acción/es` son las instrucciones que se realizarán sólo si se cumple la condición. Si la condición no se verifica, no se ejecuta ninguna acción y el algorimo sigue su estructura secuencial a continuación del `FIN SI`.
+
+En el siguiente ejemplo utilizaremos esta estructura para determinar si una persona es mayor de edad o no.
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: "Determinar mayoría de edad"
+COMENZAR
+    VARIABLE numérica edad
+    LEER edad
+    SI edad >= 18 ENTONCES
+        ESCRIBIR "Es mayor de edad"
+    FIN SI
+FIN
+```
+
+**En IML**. Usamos la estructura `if ... then ...;`:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+/* PROGRAMA: Determinar mayoría de edad */
+proc iml;
+	edad = 19;
+	if edad >= 18 then print "Es mayor de edad";
+quit;
+```
+
+Si necesitamos ejecutar más de una acción al cumplirse la condición evaluada, debemos encerrarlas dentro de un bloque `do`, que siempre termina con un `end`:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+/* PROGRAMA: Determinar mayoría de edad */
+proc iml;
+	edad = 19;
+	if edad >= 18 then do;
+		print "Es mayor de edad";
+		print "Su edad es " edad " años";
+	end;
+quit;
+```
+
+### Estructuras condicionales dobles
+
+Este tipo de estructura añade una acción a ejecutarse en el caso de que la condición evaluada no se verifique. La sintaxis es:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+SI <condición> 
+    ENTONCES
+        Acción/es
+    SI NO
+        Acción/es
+FIN SI
+```
+
+La palabra `ENTONCES` antecede a las acciones que se realizan si se cumple la condición y `SI NO` a las que se realizan si no se verifica la misma. Podemos ampliar el ejemplo anterior para que el algorimo indique también si la persona es menor de edad:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: "Determinar mayoría de edad"
+COMENZAR
+    VARIABLE numérica edad
+    LEER edad
+    SI edad >= 18 
+        ENTONCES
+            ESCRIBIR "Es mayor de edad"
+        SI NO
+            ESCRIBIR "Es menor de edad"
+    FIN SI
+FIN
+```
+
+**En IML**.
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+proc iml;
+	edad = 17;
+	if edad >= 18 then print "Es mayor de edad";
+	else print "Es menor de edad";
+quit;
+```
+
+Nuevamente, si necesitamos ejecutar múltiples acciones debemos encerrarlas dentro de un bloque `do`:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+proc iml;
+	edad = 19;
+	if edad >= 18 then do;
+		print "Es mayor de edad";
+		print "Su edad es " edad " años";
+	end;
+	else do;
+		print "Es menor de edad";
+		print "Requerir ingreso acompañado";
+	end;
+quit;
+```
+
+### Estructuras condicionales múltiples o anidadas
+
+Permiten combinar varias estructuras condicionales para establecer controles más complejos sobre el flujo de las acciones, representando una toma de decisión múltiple. Podemos ejemplificar la sintaxis de la siguiente forma:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+SI <condición> 
+    ENTONCES
+        Acción/es
+    SI NO
+        SI <condición> 
+            ENTONCES
+                Acción/es
+            SI NO
+                Acción/es
+        FIN SI
+FIN SI
+```
+
+Imaginemos que el ejemplo anterior de la mayoría de edad se da en el contexto de la entrada a una exhibición, donde los mayores de edad pueden ingresar pero los menores sólo pueden hacerlo si tienen la autorización de un adulto a cargo. Podemos plantear el siguiente algoritmo para determinar si una persona puede ingresar o no:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: "Determinar ingreso"
+COMENZAR
+    VARIABLE numérica edad
+    VARIABLE caracter autorizacion
+    LEER edad
+    SI edad >= 18 
+        ENTONCES
+            ESCRIBIR "Permitir ingreso"
+        SI NO
+            LEER autorizacion
+            SI autorizacion = "OK" 
+                ENTONCES
+                    ESCRIBIR "Permitir ingreso"
+                SI NO
+                    ESCRIBIR "Denegar ingreso"
+            FIN SI
+    FIN SI
+FIN
+```
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+/* PROGRAMA: Determinar ingreso */
+proc iml;
+	edad = 16;
+	autorizacion = "OK";
+	if edad >= 18 then print "Permitir ingreso";
+	else do;
+		if autorizacion = "OK" then print "Permitir ingreso";
+		else print "Denegar ingreso";
+	end;
+quit;
+```
+
+## Estructuras de control iterativas
+
+Las estructuras de control iterativas son útiles cuando la solución de un problema requiere que se ejecute repetidamente un determinado conjunto de acciones. El número de veces que se debe repetir dicha secuencia de acciones puede ser fijo o variable dependiendo de algún dato en el algoritmo.
+
+### Estructuras de control iterativas con un número fijo de iteraciones
+
+Se aplican cuando se conoce de antemano el número exacto de veces que se debe repetir una secuencia de acciones. Por ejemplo, si deseamos mostrar en pantalla la tabla de multiplicar del número 8 completa podríamos hacer:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORIMO: "Mostrar tabla del 8"
+COMENZAR
+    VARIABLE numérica resultado
+    resultado <- 8 * 1
+    ESCRIBIR "8 x 1 = ", resultado
+    resultado <- 8 * 2
+    ESCRIBIR "8 x 2 = ", resultado
+    resultado <- 8 * 3
+    ESCRIBIR "8 x 3 = ", resultado
+    ...
+    resultado <- 8 * 10
+    ESCRIBIR "8 x 10 = ", resultado
+FIN
+```
+
+Es evidente que hay dos acciones que se repiten a través de todo el algorimo con una leve variación en el número por el cual se está multiplicando al 8. Esto puede resumirse así:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORIMO: "Mostrar tabla del 8"
+COMENZAR
+    VARIABLE numérica resultado
+    PARA i DESDE 1 HASTA 10 HACER
+        resultado <- 8 * i
+        ESCRIBIR "8 x " i " = " resultado
+    FIN PARA
+FIN
+```
+
+De manera general, la sintaxis para este tipo de estructuras es:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+PARA <variable> DESDE <valor1> HASTA <valor2> CON PASO <valor3> HACER
+    Acción/es
+FIN PARA
+```
+
+Dado un valor inicial `<valor1>` asignado a la `<variable>`, esta se irá aumentando o disminuyendo según el paso `<valor3>` hasta llegar a tomar el valor `<valor3>`. Si no se indica el paso se asume que la variable aumenta de uno en uno.
+
+**En IML**. 
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+/* PROGRAMA: Mostrar tabla del 8 */
+proc iml;
+	do i = 1 to 10;
+		resultado = 8 * i;
+		print "8 x " i " = " resultado;
+	end;
+quit;
+```
+
+### Estructuras de control iterativas con un número indeterminado de iteraciones
+
+En otras circunstancias se puede necesitar repetir un bloque de acciones sin conocer con exactitud cuántas veces, si no que esto depende de algún otro aspecto del ALGORITMO. Las iteraciones pueden continuar *mientras que* o *hasta que* se verifique alguna condición, dando lugar a dos tipos de estructuras.
+
+#### Mientras que
+
+El conjunto de sentencias se repite mientras que se siga evaluando como `VERDADERO` una condición declarada al inicio del bloque. Cuando la condición ya no se cumple, el proceso deja de ejecutarse. La sintaxis es:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+MIENTRAS QUE <condición> HACER
+    Acción/es
+FIN MIENTRAS
+```
+
+El siguiente ejemplo describe el algoritmo para escribir los múltiplos de 8 menores a 150 utilizando este tipo de estructura:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: "Múltiplos de 8 menores a 150"
+COMENZAR
+    VARIABLE numérica multiplo
+    multiplo <- 8
+    MIENTRAS QUE multiplo < 150 HACER
+        ESCRIBIR multiplo
+        multiplo <- multiplo + 8
+    FIN MIENTRAS
+FIN
+```
+<!-- que pasaria si ponemos al reves
+multiplo <- multiplo + 8
+ESCRIBIR multiplo
+pondria un resultado de mas!!!! porque la evaluacion la hace antes de actualizar el valor
+-->
+
+Observaciones:
+
+- La evaluación de la condición se lleva a cabo antes de cada iteración, incluyendo la primera. Si la condición es `FALSO` inicialmente, entonces las acciones en el cuerpo de la estructura no se ejecutan nunca.
+- La evaluación de la condición **sólo** se lleva a cabo al inicio de cada iteración. Si la condición se vuelve `FALSO` en algún punto durante la ejecución de un bloque, el programa no lo nota hasta que se termine de ejecutar el bloque y la condición sea evaluada antes de comenzar la próxima iteración.
+
+**En IML**. 
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+/* PROGRAMA: Múltiplos de 8 menores a 150 */
+proc iml;
+	multiplo = 8;
+	do while (multiplo < 150);
+		print multiplo;
+		multiplo = multiplo + 8;
+	end;
+quit;
+```
+
+#### Hasta que
+
+A diferencia de la estructura *mientras que*, la estructura *hasta que* repite el bloque de acciones hasta que se cumpla una condición, es decir, se ejecuta mientras que dicha condición sea evaluada como `FALSA`. La sintaxis es:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+REPETIR
+    Acción/es
+HASTA QUE <condición>
+```
+
+El algoritmo del ejemplo anterior puede ser re escrito con este tipo de estructura:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: "Múltiplos de 8 menores a 150"
+COMENZAR
+    VARIABLE numérica multiplo
+    multiplo <- 8
+    REPETIR
+        ESCRIBIR multiplo
+        multiplo <- multiplo + 8
+    HASTA QUE multiplo >= 150
+FIN
+```
+
+Observación: en la estructura *mientras que* podría ser que el conjunto de sentencias nunca llegue a ejecutarse si desde partida la condición evaluada ya es falsa. Por el contrario, en la estructura *hasta que* el proceso se realiza al menos una vez, dado que la condición se evalúa al final.
+
+**En IML**. 
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+/* PROGRAMA: Múltiplos de 8 menores a 150 */
+proc iml;
+	multiplo = 8;
+	do until (multiplo >= 150);
+		print multiplo;
+		multiplo = multiplo + 8;
+	end;
+quit;
+```

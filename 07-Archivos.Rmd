@@ -1,0 +1,87 @@
+# Archivos
+
+Como hemos visto, los programas usan variables para guardar información: datos de entrada, resultados calculados, valores intermedios. Sin embargo, la información guardada en las variables es efímera. Cuando los programas paran de correr, el valor almacenado en las variables se pierde. En muchas ocasiones, es necesario guardar información de una forma más permanente.
+
+En estos casos, el enfoque usual es recolectar la información en un todo lógicamente cohesivo y guardarlo en un medio permanente que generalmente se graba en el disco rígido de la máquina, es decir, en un archivo. Un **archivo** o **fichero** es un conjunto de información sobre un mismo tema tratado como una unidad de almacenamiento y organizado de forma estructurada para la búsqueda de un dato individual. Los archivos pueden contener instrucciones de programas o información creada o usada por un programa. Todos los objetos de datos permanentes que guardamos en nuestra computadora (documentos, juegos, programas ejecutables, código, etc.) son guardados en la forma de archivos.
+
+La unidad elemental que compone a un archivo o fichero es un **registro**, el cual es una colección de información relativa a una misma entidad. En general, cada registro de un mismo archivo tiene la misma estructura que los demás. Los datos individuales sobre dicha entidad ocupan **campos** dentro de los registros. Por ejemplo:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ARCHIVO: Pasajeros
+Campo 1: NOMBRE, tipo caracter
+Campo 2: NÚMERO DE VUELO, tipo caracter
+Campo 3: FECHA DE VUELO, tipo caracter
+Campo 4: NÚMERO DE ASIENTO, tipo caracter
+Campo 5: CIUDAD ORIGEN, tipo caracter
+Campo 6: CIUDAD DESTINO, tipo caracter
+Campo 7: PRECIO, tipo numérico
+```
+
+|      Nombre     | NroVuelo | FechaVuelo | NroAsiento |  Origen | Destino      | Precio  |
+|:---------------:|:--------:|:----------:|:----------:|:-------:|--------------|---------|
+|  Pamela Suárez  |  AR6071  |  12/09/17  |     17A    | Rosario | Córdoba      | 1532.23 |
+| Gonzalo Echarri |  AR5423  |  14/09/17  |     31B    | Rosario | Buenos Aires | 1424.10 |
+|       ...       |    ...   |     ...    |     ...    |   ...   | ...          | ...     |
+
+La forma más común de identificar un registro es eligiendo un campo dentro del registro llamado **clave** (por ejemplo, el nombre del pasajero), que contiene un único valor para cada registro. En otras casos es posible identificar un registro a través del valor de más de uno de sus campos.
+
+## Organización de archivos
+
+Existen distintos tipos de organización de los archivos según la forma en la que se pueda acceder a cada uno de sus registros:
+
+- Archivo secuencial
+
+    Los registros se encuentran en cierto orden que debe ser respetado para la lectura de los mismos. Para leer el registro situado en la posición *n*, el programa previamente tiene que pasar por todos los registros que ocupan las posiciones anteriores. Los registros pueden leerse uno por uno hasta llegar al final del archivo. La mayoría de los lenguajes de programación disponen de una función lógica que devuelve un valor **VERDADERO** cuando se alcanza el final del archivo.
+
+- Archivo directo
+
+    Está formado por un conjunto de registros que pueden ser recuperados por su posición dentro del archivo sin necesidad de recorrer los anteriores.
+    
+- Archivo indexado
+
+    Dispone de una tabla de índices adicional, es decir, una referencia que permite obtener de forma automática la ubicación de la zona del archivo donde se encuentra el registro buscado. Esto permite localizar un registro por medio de su clave, o del valor de algún campo en particular, sin recorrer previamente los registros que lo preceden.
+
+La organización más sencilla y más comunmnete empleada es la secuencial, aunque no sea la más eficiente. Nosotros trabajaremos en el Taller con este tipo de organización.
+
+## Operaciones sobre archivos
+
+Los procedimientos básicos que los programas pueden llevar a cabo sobre los distintos tipos de archivos son:
+
+- Creación de un archivo
+
+    Consiste en la escritura de los registros que van a conformar el archivo. Los datos pueden introducirse por teclado, desde otro archivo o como resultado de algún proceso intermedio.
+
+- Apertura y cierre de un archivo
+
+    Para que un programa pueda operar directamente sobre un archivo, la primera operación que debe realizar es la **apertura** del mismo, que incluye la identificación del archivo a utilizar y el modo (lectura, escritura, etc.). Cuando un programa no vaya a acceder más a un archivo, es necesario indicarlo a través del **cierre** del mismo, ya que se liberan memoria y recursos del sistema, se previene la corrupción de los datos si se detiene el programa mientras se está ejecutando y expresa explícitamente que ya no se hará más uso del mismo.
+
+- Lectura y escritura en un archivo
+
+    La **lectura** consiste en transferir información del archivo a la memoria principal usada por el programa, mientras que la **escritura** es la transferencia de información guardada en las variables del programa al archivo. 
+    
+Otras operaciones que se pueden realizar sobre los archivos incluyen acciones de:
+
+- Actualización: añadir (dar de alta), modificar o eliminar (dar de baja) algún registro.
+- Clasificación: reubicar los registros de tal forma que queden ordenados por algún campo determinado.
+- Fusión o mezcla: combinar dos o más archivos para formar uno nuevo.
+- Partición: subdividir los registros por el valor que toman en algún campo.
+
+## Pseudo-código
+
+Al escribir los algoritmos en pseudo-código, se puede hacer uso de las siguientes expresiones para representar algunas operaciones a realizar sobre los archivos:
+
+- `ABRIR (nombre del archivo) secuencial, de entrada/salida`: indica la acción de apertura de un archivo con organización secuencial, sobre el cual se va a proceder a realizar lectura o escritura de registros.
+- `CERRAR (nombre del archivo)`: para indicar que el archivo no será vuelto a utilizar.
+- `LEER (nombre del archivo) campo1, campo2, ...`: indica la lectura del próximo registro cuando se trabaja con un archivo secuencial. La expresión `campo1, campo2, ...` son los nombres de los campos que contienen los registros y constituyen los identificadores de las variables que almacenarán temporalmente los datos del registro que se están leyendo.
+- `LEER (nombre del archivo, número de registro) campo1, campo2, ...`: indica la lectura de un registro en particular cuando se trabaja con un archivo de acceso directo.
+- `LEER (nombre del archivo, campo1 = valor) campo1, campo2, ...`: indica la lectura de cada uno de los registros en los cuales el campo `campo1` es igual a `valor`, para cuando se trabaja con un archivo de acceso indexado.
+- Las tres acciones de `LEER` anteriores tienen su acción análoga de `ESCRIBIR`, para modificar o añadir registros al archivo.
+- `FINDE (nombre del archivo)`: es la función lógica que devuelve el valor `FALSO` mientras resten más registros por leer en el archivo y el valor `VERDADERO` cuando se llega al final del archivo y ya no quedan más registros por leer.
+
+## Archivos de texto
+
+Archivos como el del ejemplo de los pasajeros suelen ser guardados como **archivos de texto**. Un **archivo de texto** (también conocido como *texto llano* o *texto simple*), es un archivo informático que contiene únicamente texto formado por una secuencia ordenada de caracteres. El texto almacenado en este tipo de archivo carece de cualquier tipo de formato tipográfico (negrita, cursiva, colores, subrayado, fuente, etc.), lo cual permite que una gran variedad de programas pueda leer y editar el contenido.
+
+Los archivos de texto están compuestos por caracteres ordinarios, como las letras, números y signos de puntuación, y por caracteres especiales que indican, por ejemplo, saltos de línea y tabulaciones. Como las computadoras solamente entienden números, cada caracter es codificado internamente con un representación numérica binaria. Distinas maneras de hacer esta representación dan lugar a diferentes formatos de codificación de caracteres (como *ASCII*, *ISO-8859-1* o *UTF-8*).
+
+La información contenida en los archivos que utilizaremos en el Taller puede ser almacenada de manera práctica en archivos de texto.

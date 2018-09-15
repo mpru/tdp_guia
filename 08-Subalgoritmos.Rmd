@@ -1,0 +1,395 @@
+# Subalgortimos
+
+Un principio fundamental en la resolución de un problema es intentar descomponerlo en partes más pequeñas, que puedan ser más fáciles de afrontar. Este concepto también se aplica en la programación. Nuestros algoritmos pueden descomponerse en **subalgoritmos** que den solución a un aspecto del problema, de menor extensión. Este proceso se conoce como **descomposición algorítmica** o **descomposición modular**. Cada subalgoritmo debe ser independiente de los demás y a su vez podría seguir descomponiéndose en partes más sencillas en lo que se conoce como **refinamiento sucesivo**. Si un programa es muy largo se corre el riesgo de que sea muy difícil de entender como un todo, pero siempre se lo puede dividir en secciones más simples y manejables. Un subalgoritmo se escribe una vez y luego es utilizado por todos aquellos algoritmos que lo necesiten.
+
+Observemos el siguiente ejemplo, que presenta un algoritmo para el cálculo de un número combinatorio. Recordemos que el número combinatorio entre $n$ y $k$ se define como:
+
+$$ {{n} \choose {k}} = \frac{n!}{(n-k)!k!} \hspace{1cm} k \le n, k \in \mathbb{N}_0, n \in \mathbb{N}$$
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: Ej 1. Cálculo de números combinatorios
+COMENZAR
+	VARIABLE numerica n, k, fact1, fact2, fact3, comb
+	LEER n, k // Asumimos que n y k cumplen con los requisitos
+
+	// Calcular el factorial de n
+	fact1 <- 1
+	PARA i DESDE 1 HASTA n HACER
+		fact1 <- fact1 * i
+	FIN PARA
+
+	// Calcular el factorial de n-k
+	fact2 <- 1
+	PARA i DESDE 1 HASTA n - k HACER
+		fact2 <- fact2 * i
+	FIN PARA
+
+	// Calcular el factorial de k
+	fact3 <- 1
+	PARA i DESDE 1 HASTA k HACER
+		fact3 <- fact3 * i
+	FIN PARA
+
+	// Calcular el nro combinatorio
+	comb <- fact1 / (fact2 * fact3)
+
+	ESCRIBIR "El nro combinatorio de ", n, " tomado de a ", k, " es ", comb
+FIN
+```
+
+Como se puede observar, el cálculo del factorial requiere siempre la misma estructura y se repite tres veces. Esto constituye una parte del problema cuya resolución puede plantearse por separado, dando lugar a un subalgoritmo. El algoritmo quedaría mejor expresado de la siguiente manera:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: Ej 2. Cálculo de números combinatorios
+COMENZAR
+	VARIABLE numerica n, k, comb
+	LEER n, k 
+	comb <- factorial(n) / (factorial(n - k) * factorial(k))
+	ESCRIBIR "El nro combinatorio de ", n, " tomado de a ", k, " es ", comb
+FIN
+```
+
+Aquí se puede ver cómo se simplificó la estructura del algoritmo, al hacer uso de un subalgoritmo llamado `factorial` que toma entre paréntesis un valor para el que procede a calcular y devolver el factorial. Para que esto funcione, debemos definir aparte dicho subalgoritmo, como se muestra a continuación. Más adelante veremos los detalles de esta definición y por qué, en particular, se dice que este subalgoritmo es una *función*:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+FUNCIÓN factorial(n: numérico): numérico
+	VARIABLE numerica fact
+	fact <- 1
+	PARA i DESDE 1 HASTA n HACER
+		fact <- fact * i
+	FIN PARA
+	DEVOLVER fact
+FIN FUNCIÓN
+```
+
+El empleo de subalgoritmos, desarrollando por separado ciertas partes del problema, resulta especialmente ventajoso en los casos siguientes:
+
+- **En algoritmos complejos**: si el algoritmo, y luego el programa, se escribe todo seguido resulta muy complicado de entender, porque se pierde la visión de su estructura global dada la gran cantidad de operaciones que lo conforman. Aislando ciertas partes como subalgoritmos separados se reduce la complejidad.
+- **Cuando se repiten operaciones análogas**: si la resolución de un problema requiere realizar una tarea que se repite varias veces en el algoritmo, podemos definir dicha tarea como un subalgoritmo por separado. De esta manera, su código se escribirá sólo una vez aunque se use en muchos puntos del programa. 
+
+Los subalgoritmos se clasifican en **funciones** y **procedimientos**. Las **funciones** devuelven como resultado un solo valor al algoritmo principal. Los procedimientos, en cambio, pueden devolver cero, uno o varios valores.
+
+## Funciones
+
+Una **función** es un subalgoritmo que devuelve un único resultado. Ya hemos trabajado con funciones que asumimos predefinidas, como por ejemplo las funciones módulo (`MOD`), valor absoluto (`ABS`) o raiz cuadrada (`RAIZ`), pero ahora veremos que podemos definir nuestras propias funciones. El valor que la función devuelve como resultado define su tipo, de modo que una función puede ser de tipo numérica, caracter o lógica. En programación, la noción de función se asemeja a la idea matemática de función de una o más variables. Por ejemplo, podemos pensar en la función $f(x, y) = x^2 + 3y$. En pseudocódigo, el subalgoritmo que se encargaría de implementarla es:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+FUNCION f(x: numérico, y: numérico): numérico
+COMENZAR
+	DEVOLVER x ** 2 + 3 * y
+FIN FUNCION
+```
+
+Dado que esta función devuelve un valor numérico, decimos que la misma es de tipo numérico, lo cual se indica al final del encabezado. Se dice que $x$ e $y$ son los **parámetros formales** o **ficticios** y son los que permiten expresar la "ley" o "forma" de la función. También se aclara en el encabezado que estos parámetros son de tipo numérico. Los valores en los cuales se quiere evaluar la función se llaman **parámetros actuales** o **reales**. Por ejemplo, si nos interesa calcular $f(4, 5)$, los valores $4$ y $5$ son los parámetros actuales y se establece una correspondencia entre el parámetro formal $x$ y el real $4$, así como entre la $y$ y el $5$. Como veremos más adelante, dicha correspondencia puede establecerse de distintas formas. En este ejemplo, el resultado que se obtiene es $31$.  A los parámetros también se les dice **argumentos**. 
+
+También puede ser expresada como:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+FUNCION f(x: numérico, y: numérico): numérico
+COMENZAR
+	VARIABLE numérica rtdo
+	rtdo <- x ** 2 + 3 * y
+	DEVOLVER rtdo
+FIN FUNCION
+```
+
+De manera general, la definición de una función es:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+FUNCION nombre(lista de parámetros formales): tipo de resultado
+COMENZAR
+	Declaración de variables
+	Acciones
+	DEVOLVER valor
+FIN FUNCION
+```
+
+La palabra clave `DEVOLVER` provoca la inmediata finalización de la ejecución de la función e indica cuál es el resultado de la misma, cuyo tipo debe coincidir con el tipo de función declarado antes. La acción `DEVOLVER` se puede insertar en cualquier punto de la parte ejecutable de la función y además es posible utilizar más de una sentencia `DEVOLVER` en una misma función, aunque sólo una llegue a ejecutarse. Esto puede verse en el siguiente ejemplo:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+FUNCION maximo(num1: numérico, num2: numérico): numérico
+COMENZAR
+	SI num1 >= num2
+		ENTONCES
+			DEVOLVER num1
+		SI NO
+			DEVOLVER num2
+	FIN SI
+FIN FUNCION
+```
+
+Para usar una función en un algoritmo, se la invoca escribiendo su nombre seguida por los valores actuales entre paréntesis, separados por coma. Esta invocación representa un valor del tipo de la función que puede ser usado como operando en otra expresión. Al invocar una función es obligatorio que los valores suministrados para los argumentos reales correspondan en cantidad, tipo y orden con los argumentos formales de la definición de la función. Por ejemplo:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: Hallar el máximo entre dos valores
+COMENZAR
+	ESCRIBIR "El máximo entre 5 y 10 es ", maximo(5, 10)
+FIN
+```
+
+O más general:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: Hallar el máximo entre dos valores
+COMENZAR
+	VARIABLE numérica x, y
+	LEER x, y
+	ESCRIBIR "El máximo es ", maximo(x, y)
+FIN
+```
+
+## Procedimientos
+
+Un **procedimiento** es un subalgoritmo que agrupa una acción o conjunto de acciones, dándoles un nombre por el que se las puede identificar posteriormente. Se diferencia de la función en que no tiene como objetivo, en general, devolver un valor, pudiendo devolver ninguno, uno o varios. Esto quiere decir que tampoco se declara de qué *tipo* es. El objetivo principal de los procedimientos es ayudar en la modularidad del programa y evitar la repetición de acciones.
+
+Como en las funciones, desde el algoritmo principal se pasan valores al procedimiento utilizando **parámetros** o **argumentos**, aunque también puede haber procedimientos que carezcan de los mismos. Para usar un procedimiento hay que invocarlo, escribiendo su nombre y a continuación, si los hay, los valores de los argumentos actuales para esa llamada, separados por comas. Aquí también los argumentos reales deben ser compatibles en cuanto a la cantidad, tipo y orden que los argumentos formales declarados en la definición del procedimiento.
+
+Por ejemplo, podemos definir un procedimiento que se encargue de escribir un título para la salida de nuestro algoritmo y otro para escribir una línea que separe los resultados:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: Ej 4. Procedimientos con y sin argumentos
+COMENZAR
+	...
+	colocarTitulo("Primer grupo de resultados")
+	ESCRIBIR 1
+	colocarLinea()
+	ESCRIBIR 2
+	colocarLinea()
+	ESCRIBIR 3
+
+	colocarTitulo("Segundo grupo de resultados")
+	ESCRIBIR 4
+	colocarLinea()
+	ESCRIBIR 5
+	colocarLinea()
+	ESCRIBIR 6
+FIN
+
+PROCEDIMIENTO colocarTitulo(titulo: caracter)
+	ESCRIBIR "================================="
+	ESCRIBIR titulo
+	ESCRIBIR "================================="
+FIN PROCEDIMIENTO
+
+PROCEDIMIENTO colocarLinea()
+	ESCRIBIR "_________________________________"
+FIN PROCEDIMIENTO
+```
+
+Como resultado la salida mostrará:
+
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+=================================
+Primer grupo de resultados
+=================================
+1
+_________________________________
+2
+_________________________________
+3
+
+=================================
+Segundo grupo de resultados
+=================================
+4
+_________________________________
+5
+_________________________________
+6
+_________________________________
+```
+
+En el siguiente ejemplo podemos identificar los argumentos reales `a` (con el valor 5), `b` (con el valor 2), `c` y `d` (sin valores asignados inicialmente). Cuando el procedimiento `proc1` es invocado, se establece una correspondencia con los argumentos formales `n1`, `n2`, `n3` y `n4`, respectivamente. `n1` toma el valor 5, `n2` toma el valor 2 y el procedimiento le asigna los valores 7 a `n3` y 1 a `n4`. Al finalizar, este procedimiento habrá dejado sin cambios a las variables `a` y `b`, mientras que le habrá asignado los valores 7 a `c` y 1 a `c`. Como resultado, el algoritmo escribe "5, 2, 7, 1".
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: Ejemplo 5
+COMENZAR
+	VARIABLE numérica a, b, c, d
+	a <- 5
+	b <- 2
+	proc1(a, b, c, d)
+	ESCRIBIR a, b, c, d
+FIN
+
+PROCEDIMIENTO proc1(n1: numérico, n2: numérico, n3: numérico, n4: numérico)
+	n3 <- n1 + n2
+	n4 <- n2 - 1
+FIN PROCEDIMIENTO
+```
+
+En el siguiente ejemplo, el procedimiento `proc2` modifica las variables que actúan como argumentos reales. Al ser invocado, se establece una correspondencia entre los argumentos reales `a` (con el valor 5) y `b` (con el valor 2), y los argumentos formales `n1` y `n2`, respectivamente. De esta forma, la primera acción del procedimiento le asigna el valor 7 a `n1` y 1 a `n2`. De esta manera, al finalizar `a` vale 7 y `b` vale 1 y el algoritmo escribe "7, 1".
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: Ejemplo 6
+COMENZAR
+	VARIABLE numérica a, b
+	a <- 5
+	b <- 2
+	proc2(a, b)
+	ESCRIBIR a, b
+FIN
+
+PROCEDIMIENTO proc2(n1: numérico, n2: numérico)
+	n1 <- n1 + n2
+	n2 <- n2 - 1
+FIN PROCEDIMIENTO
+```
+
+## Pasaje de argumentos
+
+Los algoritmos y subalgoritmos comunican información entre sí a través de los parámetros o argumentos y existen distintas formas de realizar esta comunicación.
+
+### Pasaje por valor
+
+En este caso, los argumentos representan valores que se transmiten **desde** el algoritmo **hacia** el subalgoritmo. Las funciones, además, cuentan con un valor de retorno, que es el valor que se transmite desde el subalgoritmo hacia el algorimo que lo llamó.
+
+El **pasaje por valor** implica que los objetos del algoritmo provistos como argumentos en la llamada al subalgoritmo no serán modificados por la ejecución del mismo. Este sistema funciona de la siguiente forma:
+
+1. Se evalúan los argumentos reales usados en la llamada.
+2. Los valores obtenidos se copian en los argumentos formales dentro del subalgoritmo.
+3. Los argumentos formales se usan como variables dentro del subalgoritmo. Aunque los mismos sean modificados (por ejemplo, se les asignen otros valores), no se modifican los argumentos reales en el algoritmo, sólo sus copias dentro del subalgoritmo.
+
+En general, se desalienta la reasignación de valor a un argumento pasado por valor por resultar confuso.
+
+### Pasaje por referencia
+
+En otras situaciones es deseable que el subalgoritmo pueda modificar las variables del algoritmo que se usen como argumentos. De esta manera se puede producir más de un resultado. De esto se encarga el **pasaje por referencia**. Si un parámetro se pasa por referencia, esta variable será empleada en el subalgoritmo como si fuera suya, es decir, las modificaciones que sufra dentro del algoritmo la modificarán permanentemente. Este sistema funciona de la siguiente forma:
+
+1. Se seleccionan las variables usadas como argumentos reales.
+2. Se asocia cada variable con el argumento formal correspondiente.
+3. Los cambios que experimenten los argumentos formales se reflejan también en los argumentos reales de origen. 
+
+<!-- Para diferencias subalgoritmos con pasaje por referencia, algunos autores sugieren distintguir la declaración de los parámetros formales con algún símbolo, por ejemplo `&`. -->
+
+### Ejemplos
+
+Algunos lenguajes de programación permiten que el programador elija el modo en el que se realiza el pasaje. En el siguiente ejemplo veremos la diferencia entre ambos modos.
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: Ejemplo 7
+COMENZAR
+	VARIABLE numérica a, b, c
+	a <- 3
+	b <- 5
+	c <- fun(a, b - a)
+	ESCRIBIR a, b, c
+FIN
+
+FUNCION fun(x: numérico, y: numérico): numérico
+	x <- x + 1
+	DEVOLVER x + y
+FIN FUNCION
+```
+
+Si el pasaje de argumentos se hace por valor, los cambios producidos en el cuerpo de la función sobre los parámetros formales no son transmitidos a los parámetros actuales. Esto significa que los formales son una "copia" de los actuales. Los pasos que sigue el algoritmo son:
+
+- `a = 3, b = 5`
+- Al invocar la función: `x = 3, y = 5 - 3 = 2`
+- Primera línea de la función: `x = 3 + 1 = 4`
+- La función devuelve el valor `x + y = 4 + 2 = 6`
+- De regreso en el algoritmo principal: `c` recibe el valor `6`
+- Se escribe: `3, 5, 6`
+
+Si el pasaje de argumentos se hace por referencia, cualquier modificación realizada sobre los parámetros formales es automáticamente realizada también a los actuales. Los pasos que sigue el algoritmo son:
+
+- `a = 3, b = 5`
+- Al invocar la función: `x = 3, y = 5 - 3 = 2`
+- Primera línea de la función: `x = 3 + 1 = 4`. El parámetro actual asociado con `x`, `a`, sufre el mismo cambio y recibe el valor `4` (`a = 4`).
+- La función devuelve el valor `x + y = 4 + 2 = 6`
+- De regreso en el algoritmo principal: `c` recibe el valor `6`
+- Se escribe: `4, 5, 6`
+
+Analicemos ahora el tipo de pasaje en el contexto de un procedimiento:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: Ejemplo 8
+COMENZAR
+	VARIABLE numérica a, b
+	a <- 8
+	b <- 4
+	miProc(a, b)
+	ESCRIBIR a, b
+FIN
+
+PROCEDIMIENTO miProc(x: numérico , y: numérico)
+	x <- x * 2
+	y <- x - y
+FIN PROCEDIMIENTO
+```
+
+Si el pasaje es por referencias, los pasos que sigue el algoritmo serían:
+
+- `a = 8, b = 4`
+- Al invocar la función: `x = 8, y = 4`
+- Primera línea de la función: `x = 8 * 2 = 16`. Lo mismo sucede con el parámetro actual `a`: `a = 16`.
+- Segunda línea de la función: `y = 16 - 4 = 12`. Lo mismo sucede con el parámetro actual `b`: `b = 12`.
+- Al regresar al algoritmo principal, la sentencia `ESCRIBIR` produce: `16, 12`.
+
+Si el pasaje hubiese sido por valor, `a` y `b` no hubiesen cambiado y la sentencia `ESCRIBIR` mostraría `8, 4`. Como en un procedimiento los resultados regresan en los mismos parámetros, no pueden ser todos pasados por valor, porque en ese caso el procedimiento nunca realizaría ninguna acción.
+
+Si el parámetro `x` se pasa por valor mientras que `y` se pasa por referencia, los pasos serían:
+
+- `a = 8, b = 4`
+- Al invocar la función: `x = 8, y = 4`
+- Primera línea de la función: `x = 8 * 2 = 16`. 
+- Segunda línea de la función: `y = 16 - 4 = 12`. Lo mismo sucede con el parámetro actual `b`: `b = 12`.
+- Al regresar al algoritmo principal, la sentencia `ESCRIBIR` produce: `8, 12`.
+
+## Variables locales y globales
+
+Como ya sabemos, en los algoritmos definimos variables que son de ayuda para la resolución de los problemas. De la misma forma, también se pueden definir variables dentro de los subalgoritmos. Por esta razón, podemos distinguir entre variables **locales** y **globales**, haciendo referencia a cuál es su alcance o en qué ámbito existen:
+
+- **Variable local**: es aquella que está declarada dentro de un subalgoritmo, en el sentido de que "existe" dentro de ese subalgoritmo. No tiene nada que ver con las variables que puedan ser declaradas con el mismo nombre en cualquier parte del algoritmo principal o de otros subalgoritmos. Cuando otro subalgoritmo utiliza el mismo nombre se refiere a una posición diferente en memoria.
+- **Variable global**: es aquella que está declarada en el algoritmo principal. Es accesible para todos los subalgoritmos que de él dependen, sin ser pasada como argumento.
+
+La parte del algoritmo en que una variable se define se conoce como **ámbito** (scope, en inglés).
+
+El uso de variables locales tiene muchas ventajas. Las variables locales permiten independizar al subalgoritmo del algoritmo principal. Las variables definidas localmente en un subalgoritmo no son reconocidas fuera de él. La comunicación entre el subalgoritmo y el algoritmo principal se da exclusivamente a través de la lista de parámetros. Esta característica hace posible dividir grandes proyectos en piezas más pequeñas independientes. Cuando diferentes programadores están implicados, pueden trabajar
+independientemente.
+
+Las variables globales tienen la ventaja de compartir información entre diferentes subalgoritmos y el algoritmo principal sin tener que hacer menciones en la lista de parámetros de los subalgoritmos.
+
+Analicemos el siguiente ejemplo:
+
+```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
+ALGORITMO: Ejemplo 9
+COMENZAR
+	VARIABLE GLOBAL numérica z
+	VARIABLE LOCAL numérica x, y
+	x <- 2
+	z <- 10
+	y <- fcn(x)
+	ESCRIBIR x, z, y
+FIN
+
+FUNCION fcn(l: numérico): numérico
+    VARIABLE GLOBAL numérica z
+	VARIABLE LOCAL numérica x
+	z <- 5
+	x <- 7
+	DEVOLVER l + 4
+FIN FUNCION
+```
+
+`z` es una variable global, es decir, puede ser accedida desde el algoritmo o desde la función. `x` es el nombre con el que se indican dos variables. Una es local al algoritmo principal y, por lo tanto, puede ser accedida sólo desde él. La otra es local a la función.
+
+Cuando se realiza la ejecución de este algoritmo, se dan los siguientes pasos:
+
+- `x` recibe el valor 2
+- `z` recibe el valor 10
+- se llama a la función y se establece la correspondencia entre el parámetro formal `l` y el actual `x` (`l` = 2) y se ejecuta la función:
+    
+    - la variable global `z` toma el valor 5 (deja de valer 10)
+    - la variable local `x` toma el valor 7, pero la `x` del algoritmo principal no se modifica, siguen con valor 2.
+    - se devuelve el valor 2 + 4 = 6
+
+- de regreso en el algoritmo principal, `y` recibe el valor 6
+- se escribe 2, 5, 6, es decir, los valores de `x`, `z` e `y`
+
+### Transparencia referencial
+
+Como ya hemos mencionado, cuando se escribe un algoritmo o un programa siempre debe buscarse mantener cierta claridad. En lo que respecta a los subalgoritmos, un principio deseable de claridad se denomina **transparencia referencial**, que se logra cuando el subalgoritmo sólo utiliza elementos mencionados en la lista de argumentos o definidos localmente, sin variables globales. Esto garantiza que, cada vez que se la invoque con los mismos valores en los argumentos de entrada, el subalgoritmo produzca el mismo resultado.
+
+El uso de variables globales permite escribir subalgoritmos que carecen de transparencia referencial. Si un subalgoritmo modifica alguna variable externa, se dice que produce *efectos secundarios*, debe realizarse con precaución y generalmente es desaconsejable.
+
