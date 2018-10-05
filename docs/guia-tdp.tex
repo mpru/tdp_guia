@@ -76,16 +76,17 @@
 }
 
 \setlength{\droptitle}{-2em}
+
   \title{Taller de Programación}
-  \pretitle{\vspace{\droptitle}\centering\huge}
+    \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
-\subtitle{Guía para las clases}
+  \subtitle{Guía para las clases}
   \author{Mgs. Lic. Marcos Prunello}
-  \preauthor{\centering\large\emph}
+    \preauthor{\centering\large\emph}
   \postauthor{\par}
-  \predate{\centering\large\emph}
+      \predate{\centering\large\emph}
   \postdate{\par}
-  \date{22-07-2018}
+    \date{05-10-2018}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -2113,36 +2114,36 @@ Observemos el siguiente ejemplo, que presenta un algoritmo para el
 cálculo de un número combinatorio. Recordemos que el número combinatorio
 entre \(n\) y \(k\) se define como:
 
-\[ {{n} \choose {k}} = \frac{n!}{(n-k)!k!} \hspace{1cm} k \le n, k \in \mathbb{N}_0, n \in \mathbb{N}\]
+\[ {n \choose k} = \frac{n!}{(n-k)!k!} \hspace{1cm} k \le n, k \in \mathbb{N}_0, n \in \mathbb{N}\]
 
 \begin{verbatim}
 ALGORITMO: Ej 1. Cálculo de números combinatorios
 COMENZAR
     VARIABLE numerica n, k, fact1, fact2, fact3, comb
-    LEER n, k // Asumimos que n y k cumplen con los requisitos
+    LEER n, k \\ Asumimos que n y k cumplen con los requisitos
 
-    // Calcular el factorial de n
+    \\ Calcular el factorial de n
     fact1 <- 1
     PARA i DESDE 1 HASTA n HACER
         fact1 <- fact1 * i
     FIN PARA
 
-    // Calcular el factorial de n-k
+    \\ Calcular el factorial de n-k
     fact2 <- 1
     PARA i DESDE 1 HASTA n - k HACER
         fact2 <- fact2 * i
     FIN PARA
 
-    // Calcular el factorial de k
+    \\ Calcular el factorial de k
     fact3 <- 1
     PARA i DESDE 1 HASTA k HACER
         fact3 <- fact3 * i
     FIN PARA
 
-    // Calcular el nro combinatorio
+    \\ Calcular el nro combinatorio
     comb <- fact1 / (fact2 * fact3)
 
-    ESCRIBIR "El nro combinatorio de ", n, " tomado de a ", k, " es ", comb
+    ESCRIBIR "El nro combinatorio de " n " tomado de a " k " es " comb
 FIN
 \end{verbatim}
 
@@ -2155,10 +2156,10 @@ manera:
 \begin{verbatim}
 ALGORITMO: Ej 2. Cálculo de números combinatorios
 COMENZAR
-    VARIABLE numerica n, k, comb
+    VARIABLE numérica n, k, comb
     LEER n, k 
     comb <- factorial(n) / (factorial(n - k) * factorial(k))
-    ESCRIBIR "El nro combinatorio de ", n, " tomado de a ", k, " es ", comb
+    ESCRIBIR "El nro combinatorio de " n " tomado de a " k " es " comb
 FIN
 \end{verbatim}
 
@@ -2172,7 +2173,7 @@ subalgoritmo es una \emph{función}:
 
 \begin{verbatim}
 FUNCIÓN factorial(n: numérico): numérico
-    VARIABLE numerica fact
+    VARIABLE numérica fact
     fact <- 1
     PARA i DESDE 1 HASTA n HACER
         fact <- fact * i
@@ -2220,10 +2221,10 @@ variables. Por ejemplo, podemos pensar en la función
 encargaría de implementarla es:
 
 \begin{verbatim}
-FUNCION f(x: numérico, y: numérico): numérico
+FUNCIÓN f(x: numérico, y: numérico): numérico
 COMENZAR
     DEVOLVER x ** 2 + 3 * y
-FIN FUNCION
+FIN FUNCIÓN
 \end{verbatim}
 
 Dado que esta función devuelve un valor numérico, decimos que la misma
@@ -2244,23 +2245,23 @@ dice \textbf{argumentos}.
 También puede ser expresada como:
 
 \begin{verbatim}
-FUNCION f(x: numérico, y: numérico): numérico
+FUNCIÓN f(x: numérico, y: numérico): numérico
 COMENZAR
     VARIABLE numérica rtdo
     rtdo <- x ** 2 + 3 * y
     DEVOLVER rtdo
-FIN FUNCION
+FIN FUNCIÓN
 \end{verbatim}
 
 De manera general, la definición de una función es:
 
 \begin{verbatim}
-FUNCION nombre(lista de parámetros formales): tipo de resultado
+FUNCIÓN nombre(lista de parámetros formales): tipo de resultado
 COMENZAR
     Declaración de variables
     Acciones
     DEVOLVER valor
-FIN FUNCION
+FIN FUNCIÓN
 \end{verbatim}
 
 La palabra clave \texttt{DEVOLVER} provoca la inmediata finalización de
@@ -2272,7 +2273,7 @@ sentencia \texttt{DEVOLVER} en una misma función, aunque sólo una llegue
 a ejecutarse. Esto puede verse en el siguiente ejemplo:
 
 \begin{verbatim}
-FUNCION maximo(num1: numérico, num2: numérico): numérico
+FUNCIÓN maximo(num1: numérico, num2: numérico): numérico
 COMENZAR
     SI num1 >= num2
         ENTONCES
@@ -2280,7 +2281,7 @@ COMENZAR
         SI NO
             DEVOLVER num2
     FIN SI
-FIN FUNCION
+FIN FUNCIÓN
 \end{verbatim}
 
 Para usar una función en un algoritmo, se la invoca escribiendo su
@@ -2294,7 +2295,7 @@ definición de la función. Por ejemplo:
 \begin{verbatim}
 ALGORITMO: Hallar el máximo entre dos valores
 COMENZAR
-    ESCRIBIR "El máximo entre 5 y 10 es ", maximo(5, 10)
+    ESCRIBIR "El máximo entre 5 y 10 es " maximo(5, 10)
 FIN
 \end{verbatim}
 
@@ -2305,7 +2306,7 @@ ALGORITMO: Hallar el máximo entre dos valores
 COMENZAR
     VARIABLE numérica x, y
     LEER x, y
-    ESCRIBIR "El máximo es ", maximo(x, y)
+    ESCRIBIR "El máximo es " maximo(x, y)
 FIN
 \end{verbatim}
 
@@ -2395,7 +2396,7 @@ respectivamente. \texttt{n1} toma el valor 5, \texttt{n2} toma el valor
 \texttt{n4}. Al finalizar, este procedimiento habrá dejado sin cambios a
 las variables \texttt{a} y \texttt{b}, mientras que le habrá asignado
 los valores 7 a \texttt{c} y 1 a \texttt{c}. Como resultado, el
-algoritmo escribe ``5, 2, 7, 1''.
+algoritmo escribe ``5 2 7 1''.
 
 \begin{verbatim}
 ALGORITMO: Ejemplo 5
@@ -2404,7 +2405,7 @@ COMENZAR
     a <- 5
     b <- 2
     proc1(a, b, c, d)
-    ESCRIBIR a, b, c, d
+    ESCRIBIR a b c d
 FIN
 
 PROCEDIMIENTO proc1(n1: numérico, n2: numérico, n3: numérico, n4: numérico)
@@ -2420,7 +2421,7 @@ establece una correspondencia entre los argumentos reales \texttt{a}
 formales \texttt{n1} y \texttt{n2}, respectivamente. De esta forma, la
 primera acción del procedimiento le asigna el valor 7 a \texttt{n1} y 1
 a \texttt{n2}. De esta manera, al finalizar \texttt{a} vale 7 y
-\texttt{b} vale 1 y el algoritmo escribe ``7, 1''.
+\texttt{b} vale 1 y el algoritmo escribe ``7 1''.
 
 \begin{verbatim}
 ALGORITMO: Ejemplo 6
@@ -2429,7 +2430,7 @@ COMENZAR
     a <- 5
     b <- 2
     proc2(a, b)
-    ESCRIBIR a, b
+    ESCRIBIR a b
 FIN
 
 PROCEDIMIENTO proc2(n1: numérico, n2: numérico)
@@ -2509,13 +2510,13 @@ COMENZAR
     a <- 3
     b <- 5
     c <- fun(a, b - a)
-    ESCRIBIR a, b, c
+    ESCRIBIR a b c
 FIN
 
-FUNCION fun(x: numérico, y: numérico): numérico
+FUNCIÓN fun(x: numérico, y: numérico): numérico
     x <- x + 1
     DEVOLVER x + y
-FIN FUNCION
+FIN FUNCIÓN
 \end{verbatim}
 
 Si el pasaje de argumentos se hace por valor, los cambios producidos en
@@ -2537,7 +2538,7 @@ son una ``copia'' de los actuales. Los pasos que sigue el algoritmo son:
   De regreso en el algoritmo principal: \texttt{c} recibe el valor
   \texttt{6}
 \item
-  Se escribe: \texttt{3,\ 5,\ 6}
+  Se escribe: \texttt{3\ 5\ 6}
 \end{itemize}
 
 Si el pasaje de argumentos se hace por referencia, cualquier
@@ -2560,7 +2561,7 @@ realizada también a los actuales. Los pasos que sigue el algoritmo son:
   De regreso en el algoritmo principal: \texttt{c} recibe el valor
   \texttt{6}
 \item
-  Se escribe: \texttt{4,\ 5,\ 6}
+  Se escribe: \texttt{4\ 5\ 6}
 \end{itemize}
 
 Analicemos ahora el tipo de pasaje en el contexto de un procedimiento:
@@ -2572,10 +2573,10 @@ COMENZAR
     a <- 8
     b <- 4
     miProc(a, b)
-    ESCRIBIR a, b
+    ESCRIBIR a b
 FIN
 
-PROCEDIMIENTO miProc(x: numérico , y: numérico)
+PROCEDIMIENTO miProc(x: numérico, y: numérico)
     x <- x * 2
     y <- x - y
 FIN PROCEDIMIENTO
@@ -2598,7 +2599,7 @@ serían:
   sucede con el parámetro actual \texttt{b}: \texttt{b\ =\ 12}.
 \item
   Al regresar al algoritmo principal, la sentencia \texttt{ESCRIBIR}
-  produce: \texttt{16,\ 12}.
+  produce: \texttt{16\ 12}.
 \end{itemize}
 
 Si el pasaje hubiese sido por valor, \texttt{a} y \texttt{b} no hubiesen
@@ -2623,7 +2624,7 @@ pasa por referencia, los pasos serían:
   sucede con el parámetro actual \texttt{b}: \texttt{b\ =\ 12}.
 \item
   Al regresar al algoritmo principal, la sentencia \texttt{ESCRIBIR}
-  produce: \texttt{8,\ 12}.
+  produce: \texttt{8\ 12}.
 \end{itemize}
 
 \section{Variables locales y
@@ -2651,7 +2652,7 @@ haciendo referencia a cuál es su alcance o en qué ámbito existen:
 \end{itemize}
 
 La parte del algoritmo en que una variable se define se conoce como
-\textbf{ámbito} (scope, en inglés).
+\textbf{ámbito} (\emph{scope}, en inglés).
 
 El uso de variables locales tiene muchas ventajas. Las variables locales
 permiten independizar al subalgoritmo del algoritmo principal. Las
@@ -2676,16 +2677,16 @@ COMENZAR
     x <- 2
     z <- 10
     y <- fcn(x)
-    ESCRIBIR x, z, y
+    ESCRIBIR x z y
 FIN
 
-FUNCION fcn(l: numérico): numérico
+FUNCIÓN fcn(l: numérico): numérico
     VARIABLE GLOBAL numérica z
     VARIABLE LOCAL numérica x
     z <- 5
     x <- 7
     DEVOLVER l + 4
-FIN FUNCION
+FIN FUNCIÓN
 \end{verbatim}
 
 \texttt{z} es una variable global, es decir, puede ser accedida desde el
@@ -2719,8 +2720,8 @@ pasos:
 \item
   de regreso en el algoritmo principal, \texttt{y} recibe el valor 6
 \item
-  se escribe 2, 5, 6, es decir, los valores de \texttt{x}, \texttt{z} e
-  \texttt{y}
+  se escribe ``2 5 6'', es decir, los valores de \texttt{x}, \texttt{z}
+  e \texttt{y}
 \end{itemize}
 
 \subsection{Transparencia referencial}\label{transparencia-referencial}
@@ -2739,7 +2740,7 @@ de transparencia referencial. Si un subalgoritmo modifica alguna
 variable externa, se dice que produce \emph{efectos secundarios}, debe
 realizarse con precaución y generalmente es desaconsejable.
 
-\bibliography{packages,book}
+\bibliography{book.bib,packages.bib}
 
 
 \end{document}

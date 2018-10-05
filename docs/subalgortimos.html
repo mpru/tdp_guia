@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Taller de Programación</title>
   <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario">
-  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Taller de Programación" />
   <meta property="og:type" content="book" />
@@ -168,46 +168,46 @@
 <h1><span class="header-section-number">9</span> Subalgortimos</h1>
 <p>Un principio fundamental en la resolución de un problema es intentar descomponerlo en partes más pequeñas, que puedan ser más fáciles de afrontar. Este concepto también se aplica en la programación. Nuestros algoritmos pueden descomponerse en <strong>subalgoritmos</strong> que den solución a un aspecto del problema, de menor extensión. Este proceso se conoce como <strong>descomposición algorítmica</strong> o <strong>descomposición modular</strong>. Cada subalgoritmo debe ser independiente de los demás y a su vez podría seguir descomponiéndose en partes más sencillas en lo que se conoce como <strong>refinamiento sucesivo</strong>. Si un programa es muy largo se corre el riesgo de que sea muy difícil de entender como un todo, pero siempre se lo puede dividir en secciones más simples y manejables. Un subalgoritmo se escribe una vez y luego es utilizado por todos aquellos algoritmos que lo necesiten.</p>
 <p>Observemos el siguiente ejemplo, que presenta un algoritmo para el cálculo de un número combinatorio. Recordemos que el número combinatorio entre <span class="math inline">\(n\)</span> y <span class="math inline">\(k\)</span> se define como:</p>
-<p><span class="math display">\[ {{n} \choose {k}} = \frac{n!}{(n-k)!k!} \hspace{1cm} k \le n, k \in \mathbb{N}_0, n \in \mathbb{N}\]</span></p>
+<p><span class="math display">\[ {n \choose k} = \frac{n!}{(n-k)!k!} \hspace{1cm} k \le n, k \in \mathbb{N}_0, n \in \mathbb{N}\]</span></p>
 <pre class="text"><code>ALGORITMO: Ej 1. Cálculo de números combinatorios
 COMENZAR
     VARIABLE numerica n, k, fact1, fact2, fact3, comb
-    LEER n, k // Asumimos que n y k cumplen con los requisitos
+    LEER n, k \\ Asumimos que n y k cumplen con los requisitos
 
-    // Calcular el factorial de n
+    \\ Calcular el factorial de n
     fact1 &lt;- 1
     PARA i DESDE 1 HASTA n HACER
         fact1 &lt;- fact1 * i
     FIN PARA
 
-    // Calcular el factorial de n-k
+    \\ Calcular el factorial de n-k
     fact2 &lt;- 1
     PARA i DESDE 1 HASTA n - k HACER
         fact2 &lt;- fact2 * i
     FIN PARA
 
-    // Calcular el factorial de k
+    \\ Calcular el factorial de k
     fact3 &lt;- 1
     PARA i DESDE 1 HASTA k HACER
         fact3 &lt;- fact3 * i
     FIN PARA
 
-    // Calcular el nro combinatorio
+    \\ Calcular el nro combinatorio
     comb &lt;- fact1 / (fact2 * fact3)
 
-    ESCRIBIR &quot;El nro combinatorio de &quot;, n, &quot; tomado de a &quot;, k, &quot; es &quot;, comb
+    ESCRIBIR &quot;El nro combinatorio de &quot; n &quot; tomado de a &quot; k &quot; es &quot; comb
 FIN</code></pre>
 <p>Como se puede observar, el cálculo del factorial requiere siempre la misma estructura y se repite tres veces. Esto constituye una parte del problema cuya resolución puede plantearse por separado, dando lugar a un subalgoritmo. El algoritmo quedaría mejor expresado de la siguiente manera:</p>
 <pre class="text"><code>ALGORITMO: Ej 2. Cálculo de números combinatorios
 COMENZAR
-    VARIABLE numerica n, k, comb
+    VARIABLE numérica n, k, comb
     LEER n, k 
     comb &lt;- factorial(n) / (factorial(n - k) * factorial(k))
-    ESCRIBIR &quot;El nro combinatorio de &quot;, n, &quot; tomado de a &quot;, k, &quot; es &quot;, comb
+    ESCRIBIR &quot;El nro combinatorio de &quot; n &quot; tomado de a &quot; k &quot; es &quot; comb
 FIN</code></pre>
 <p>Aquí se puede ver cómo se simplificó la estructura del algoritmo, al hacer uso de un subalgoritmo llamado <code>factorial</code> que toma entre paréntesis un valor para el que procede a calcular y devolver el factorial. Para que esto funcione, debemos definir aparte dicho subalgoritmo, como se muestra a continuación. Más adelante veremos los detalles de esta definición y por qué, en particular, se dice que este subalgoritmo es una <em>función</em>:</p>
 <pre class="text"><code>FUNCIÓN factorial(n: numérico): numérico
-    VARIABLE numerica fact
+    VARIABLE numérica fact
     fact &lt;- 1
     PARA i DESDE 1 HASTA n HACER
         fact &lt;- fact * i
@@ -223,27 +223,27 @@ FIN FUNCIÓN</code></pre>
 <div id="funciones" class="section level2">
 <h2><span class="header-section-number">9.1</span> Funciones</h2>
 <p>Una <strong>función</strong> es un subalgoritmo que devuelve un único resultado. Ya hemos trabajado con funciones que asumimos predefinidas, como por ejemplo las funciones módulo (<code>MOD</code>), valor absoluto (<code>ABS</code>) o raiz cuadrada (<code>RAIZ</code>), pero ahora veremos que podemos definir nuestras propias funciones. El valor que la función devuelve como resultado define su tipo, de modo que una función puede ser de tipo numérica, caracter o lógica. En programación, la noción de función se asemeja a la idea matemática de función de una o más variables. Por ejemplo, podemos pensar en la función <span class="math inline">\(f(x, y) = x^2 + 3y\)</span>. En pseudocódigo, el subalgoritmo que se encargaría de implementarla es:</p>
-<pre class="text"><code>FUNCION f(x: numérico, y: numérico): numérico
+<pre class="text"><code>FUNCIÓN f(x: numérico, y: numérico): numérico
 COMENZAR
     DEVOLVER x ** 2 + 3 * y
-FIN FUNCION</code></pre>
+FIN FUNCIÓN</code></pre>
 <p>Dado que esta función devuelve un valor numérico, decimos que la misma es de tipo numérico, lo cual se indica al final del encabezado. Se dice que <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> son los <strong>parámetros formales</strong> o <strong>ficticios</strong> y son los que permiten expresar la “ley” o “forma” de la función. También se aclara en el encabezado que estos parámetros son de tipo numérico. Los valores en los cuales se quiere evaluar la función se llaman <strong>parámetros actuales</strong> o <strong>reales</strong>. Por ejemplo, si nos interesa calcular <span class="math inline">\(f(4, 5)\)</span>, los valores <span class="math inline">\(4\)</span> y <span class="math inline">\(5\)</span> son los parámetros actuales y se establece una correspondencia entre el parámetro formal <span class="math inline">\(x\)</span> y el real <span class="math inline">\(4\)</span>, así como entre la <span class="math inline">\(y\)</span> y el <span class="math inline">\(5\)</span>. Como veremos más adelante, dicha correspondencia puede establecerse de distintas formas. En este ejemplo, el resultado que se obtiene es <span class="math inline">\(31\)</span>. A los parámetros también se les dice <strong>argumentos</strong>.</p>
 <p>También puede ser expresada como:</p>
-<pre class="text"><code>FUNCION f(x: numérico, y: numérico): numérico
+<pre class="text"><code>FUNCIÓN f(x: numérico, y: numérico): numérico
 COMENZAR
     VARIABLE numérica rtdo
     rtdo &lt;- x ** 2 + 3 * y
     DEVOLVER rtdo
-FIN FUNCION</code></pre>
+FIN FUNCIÓN</code></pre>
 <p>De manera general, la definición de una función es:</p>
-<pre class="text"><code>FUNCION nombre(lista de parámetros formales): tipo de resultado
+<pre class="text"><code>FUNCIÓN nombre(lista de parámetros formales): tipo de resultado
 COMENZAR
     Declaración de variables
     Acciones
     DEVOLVER valor
-FIN FUNCION</code></pre>
+FIN FUNCIÓN</code></pre>
 <p>La palabra clave <code>DEVOLVER</code> provoca la inmediata finalización de la ejecución de la función e indica cuál es el resultado de la misma, cuyo tipo debe coincidir con el tipo de función declarado antes. La acción <code>DEVOLVER</code> se puede insertar en cualquier punto de la parte ejecutable de la función y además es posible utilizar más de una sentencia <code>DEVOLVER</code> en una misma función, aunque sólo una llegue a ejecutarse. Esto puede verse en el siguiente ejemplo:</p>
-<pre class="text"><code>FUNCION maximo(num1: numérico, num2: numérico): numérico
+<pre class="text"><code>FUNCIÓN maximo(num1: numérico, num2: numérico): numérico
 COMENZAR
     SI num1 &gt;= num2
         ENTONCES
@@ -251,18 +251,18 @@ COMENZAR
         SI NO
             DEVOLVER num2
     FIN SI
-FIN FUNCION</code></pre>
+FIN FUNCIÓN</code></pre>
 <p>Para usar una función en un algoritmo, se la invoca escribiendo su nombre seguida por los valores actuales entre paréntesis, separados por coma. Esta invocación representa un valor del tipo de la función que puede ser usado como operando en otra expresión. Al invocar una función es obligatorio que los valores suministrados para los argumentos reales correspondan en cantidad, tipo y orden con los argumentos formales de la definición de la función. Por ejemplo:</p>
 <pre class="text"><code>ALGORITMO: Hallar el máximo entre dos valores
 COMENZAR
-    ESCRIBIR &quot;El máximo entre 5 y 10 es &quot;, maximo(5, 10)
+    ESCRIBIR &quot;El máximo entre 5 y 10 es &quot; maximo(5, 10)
 FIN</code></pre>
 <p>O más general:</p>
 <pre class="text"><code>ALGORITMO: Hallar el máximo entre dos valores
 COMENZAR
     VARIABLE numérica x, y
     LEER x, y
-    ESCRIBIR &quot;El máximo es &quot;, maximo(x, y)
+    ESCRIBIR &quot;El máximo es &quot; maximo(x, y)
 FIN</code></pre>
 </div>
 <div id="procedimientos" class="section level2">
@@ -316,28 +316,28 @@ _________________________________
 _________________________________
 6
 _________________________________</code></pre>
-<p>En el siguiente ejemplo podemos identificar los argumentos reales <code>a</code> (con el valor 5), <code>b</code> (con el valor 2), <code>c</code> y <code>d</code> (sin valores asignados inicialmente). Cuando el procedimiento <code>proc1</code> es invocado, se establece una correspondencia con los argumentos formales <code>n1</code>, <code>n2</code>, <code>n3</code> y <code>n4</code>, respectivamente. <code>n1</code> toma el valor 5, <code>n2</code> toma el valor 2 y el procedimiento le asigna los valores 7 a <code>n3</code> y 1 a <code>n4</code>. Al finalizar, este procedimiento habrá dejado sin cambios a las variables <code>a</code> y <code>b</code>, mientras que le habrá asignado los valores 7 a <code>c</code> y 1 a <code>c</code>. Como resultado, el algoritmo escribe “5, 2, 7, 1”.</p>
+<p>En el siguiente ejemplo podemos identificar los argumentos reales <code>a</code> (con el valor 5), <code>b</code> (con el valor 2), <code>c</code> y <code>d</code> (sin valores asignados inicialmente). Cuando el procedimiento <code>proc1</code> es invocado, se establece una correspondencia con los argumentos formales <code>n1</code>, <code>n2</code>, <code>n3</code> y <code>n4</code>, respectivamente. <code>n1</code> toma el valor 5, <code>n2</code> toma el valor 2 y el procedimiento le asigna los valores 7 a <code>n3</code> y 1 a <code>n4</code>. Al finalizar, este procedimiento habrá dejado sin cambios a las variables <code>a</code> y <code>b</code>, mientras que le habrá asignado los valores 7 a <code>c</code> y 1 a <code>c</code>. Como resultado, el algoritmo escribe “5 2 7 1”.</p>
 <pre class="text"><code>ALGORITMO: Ejemplo 5
 COMENZAR
     VARIABLE numérica a, b, c, d
     a &lt;- 5
     b &lt;- 2
     proc1(a, b, c, d)
-    ESCRIBIR a, b, c, d
+    ESCRIBIR a b c d
 FIN
 
 PROCEDIMIENTO proc1(n1: numérico, n2: numérico, n3: numérico, n4: numérico)
     n3 &lt;- n1 + n2
     n4 &lt;- n2 - 1
 FIN PROCEDIMIENTO</code></pre>
-<p>En el siguiente ejemplo, el procedimiento <code>proc2</code> modifica las variables que actúan como argumentos reales. Al ser invocado, se establece una correspondencia entre los argumentos reales <code>a</code> (con el valor 5) y <code>b</code> (con el valor 2), y los argumentos formales <code>n1</code> y <code>n2</code>, respectivamente. De esta forma, la primera acción del procedimiento le asigna el valor 7 a <code>n1</code> y 1 a <code>n2</code>. De esta manera, al finalizar <code>a</code> vale 7 y <code>b</code> vale 1 y el algoritmo escribe “7, 1”.</p>
+<p>En el siguiente ejemplo, el procedimiento <code>proc2</code> modifica las variables que actúan como argumentos reales. Al ser invocado, se establece una correspondencia entre los argumentos reales <code>a</code> (con el valor 5) y <code>b</code> (con el valor 2), y los argumentos formales <code>n1</code> y <code>n2</code>, respectivamente. De esta forma, la primera acción del procedimiento le asigna el valor 7 a <code>n1</code> y 1 a <code>n2</code>. De esta manera, al finalizar <code>a</code> vale 7 y <code>b</code> vale 1 y el algoritmo escribe “7 1”.</p>
 <pre class="text"><code>ALGORITMO: Ejemplo 6
 COMENZAR
     VARIABLE numérica a, b
     a &lt;- 5
     b &lt;- 2
     proc2(a, b)
-    ESCRIBIR a, b
+    ESCRIBIR a b
 FIN
 
 PROCEDIMIENTO proc2(n1: numérico, n2: numérico)
@@ -378,13 +378,13 @@ COMENZAR
     a &lt;- 3
     b &lt;- 5
     c &lt;- fun(a, b - a)
-    ESCRIBIR a, b, c
+    ESCRIBIR a b c
 FIN
 
-FUNCION fun(x: numérico, y: numérico): numérico
+FUNCIÓN fun(x: numérico, y: numérico): numérico
     x &lt;- x + 1
     DEVOLVER x + y
-FIN FUNCION</code></pre>
+FIN FUNCIÓN</code></pre>
 <p>Si el pasaje de argumentos se hace por valor, los cambios producidos en el cuerpo de la función sobre los parámetros formales no son transmitidos a los parámetros actuales. Esto significa que los formales son una “copia” de los actuales. Los pasos que sigue el algoritmo son:</p>
 <ul>
 <li><code>a = 3, b = 5</code></li>
@@ -392,7 +392,7 @@ FIN FUNCION</code></pre>
 <li>Primera línea de la función: <code>x = 3 + 1 = 4</code></li>
 <li>La función devuelve el valor <code>x + y = 4 + 2 = 6</code></li>
 <li>De regreso en el algoritmo principal: <code>c</code> recibe el valor <code>6</code></li>
-<li>Se escribe: <code>3, 5, 6</code></li>
+<li>Se escribe: <code>3 5 6</code></li>
 </ul>
 <p>Si el pasaje de argumentos se hace por referencia, cualquier modificación realizada sobre los parámetros formales es automáticamente realizada también a los actuales. Los pasos que sigue el algoritmo son:</p>
 <ul>
@@ -401,7 +401,7 @@ FIN FUNCION</code></pre>
 <li>Primera línea de la función: <code>x = 3 + 1 = 4</code>. El parámetro actual asociado con <code>x</code>, <code>a</code>, sufre el mismo cambio y recibe el valor <code>4</code> (<code>a = 4</code>).</li>
 <li>La función devuelve el valor <code>x + y = 4 + 2 = 6</code></li>
 <li>De regreso en el algoritmo principal: <code>c</code> recibe el valor <code>6</code></li>
-<li>Se escribe: <code>4, 5, 6</code></li>
+<li>Se escribe: <code>4 5 6</code></li>
 </ul>
 <p>Analicemos ahora el tipo de pasaje en el contexto de un procedimiento:</p>
 <pre class="text"><code>ALGORITMO: Ejemplo 8
@@ -410,10 +410,10 @@ COMENZAR
     a &lt;- 8
     b &lt;- 4
     miProc(a, b)
-    ESCRIBIR a, b
+    ESCRIBIR a b
 FIN
 
-PROCEDIMIENTO miProc(x: numérico , y: numérico)
+PROCEDIMIENTO miProc(x: numérico, y: numérico)
     x &lt;- x * 2
     y &lt;- x - y
 FIN PROCEDIMIENTO</code></pre>
@@ -423,7 +423,7 @@ FIN PROCEDIMIENTO</code></pre>
 <li>Al invocar la función: <code>x = 8, y = 4</code></li>
 <li>Primera línea de la función: <code>x = 8 * 2 = 16</code>. Lo mismo sucede con el parámetro actual <code>a</code>: <code>a = 16</code>.</li>
 <li>Segunda línea de la función: <code>y = 16 - 4 = 12</code>. Lo mismo sucede con el parámetro actual <code>b</code>: <code>b = 12</code>.</li>
-<li>Al regresar al algoritmo principal, la sentencia <code>ESCRIBIR</code> produce: <code>16, 12</code>.</li>
+<li>Al regresar al algoritmo principal, la sentencia <code>ESCRIBIR</code> produce: <code>16 12</code>.</li>
 </ul>
 <p>Si el pasaje hubiese sido por valor, <code>a</code> y <code>b</code> no hubiesen cambiado y la sentencia <code>ESCRIBIR</code> mostraría <code>8, 4</code>. Como en un procedimiento los resultados regresan en los mismos parámetros, no pueden ser todos pasados por valor, porque en ese caso el procedimiento nunca realizaría ninguna acción.</p>
 <p>Si el parámetro <code>x</code> se pasa por valor mientras que <code>y</code> se pasa por referencia, los pasos serían:</p>
@@ -432,7 +432,7 @@ FIN PROCEDIMIENTO</code></pre>
 <li>Al invocar la función: <code>x = 8, y = 4</code></li>
 <li>Primera línea de la función: <code>x = 8 * 2 = 16</code>.</li>
 <li>Segunda línea de la función: <code>y = 16 - 4 = 12</code>. Lo mismo sucede con el parámetro actual <code>b</code>: <code>b = 12</code>.</li>
-<li>Al regresar al algoritmo principal, la sentencia <code>ESCRIBIR</code> produce: <code>8, 12</code>.</li>
+<li>Al regresar al algoritmo principal, la sentencia <code>ESCRIBIR</code> produce: <code>8 12</code>.</li>
 </ul>
 </div>
 </div>
@@ -443,7 +443,7 @@ FIN PROCEDIMIENTO</code></pre>
 <li><strong>Variable local</strong>: es aquella que está declarada dentro de un subalgoritmo, en el sentido de que “existe” dentro de ese subalgoritmo. No tiene nada que ver con las variables que puedan ser declaradas con el mismo nombre en cualquier parte del algoritmo principal o de otros subalgoritmos. Cuando otro subalgoritmo utiliza el mismo nombre se refiere a una posición diferente en memoria.</li>
 <li><strong>Variable global</strong>: es aquella que está declarada en el algoritmo principal. Es accesible para todos los subalgoritmos que de él dependen, sin ser pasada como argumento.</li>
 </ul>
-<p>La parte del algoritmo en que una variable se define se conoce como <strong>ámbito</strong> (scope, en inglés).</p>
+<p>La parte del algoritmo en que una variable se define se conoce como <strong>ámbito</strong> (<em>scope</em>, en inglés).</p>
 <p>El uso de variables locales tiene muchas ventajas. Las variables locales permiten independizar al subalgoritmo del algoritmo principal. Las variables definidas localmente en un subalgoritmo no son reconocidas fuera de él. La comunicación entre el subalgoritmo y el algoritmo principal se da exclusivamente a través de la lista de parámetros. Esta característica hace posible dividir grandes proyectos en piezas más pequeñas independientes. Cuando diferentes programadores están implicados, pueden trabajar independientemente.</p>
 <p>Las variables globales tienen la ventaja de compartir información entre diferentes subalgoritmos y el algoritmo principal sin tener que hacer menciones en la lista de parámetros de los subalgoritmos.</p>
 <p>Analicemos el siguiente ejemplo:</p>
@@ -454,16 +454,16 @@ COMENZAR
     x &lt;- 2
     z &lt;- 10
     y &lt;- fcn(x)
-    ESCRIBIR x, z, y
+    ESCRIBIR x z y
 FIN
 
-FUNCION fcn(l: numérico): numérico
+FUNCIÓN fcn(l: numérico): numérico
     VARIABLE GLOBAL numérica z
     VARIABLE LOCAL numérica x
     z &lt;- 5
     x &lt;- 7
     DEVOLVER l + 4
-FIN FUNCION</code></pre>
+FIN FUNCIÓN</code></pre>
 <p><code>z</code> es una variable global, es decir, puede ser accedida desde el algoritmo o desde la función. <code>x</code> es el nombre con el que se indican dos variables. Una es local al algoritmo principal y, por lo tanto, puede ser accedida sólo desde él. La otra es local a la función.</p>
 <p>Cuando se realiza la ejecución de este algoritmo, se dan los siguientes pasos:</p>
 <ul>
@@ -476,7 +476,7 @@ FIN FUNCION</code></pre>
 <li>se devuelve el valor 2 + 4 = 6</li>
 </ul></li>
 <li>de regreso en el algoritmo principal, <code>y</code> recibe el valor 6</li>
-<li><p>se escribe 2, 5, 6, es decir, los valores de <code>x</code>, <code>z</code> e <code>y</code></p></li>
+<li><p>se escribe “2 5 6”, es decir, los valores de <code>x</code>, <code>z</code> e <code>y</code></p></li>
 </ul>
 <div id="transparencia-referencial" class="section level3">
 <h3><span class="header-section-number">9.4.1</span> Transparencia referencial</h3>
@@ -510,10 +510,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -537,9 +538,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

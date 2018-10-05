@@ -4,36 +4,36 @@ Un principio fundamental en la resolución de un problema es intentar descompone
 
 Observemos el siguiente ejemplo, que presenta un algoritmo para el cálculo de un número combinatorio. Recordemos que el número combinatorio entre $n$ y $k$ se define como:
 
-$$ {{n} \choose {k}} = \frac{n!}{(n-k)!k!} \hspace{1cm} k \le n, k \in \mathbb{N}_0, n \in \mathbb{N}$$
+$$ {n \choose k} = \frac{n!}{(n-k)!k!} \hspace{1cm} k \le n, k \in \mathbb{N}_0, n \in \mathbb{N}$$
 
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
 ALGORITMO: Ej 1. Cálculo de números combinatorios
 COMENZAR
 	VARIABLE numerica n, k, fact1, fact2, fact3, comb
-	LEER n, k // Asumimos que n y k cumplen con los requisitos
+	LEER n, k \\ Asumimos que n y k cumplen con los requisitos
 
-	// Calcular el factorial de n
+	\\ Calcular el factorial de n
 	fact1 <- 1
 	PARA i DESDE 1 HASTA n HACER
 		fact1 <- fact1 * i
 	FIN PARA
 
-	// Calcular el factorial de n-k
+	\\ Calcular el factorial de n-k
 	fact2 <- 1
 	PARA i DESDE 1 HASTA n - k HACER
 		fact2 <- fact2 * i
 	FIN PARA
 
-	// Calcular el factorial de k
+	\\ Calcular el factorial de k
 	fact3 <- 1
 	PARA i DESDE 1 HASTA k HACER
 		fact3 <- fact3 * i
 	FIN PARA
 
-	// Calcular el nro combinatorio
+	\\ Calcular el nro combinatorio
 	comb <- fact1 / (fact2 * fact3)
 
-	ESCRIBIR "El nro combinatorio de ", n, " tomado de a ", k, " es ", comb
+	ESCRIBIR "El nro combinatorio de " n " tomado de a " k " es " comb
 FIN
 ```
 
@@ -42,10 +42,10 @@ Como se puede observar, el cálculo del factorial requiere siempre la misma estr
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
 ALGORITMO: Ej 2. Cálculo de números combinatorios
 COMENZAR
-	VARIABLE numerica n, k, comb
+	VARIABLE numérica n, k, comb
 	LEER n, k 
 	comb <- factorial(n) / (factorial(n - k) * factorial(k))
-	ESCRIBIR "El nro combinatorio de ", n, " tomado de a ", k, " es ", comb
+	ESCRIBIR "El nro combinatorio de " n " tomado de a " k " es " comb
 FIN
 ```
 
@@ -53,7 +53,7 @@ Aquí se puede ver cómo se simplificó la estructura del algoritmo, al hacer us
 
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
 FUNCIÓN factorial(n: numérico): numérico
-	VARIABLE numerica fact
+	VARIABLE numérica fact
 	fact <- 1
 	PARA i DESDE 1 HASTA n HACER
 		fact <- fact * i
@@ -74,10 +74,10 @@ Los subalgoritmos se clasifican en **funciones** y **procedimientos**. Las **fun
 Una **función** es un subalgoritmo que devuelve un único resultado. Ya hemos trabajado con funciones que asumimos predefinidas, como por ejemplo las funciones módulo (`MOD`), valor absoluto (`ABS`) o raiz cuadrada (`RAIZ`), pero ahora veremos que podemos definir nuestras propias funciones. El valor que la función devuelve como resultado define su tipo, de modo que una función puede ser de tipo numérica, caracter o lógica. En programación, la noción de función se asemeja a la idea matemática de función de una o más variables. Por ejemplo, podemos pensar en la función $f(x, y) = x^2 + 3y$. En pseudocódigo, el subalgoritmo que se encargaría de implementarla es:
 
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
-FUNCION f(x: numérico, y: numérico): numérico
+FUNCIÓN f(x: numérico, y: numérico): numérico
 COMENZAR
 	DEVOLVER x ** 2 + 3 * y
-FIN FUNCION
+FIN FUNCIÓN
 ```
 
 Dado que esta función devuelve un valor numérico, decimos que la misma es de tipo numérico, lo cual se indica al final del encabezado. Se dice que $x$ e $y$ son los **parámetros formales** o **ficticios** y son los que permiten expresar la "ley" o "forma" de la función. También se aclara en el encabezado que estos parámetros son de tipo numérico. Los valores en los cuales se quiere evaluar la función se llaman **parámetros actuales** o **reales**. Por ejemplo, si nos interesa calcular $f(4, 5)$, los valores $4$ y $5$ son los parámetros actuales y se establece una correspondencia entre el parámetro formal $x$ y el real $4$, así como entre la $y$ y el $5$. Como veremos más adelante, dicha correspondencia puede establecerse de distintas formas. En este ejemplo, el resultado que se obtiene es $31$.  A los parámetros también se les dice **argumentos**. 
@@ -85,29 +85,29 @@ Dado que esta función devuelve un valor numérico, decimos que la misma es de t
 También puede ser expresada como:
 
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
-FUNCION f(x: numérico, y: numérico): numérico
+FUNCIÓN f(x: numérico, y: numérico): numérico
 COMENZAR
 	VARIABLE numérica rtdo
 	rtdo <- x ** 2 + 3 * y
 	DEVOLVER rtdo
-FIN FUNCION
+FIN FUNCIÓN
 ```
 
 De manera general, la definición de una función es:
 
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
-FUNCION nombre(lista de parámetros formales): tipo de resultado
+FUNCIÓN nombre(lista de parámetros formales): tipo de resultado
 COMENZAR
 	Declaración de variables
 	Acciones
 	DEVOLVER valor
-FIN FUNCION
+FIN FUNCIÓN
 ```
 
 La palabra clave `DEVOLVER` provoca la inmediata finalización de la ejecución de la función e indica cuál es el resultado de la misma, cuyo tipo debe coincidir con el tipo de función declarado antes. La acción `DEVOLVER` se puede insertar en cualquier punto de la parte ejecutable de la función y además es posible utilizar más de una sentencia `DEVOLVER` en una misma función, aunque sólo una llegue a ejecutarse. Esto puede verse en el siguiente ejemplo:
 
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
-FUNCION maximo(num1: numérico, num2: numérico): numérico
+FUNCIÓN maximo(num1: numérico, num2: numérico): numérico
 COMENZAR
 	SI num1 >= num2
 		ENTONCES
@@ -115,7 +115,7 @@ COMENZAR
 		SI NO
 			DEVOLVER num2
 	FIN SI
-FIN FUNCION
+FIN FUNCIÓN
 ```
 
 Para usar una función en un algoritmo, se la invoca escribiendo su nombre seguida por los valores actuales entre paréntesis, separados por coma. Esta invocación representa un valor del tipo de la función que puede ser usado como operando en otra expresión. Al invocar una función es obligatorio que los valores suministrados para los argumentos reales correspondan en cantidad, tipo y orden con los argumentos formales de la definición de la función. Por ejemplo:
@@ -123,7 +123,7 @@ Para usar una función en un algoritmo, se la invoca escribiendo su nombre segui
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
 ALGORITMO: Hallar el máximo entre dos valores
 COMENZAR
-	ESCRIBIR "El máximo entre 5 y 10 es ", maximo(5, 10)
+	ESCRIBIR "El máximo entre 5 y 10 es " maximo(5, 10)
 FIN
 ```
 
@@ -134,7 +134,7 @@ ALGORITMO: Hallar el máximo entre dos valores
 COMENZAR
 	VARIABLE numérica x, y
 	LEER x, y
-	ESCRIBIR "El máximo es ", maximo(x, y)
+	ESCRIBIR "El máximo es " maximo(x, y)
 FIN
 ```
 
@@ -200,7 +200,7 @@ _________________________________
 _________________________________
 ```
 
-En el siguiente ejemplo podemos identificar los argumentos reales `a` (con el valor 5), `b` (con el valor 2), `c` y `d` (sin valores asignados inicialmente). Cuando el procedimiento `proc1` es invocado, se establece una correspondencia con los argumentos formales `n1`, `n2`, `n3` y `n4`, respectivamente. `n1` toma el valor 5, `n2` toma el valor 2 y el procedimiento le asigna los valores 7 a `n3` y 1 a `n4`. Al finalizar, este procedimiento habrá dejado sin cambios a las variables `a` y `b`, mientras que le habrá asignado los valores 7 a `c` y 1 a `c`. Como resultado, el algoritmo escribe "5, 2, 7, 1".
+En el siguiente ejemplo podemos identificar los argumentos reales `a` (con el valor 5), `b` (con el valor 2), `c` y `d` (sin valores asignados inicialmente). Cuando el procedimiento `proc1` es invocado, se establece una correspondencia con los argumentos formales `n1`, `n2`, `n3` y `n4`, respectivamente. `n1` toma el valor 5, `n2` toma el valor 2 y el procedimiento le asigna los valores 7 a `n3` y 1 a `n4`. Al finalizar, este procedimiento habrá dejado sin cambios a las variables `a` y `b`, mientras que le habrá asignado los valores 7 a `c` y 1 a `c`. Como resultado, el algoritmo escribe "5 2 7 1".
 
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
 ALGORITMO: Ejemplo 5
@@ -209,7 +209,7 @@ COMENZAR
 	a <- 5
 	b <- 2
 	proc1(a, b, c, d)
-	ESCRIBIR a, b, c, d
+	ESCRIBIR a b c d
 FIN
 
 PROCEDIMIENTO proc1(n1: numérico, n2: numérico, n3: numérico, n4: numérico)
@@ -218,7 +218,7 @@ PROCEDIMIENTO proc1(n1: numérico, n2: numérico, n3: numérico, n4: numérico)
 FIN PROCEDIMIENTO
 ```
 
-En el siguiente ejemplo, el procedimiento `proc2` modifica las variables que actúan como argumentos reales. Al ser invocado, se establece una correspondencia entre los argumentos reales `a` (con el valor 5) y `b` (con el valor 2), y los argumentos formales `n1` y `n2`, respectivamente. De esta forma, la primera acción del procedimiento le asigna el valor 7 a `n1` y 1 a `n2`. De esta manera, al finalizar `a` vale 7 y `b` vale 1 y el algoritmo escribe "7, 1".
+En el siguiente ejemplo, el procedimiento `proc2` modifica las variables que actúan como argumentos reales. Al ser invocado, se establece una correspondencia entre los argumentos reales `a` (con el valor 5) y `b` (con el valor 2), y los argumentos formales `n1` y `n2`, respectivamente. De esta forma, la primera acción del procedimiento le asigna el valor 7 a `n1` y 1 a `n2`. De esta manera, al finalizar `a` vale 7 y `b` vale 1 y el algoritmo escribe "7 1".
 
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
 ALGORITMO: Ejemplo 6
@@ -227,7 +227,7 @@ COMENZAR
 	a <- 5
 	b <- 2
 	proc2(a, b)
-	ESCRIBIR a, b
+	ESCRIBIR a b
 FIN
 
 PROCEDIMIENTO proc2(n1: numérico, n2: numérico)
@@ -273,13 +273,13 @@ COMENZAR
 	a <- 3
 	b <- 5
 	c <- fun(a, b - a)
-	ESCRIBIR a, b, c
+	ESCRIBIR a b c
 FIN
 
-FUNCION fun(x: numérico, y: numérico): numérico
+FUNCIÓN fun(x: numérico, y: numérico): numérico
 	x <- x + 1
 	DEVOLVER x + y
-FIN FUNCION
+FIN FUNCIÓN
 ```
 
 Si el pasaje de argumentos se hace por valor, los cambios producidos en el cuerpo de la función sobre los parámetros formales no son transmitidos a los parámetros actuales. Esto significa que los formales son una "copia" de los actuales. Los pasos que sigue el algoritmo son:
@@ -289,7 +289,7 @@ Si el pasaje de argumentos se hace por valor, los cambios producidos en el cuerp
 - Primera línea de la función: `x = 3 + 1 = 4`
 - La función devuelve el valor `x + y = 4 + 2 = 6`
 - De regreso en el algoritmo principal: `c` recibe el valor `6`
-- Se escribe: `3, 5, 6`
+- Se escribe: `3 5 6`
 
 Si el pasaje de argumentos se hace por referencia, cualquier modificación realizada sobre los parámetros formales es automáticamente realizada también a los actuales. Los pasos que sigue el algoritmo son:
 
@@ -298,7 +298,7 @@ Si el pasaje de argumentos se hace por referencia, cualquier modificación reali
 - Primera línea de la función: `x = 3 + 1 = 4`. El parámetro actual asociado con `x`, `a`, sufre el mismo cambio y recibe el valor `4` (`a = 4`).
 - La función devuelve el valor `x + y = 4 + 2 = 6`
 - De regreso en el algoritmo principal: `c` recibe el valor `6`
-- Se escribe: `4, 5, 6`
+- Se escribe: `4 5 6`
 
 Analicemos ahora el tipo de pasaje en el contexto de un procedimiento:
 
@@ -309,10 +309,10 @@ COMENZAR
 	a <- 8
 	b <- 4
 	miProc(a, b)
-	ESCRIBIR a, b
+	ESCRIBIR a b
 FIN
 
-PROCEDIMIENTO miProc(x: numérico , y: numérico)
+PROCEDIMIENTO miProc(x: numérico, y: numérico)
 	x <- x * 2
 	y <- x - y
 FIN PROCEDIMIENTO
@@ -324,7 +324,7 @@ Si el pasaje es por referencias, los pasos que sigue el algoritmo serían:
 - Al invocar la función: `x = 8, y = 4`
 - Primera línea de la función: `x = 8 * 2 = 16`. Lo mismo sucede con el parámetro actual `a`: `a = 16`.
 - Segunda línea de la función: `y = 16 - 4 = 12`. Lo mismo sucede con el parámetro actual `b`: `b = 12`.
-- Al regresar al algoritmo principal, la sentencia `ESCRIBIR` produce: `16, 12`.
+- Al regresar al algoritmo principal, la sentencia `ESCRIBIR` produce: `16 12`.
 
 Si el pasaje hubiese sido por valor, `a` y `b` no hubiesen cambiado y la sentencia `ESCRIBIR` mostraría `8, 4`. Como en un procedimiento los resultados regresan en los mismos parámetros, no pueden ser todos pasados por valor, porque en ese caso el procedimiento nunca realizaría ninguna acción.
 
@@ -334,7 +334,7 @@ Si el parámetro `x` se pasa por valor mientras que `y` se pasa por referencia, 
 - Al invocar la función: `x = 8, y = 4`
 - Primera línea de la función: `x = 8 * 2 = 16`. 
 - Segunda línea de la función: `y = 16 - 4 = 12`. Lo mismo sucede con el parámetro actual `b`: `b = 12`.
-- Al regresar al algoritmo principal, la sentencia `ESCRIBIR` produce: `8, 12`.
+- Al regresar al algoritmo principal, la sentencia `ESCRIBIR` produce: `8 12`.
 
 ## Variables locales y globales
 
@@ -343,7 +343,7 @@ Como ya sabemos, en los algoritmos definimos variables que son de ayuda para la 
 - **Variable local**: es aquella que está declarada dentro de un subalgoritmo, en el sentido de que "existe" dentro de ese subalgoritmo. No tiene nada que ver con las variables que puedan ser declaradas con el mismo nombre en cualquier parte del algoritmo principal o de otros subalgoritmos. Cuando otro subalgoritmo utiliza el mismo nombre se refiere a una posición diferente en memoria.
 - **Variable global**: es aquella que está declarada en el algoritmo principal. Es accesible para todos los subalgoritmos que de él dependen, sin ser pasada como argumento.
 
-La parte del algoritmo en que una variable se define se conoce como **ámbito** (scope, en inglés).
+La parte del algoritmo en que una variable se define se conoce como **ámbito** (*scope*, en inglés).
 
 El uso de variables locales tiene muchas ventajas. Las variables locales permiten independizar al subalgoritmo del algoritmo principal. Las variables definidas localmente en un subalgoritmo no son reconocidas fuera de él. La comunicación entre el subalgoritmo y el algoritmo principal se da exclusivamente a través de la lista de parámetros. Esta característica hace posible dividir grandes proyectos en piezas más pequeñas independientes. Cuando diferentes programadores están implicados, pueden trabajar
 independientemente.
@@ -360,16 +360,16 @@ COMENZAR
 	x <- 2
 	z <- 10
 	y <- fcn(x)
-	ESCRIBIR x, z, y
+	ESCRIBIR x z y
 FIN
 
-FUNCION fcn(l: numérico): numérico
+FUNCIÓN fcn(l: numérico): numérico
     VARIABLE GLOBAL numérica z
 	VARIABLE LOCAL numérica x
 	z <- 5
 	x <- 7
 	DEVOLVER l + 4
-FIN FUNCION
+FIN FUNCIÓN
 ```
 
 `z` es una variable global, es decir, puede ser accedida desde el algoritmo o desde la función. `x` es el nombre con el que se indican dos variables. Una es local al algoritmo principal y, por lo tanto, puede ser accedida sólo desde él. La otra es local a la función.
@@ -385,7 +385,7 @@ Cuando se realiza la ejecución de este algoritmo, se dan los siguientes pasos:
     - se devuelve el valor 2 + 4 = 6
 
 - de regreso en el algoritmo principal, `y` recibe el valor 6
-- se escribe 2, 5, 6, es decir, los valores de `x`, `z` e `y`
+- se escribe "2 5 6", es decir, los valores de `x`, `z` e `y`
 
 ### Transparencia referencial
 
