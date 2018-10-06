@@ -86,7 +86,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{05-10-2018}
+    \date{06-10-2018}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -2293,7 +2293,7 @@ correspondan en cantidad, tipo y orden con los argumentos formales de la
 definición de la función. Por ejemplo:
 
 \begin{verbatim}
-ALGORITMO: Hallar el máximo entre dos valores
+ALGORITMO: Ej 3. Hallar el máximo entre dos valores
 COMENZAR
     ESCRIBIR "El máximo entre 5 y 10 es " maximo(5, 10)
 FIN
@@ -2302,7 +2302,7 @@ FIN
 O más general:
 
 \begin{verbatim}
-ALGORITMO: Hallar el máximo entre dos valores
+ALGORITMO: Ej 3. Hallar el máximo entre dos valores
 COMENZAR
     VARIABLE numérica x, y
     LEER x, y
@@ -2389,7 +2389,7 @@ _________________________________
 En el siguiente ejemplo podemos identificar los argumentos reales
 \texttt{a} (con el valor 5), \texttt{b} (con el valor 2), \texttt{c} y
 \texttt{d} (sin valores asignados inicialmente). Cuando el procedimiento
-\texttt{proc1} es invocado, se establece una correspondencia con los
+\texttt{proced1} es invocado, se establece una correspondencia con los
 argumentos formales \texttt{n1}, \texttt{n2}, \texttt{n3} y \texttt{n4},
 respectivamente. \texttt{n1} toma el valor 5, \texttt{n2} toma el valor
 2 y el procedimiento le asigna los valores 7 a \texttt{n3} y 1 a
@@ -2404,17 +2404,17 @@ COMENZAR
     VARIABLE numérica a, b, c, d
     a <- 5
     b <- 2
-    proc1(a, b, c, d)
+    proced1(a, b, c, d)
     ESCRIBIR a b c d
 FIN
 
-PROCEDIMIENTO proc1(n1: numérico, n2: numérico, n3: numérico, n4: numérico)
+PROCEDIMIENTO proced1(n1: numérico, n2: numérico, n3: numérico, n4: numérico)
     n3 <- n1 + n2
     n4 <- n2 - 1
 FIN PROCEDIMIENTO
 \end{verbatim}
 
-En el siguiente ejemplo, el procedimiento \texttt{proc2} modifica las
+En el siguiente ejemplo, el procedimiento \texttt{proced2} modifica las
 variables que actúan como argumentos reales. Al ser invocado, se
 establece una correspondencia entre los argumentos reales \texttt{a}
 (con el valor 5) y \texttt{b} (con el valor 2), y los argumentos
@@ -2429,11 +2429,11 @@ COMENZAR
     VARIABLE numérica a, b
     a <- 5
     b <- 2
-    proc2(a, b)
+    proced2(a, b)
     ESCRIBIR a b
 FIN
 
-PROCEDIMIENTO proc2(n1: numérico, n2: numérico)
+PROCEDIMIENTO proced2(n1: numérico, n2: numérico)
     n1 <- n1 + n2
     n2 <- n2 - 1
 FIN PROCEDIMIENTO
@@ -2739,6 +2739,208 @@ El uso de variables globales permite escribir subalgoritmos que carecen
 de transparencia referencial. Si un subalgoritmo modifica alguna
 variable externa, se dice que produce \emph{efectos secundarios}, debe
 realizarse con precaución y generalmente es desaconsejable.
+
+\section{Código en IML de los ejemplos
+vistos}\label{codigo-en-iml-de-los-ejemplos-vistos}
+
+\begin{verbatim}
+/* Crear una librería en mi computadora */
+libname subalg "C:\direccion\hasta\una\carpeta";
+
+/* 
+Observaciones:
+- En su definción, las funciones deben hacer uso de la sentencia "return", 
+  los procedimientos no.
+- En su invocación, los procedimientos se corren usando run nombreProc(...); 
+  o call nombreProc(...); pero las funciones se corren directo sin usar call o run.
+- Cuando definimos los módulos, hay que decir dónde se guardarán (con "reset"). Yo los voy a
+  guardar dentro de la librería creada arriba "subalg", en un tipo especial de archivo
+  de SAS llamado "catálogo". Al catálogo le puedo poner cualquier nombre, en este caso, "ejemplos";
+- Después de crear el/los módulo/s, debo guardarlos. Puedo guardarlos todos juntos si están
+  dentro del mismo proc iml con store module = _all_ o uno por uno con store module = nombreDelModulo;
+- SAS IML usa PASAJE POR REFERENCIA!!!! Cuidado!!! Todo lo que se haga dentro del módulo 
+  modifican los respectivos objetos del programa principal.
+*/
+
+/* Definir todos los módulos (subalgoritmos) que usaré en un mismo proc */
+proc iml;
+
+    reset storage = subalg.ejemplos;
+
+    * Ej 2. Función factorial;
+    start factorial(n);
+        fact = 1;
+        do i = 1 to n;
+            fact = fact * i;
+        end;
+        return fact;
+    finish factorial;
+
+    * Ej 3. Función maximo;
+    start maximo(num1, num2);
+        if num1 >= num2 then return num1;
+        else return num2;
+    finish maximo;
+
+    * Ej 4. Procedimiento colocarTitulo;
+    start colocarTitulo(titulo);
+        print "=================================";
+        print titulo;
+        print "=================================";
+    finish colocarTitulo;
+    
+    * Ej 4. Procedimiento colocarLinea;
+    start colocarLinea;
+        print "_________________________________";
+    finish colocarLinea;
+
+    * Ej 5. Procedimiento proced1;
+    start proced1(n1, n2, n3, n4);
+        n3 = n1 + n2;
+        n4 = n2 - 1;
+    finish proced1;
+
+    * Ej 6. Procedimiento proced1;
+    start proced2(n1, n2);
+        n1 = n1 + n2;
+        n2 = n2 - 1;
+    finish proced2;
+
+    * Ej 7. Pasaje por referencia en una función;
+    start fun(x, y);
+        x = x + 1;
+        return x + y;
+    finish fun;
+
+    * Ej 8. Pasaje por referencia en un procedimiento;
+    start miProc(x, y);
+        x = x * 2;
+        y = x - y;
+    finish miProc;
+
+    * Ej 9. Variables globales;
+    start fcn(l) global(z);
+        z = 5;
+        x = 7;
+        return l + 4;
+    finish fcn;
+
+    store module = _all_;
+quit;
+
+/* Ej 1. Cálculo de números combinatorios (sin subalgoritmos) */
+proc iml;
+    n = 10;
+    k = 2;
+
+    fact1 = 1;
+    do i = 1 to n;
+        fact1 = fact1 * i;
+    end;
+
+    fact2 = 1;
+    do i = 1 to n - k;
+        fact2 = fact2 * i;
+    end;
+
+    fact3 = 1;
+    do i = 1 to k;
+        fact3 = fact3 * i;
+    end;
+
+    comb = fact1 / (fact2 * fact3);
+    print "El nro combinatorio de " n " tomado de " k " es " comb; 
+quit;
+
+/* Ej 2. Cálculo de números combinatorios (con subalgoritmos) */
+proc iml;
+    reset storage = subalg.ejemplos;
+    load module = factorial; * Esta línea no es necesaria;
+    n = 10;
+    k = 2;
+    comb = factorial(n) / (factorial(n - k) * factorial(k));
+    print "El nro combinatorio de " n " tomado de " k " es " comb; 
+quit;
+
+/* Ej 3. Hallar el máximo entre dos valores */
+proc iml;
+    reset storage = subalg.ejemplos;
+    a = 5;
+    b = 10;
+    c = 2;
+    d = -1;
+    print "El maximo entre " a " y " b " es " (maximo(a, b)); 
+    print "El maximo entre " b " y " c " es " (maximo(b, c)); 
+    print "El maximo entre " c " y " c " es " (maximo(c, c)); 
+    print "El maximo entre " d " y " c " es " (maximo(d, c)); 
+quit;
+
+/* Ej 4. Procedimientos para colocar títulos o líneas */
+* Se ve mejor en el output (sólo caracteres) que en el Results Viewer (ya tiene formato);
+proc iml;
+    reset storage = subalg.ejemplos;
+
+    * Cualquier cosa para mostrar;
+    a = shape(1:6, 2, 3);
+    b = shape(7:10, 2, 2);
+
+    run colocarTitulo("Matrices");
+    print a;
+    run colocarLinea;
+    print b;
+    run colocarLinea;
+    print a b;
+    run colocarTitulo("Matrices traspuestas");
+    print (a`);
+    run colocarLinea;
+    print (b`);
+quit;
+
+/* Ej 5. Procedimiento proced1 */
+proc iml;
+    reset storage = subalg.ejemplos;
+    a = 5;
+    b = 2;
+    run proced1(a, b, c, d);
+    print a b c d; 
+quit;
+
+/* Ej 6. Procedimiento proced2 */
+proc iml;
+    reset storage = subalg.ejemplos;
+    a = 5;
+    b = 2;
+    run proced2(a, b);
+    print a b; 
+quit;
+
+/* Ej 7. Pasaje por referencia en una función */
+proc iml;
+    reset storage = subalg.ejemplos;
+    a = 3;
+    b = 5;
+    c = fun(a, b - a);
+    print a b c; 
+quit;
+
+/* Ej 8. Pasaje por referencia en un procedimiento */
+proc iml;
+    reset storage = subalg.ejemplos;
+    a = 8;
+    b = 4;
+    run miProc(a, b);
+    print a b ; 
+quit;
+
+/* Ej 9. Variables globales */
+proc iml;
+    reset storage = subalg.ejemplos;
+    x = 2;
+    z = 10;
+    y = fcn(x);
+    print x z y; 
+quit;
+\end{verbatim}
 
 \bibliography{book.bib,packages.bib}
 
