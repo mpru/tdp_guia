@@ -200,7 +200,7 @@ _________________________________
 _________________________________
 ```
 
-En el siguiente ejemplo podemos identificar los argumentos reales `a` (con el valor 5), `b` (con el valor 2), `c` y `d` (sin valores asignados inicialmente). Cuando el procedimiento `proced1` es invocado, se establece una correspondencia con los argumentos formales `n1`, `n2`, `n3` y `n4`, respectivamente. `n1` toma el valor 5, `n2` toma el valor 2 y el procedimiento le asigna los valores 7 a `n3` y 1 a `n4`. Al finalizar, este procedimiento habrá dejado sin cambios a las variables `a` y `b`, mientras que le habrá asignado los valores 7 a `c` y 1 a `c`. Como resultado, el algoritmo escribe "5 2 7 1".
+En el siguiente ejemplo podemos identificar los argumentos reales `a` (con el valor 5), `b` (con el valor 2), `c` y `d` (sin valores asignados inicialmente). Cuando el procedimiento `proced1` es invocado, se establece una correspondencia con los argumentos formales `n1`, `n2`, `n3` y `n4`, respectivamente. `n1` toma el valor 5, `n2` toma el valor 2 y el procedimiento le asigna los valores 7 a `n3` y 1 a `n4`. Al finalizar, este procedimiento habrá dejado sin cambios a las variables `a` y `b`, mientras que le habrá asignado los valores 7 a `c` y 1 a `d`. Como resultado, el algoritmo escribe "5 2 7 1".
 
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
 ALGORITMO: Ejemplo 5
@@ -254,7 +254,7 @@ En general, se desalienta la reasignación de valor a un argumento pasado por va
 
 ### Pasaje por referencia
 
-En otras situaciones es deseable que el subalgoritmo pueda modificar las variables del algoritmo que se usen como argumentos. De esta manera se puede producir más de un resultado. De esto se encarga el **pasaje por referencia**. Si un parámetro se pasa por referencia, esta variable será empleada en el subalgoritmo como si fuera suya, es decir, las modificaciones que sufra dentro del algoritmo la modificarán permanentemente. Este sistema funciona de la siguiente forma:
+En otras situaciones es deseable que el subalgoritmo pueda modificar las variables del algoritmo que se usen como argumentos. De esta manera se puede producir más de un resultado. De esto se encarga el **pasaje por referencia**. Si un parámetro se pasa por referencia, esta variable será empleada en el subalgoritmo como si fuera suya, es decir, las modificaciones que sufra dentro del subalgoritmo la modificarán permanentemente. Este sistema funciona de la siguiente forma:
 
 1. Se seleccionan las variables usadas como argumentos reales.
 2. Se asocia cada variable con el argumento formal correspondiente.

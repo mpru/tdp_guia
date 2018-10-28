@@ -317,7 +317,7 @@ _________________________________
 _________________________________
 6
 _________________________________</code></pre>
-<p>En el siguiente ejemplo podemos identificar los argumentos reales <code>a</code> (con el valor 5), <code>b</code> (con el valor 2), <code>c</code> y <code>d</code> (sin valores asignados inicialmente). Cuando el procedimiento <code>proced1</code> es invocado, se establece una correspondencia con los argumentos formales <code>n1</code>, <code>n2</code>, <code>n3</code> y <code>n4</code>, respectivamente. <code>n1</code> toma el valor 5, <code>n2</code> toma el valor 2 y el procedimiento le asigna los valores 7 a <code>n3</code> y 1 a <code>n4</code>. Al finalizar, este procedimiento habrá dejado sin cambios a las variables <code>a</code> y <code>b</code>, mientras que le habrá asignado los valores 7 a <code>c</code> y 1 a <code>c</code>. Como resultado, el algoritmo escribe “5 2 7 1”.</p>
+<p>En el siguiente ejemplo podemos identificar los argumentos reales <code>a</code> (con el valor 5), <code>b</code> (con el valor 2), <code>c</code> y <code>d</code> (sin valores asignados inicialmente). Cuando el procedimiento <code>proced1</code> es invocado, se establece una correspondencia con los argumentos formales <code>n1</code>, <code>n2</code>, <code>n3</code> y <code>n4</code>, respectivamente. <code>n1</code> toma el valor 5, <code>n2</code> toma el valor 2 y el procedimiento le asigna los valores 7 a <code>n3</code> y 1 a <code>n4</code>. Al finalizar, este procedimiento habrá dejado sin cambios a las variables <code>a</code> y <code>b</code>, mientras que le habrá asignado los valores 7 a <code>c</code> y 1 a <code>d</code>. Como resultado, el algoritmo escribe “5 2 7 1”.</p>
 <pre class="text"><code>ALGORITMO: Ejemplo 5
 COMENZAR
     VARIABLE numérica a, b, c, d
@@ -362,7 +362,7 @@ FIN PROCEDIMIENTO</code></pre>
 </div>
 <div id="pasaje-por-referencia" class="section level3">
 <h3><span class="header-section-number">9.3.2</span> Pasaje por referencia</h3>
-<p>En otras situaciones es deseable que el subalgoritmo pueda modificar las variables del algoritmo que se usen como argumentos. De esta manera se puede producir más de un resultado. De esto se encarga el <strong>pasaje por referencia</strong>. Si un parámetro se pasa por referencia, esta variable será empleada en el subalgoritmo como si fuera suya, es decir, las modificaciones que sufra dentro del algoritmo la modificarán permanentemente. Este sistema funciona de la siguiente forma:</p>
+<p>En otras situaciones es deseable que el subalgoritmo pueda modificar las variables del algoritmo que se usen como argumentos. De esta manera se puede producir más de un resultado. De esto se encarga el <strong>pasaje por referencia</strong>. Si un parámetro se pasa por referencia, esta variable será empleada en el subalgoritmo como si fuera suya, es decir, las modificaciones que sufra dentro del subalgoritmo la modificarán permanentemente. Este sistema funciona de la siguiente forma:</p>
 <ol style="list-style-type: decimal">
 <li>Se seleccionan las variables usadas como argumentos reales.</li>
 <li>Se asocia cada variable con el argumento formal correspondiente.</li>

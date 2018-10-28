@@ -2,7 +2,7 @@
 title: "Taller de Programación"
 subtitle: "Guía para las clases"
 author: Mgs. Lic. Marcos Prunello
-date: "06-10-2018"
+date: "28-10-2018"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
