@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Taller de Programación</title>
-  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Elementos para la creación de algoritmos | Taller de Programación</title>
+  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Taller de Programación" />
+  <meta property="og:title" content="5 Elementos para la creación de algoritmos | Taller de Programación" />
   <meta property="og:type" content="book" />
   
   
@@ -17,24 +16,25 @@
   <meta name="github-repo" content="tdplest/guia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Taller de Programación" />
+  <meta name="twitter:title" content="5 Elementos para la creación de algoritmos | Taller de Programación" />
   
   <meta name="twitter:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
   
 
-<meta name="author" content="Mgs. Lic. Marcos Prunello">
+<meta name="author" content="Mgs. Lic. Marcos Prunello" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="primeros-pasos-en-sasiml.html">
 <link rel="next" href="estructuras-de-control.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -237,8 +237,10 @@ FIN</code></pre>
 <h2><span class="header-section-number">5.2</span> Objetos, constantes y variables</h2>
 <p>El procesador debe manipular distintas piezas de información que llamamos <strong>objetos</strong> y que componen al entorno. Según los valores que pueden representar, los objetos pueden ser de tipo:</p>
 <ul>
-<li><strong>Numérico</strong>: Representan valores escalares de forma numérica y permiten realizar operaciones aritméticas comunes. Ejemplo: 230, 2.</li>
-<li><strong>Caracter</strong>: Representan texto, no es posible hacer operaciones matemáticas con ellos y van entre comillas. Ejemplo: “hola”, “chau123”</li>
+<li><strong>Numérico</strong>: Representan valores escalares de forma numérica y permiten realizar
+operaciones aritméticas comunes. Ejemplo: 230, 2.</li>
+<li><strong>Caracter</strong>: Representan texto, no es posible hacer operaciones
+matemáticas con ellos y van entre comillas. Ejemplo: “hola”, “chau123”</li>
 <li><strong>Lógicos</strong>: Sólo pueden tener dos valores (<em>verdadero</em> o <em>falso</em>), ya que representan el resultado de la comparación entre otros objetos.</li>
 </ul>
 <p>De manera general, al nombre de un objeto se le dice <strong>identificador</strong>, el cual es una secuencia de caracteres alfanuméricos que sirve para identificarlo a lo largo del algoritmo. Nombrar los objetos hace posible referirse a los mismos, lo cual es esencial para cualquier tipo de procesamiento simbólico.</p>
@@ -246,7 +248,7 @@ FIN</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:cajas"></span>
 <img src="images/09_cajas.JPG" alt="Las variables A y B contienen a los valores 5 y 2 respectivamente." width="50%" />
 <p class="caption">
-Figure 5.1: Las variables A y B contienen a los valores 5 y 2 respectivamente.
+Figura 5.1: Las variables A y B contienen a los valores 5 y 2 respectivamente.
 </p>
 </div>
 <p>Si un objeto tiene siempre necesariamente un valor fijo, se dice que es una <strong>constante</strong>. El valor es siempre el mismo para cualquier ejecución del programa, es decir, no puede cambiar de una ejecución a otra. Son ejemplos de constantes el número de meses del año, las constantes matemáticas tales como el número π, los factores de conversión de unidades de medida, etc. Las constantes pueden usarse literalmente, es decir, usando explícitamente el valor, o también a través de un objeto que asocie un identificador al valor constante (por ejemplo, asociar el nombre “pi” a la constante 3.14159265).</p>
@@ -285,7 +287,7 @@ quit;</code></pre>
 <h3><span class="header-section-number">5.3.1</span> Operadores aritméticos</h3>
 <p>Permiten realizar operaciones matemáticas con objetos de tipo numérico.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-12">Table 5.1: </span>Signos para operadores aritméticos que se pueden utilizar en el pseudocódigo.</caption>
+<caption><span id="tab:unnamed-chunk-12">Tabla 5.1: </span>Signos para operadores aritméticos que se pueden utilizar en el pseudocódigo.</caption>
 <thead>
 <tr class="header">
 <th align="left">Signo</th>
@@ -346,7 +348,7 @@ quit;</code></pre>
 <h3><span class="header-section-number">5.3.2</span> Operadores relacionales</h3>
 <p>Sirven para comparar dos valores de cualquier tipo y dan como resultado un valor lógico: <em>verdadero</em> (“V”) o <em>falso</em> (“F”).</p>
 <table>
-<caption><span id="tab:unnamed-chunk-14">Table 5.2: </span>Signos para operadores lógicos que se pueden utilizar en el pseudocódigo.</caption>
+<caption><span id="tab:unnamed-chunk-14">Tabla 5.2: </span>Signos para operadores lógicos que se pueden utilizar en el pseudocódigo.</caption>
 <thead>
 <tr class="header">
 <th align="left">Signo</th>
@@ -382,7 +384,7 @@ quit;</code></pre>
 </table>
 <p>Ejemplos:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-15">Table 5.3: </span>Ejemplos de la utilización de operadores relacionales.</caption>
+<caption><span id="tab:unnamed-chunk-15">Tabla 5.3: </span>Ejemplos de la utilización de operadores relacionales.</caption>
 <thead>
 <tr class="header">
 <th align="left">Operación relacional</th>
@@ -420,7 +422,7 @@ quit;</code></pre>
 </ul>
 <p>Las <strong>tablas de la verdad</strong> se utilizan para mostrar el resultado de los distintos tipos de operaciones lógicas:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-16">Table 5.4: </span>Tabla de la verdad.</caption>
+<caption><span id="tab:unnamed-chunk-16">Tabla 5.4: </span>Tabla de la verdad.</caption>
 <thead>
 <tr class="header">
 <th align="left">Valor1</th>
@@ -566,7 +568,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -578,6 +580,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/tdplest/guia/edit/master/04-Elementos.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["guia-tdp.pdf", "guia-tdp.epub"],
 "toc": {
@@ -592,8 +598,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

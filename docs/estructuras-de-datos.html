@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Taller de Programación</title>
-  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Estructuras de Datos | Taller de Programación</title>
+  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Taller de Programación" />
+  <meta property="og:title" content="7 Estructuras de Datos | Taller de Programación" />
   <meta property="og:type" content="book" />
   
   
@@ -17,24 +16,25 @@
   <meta name="github-repo" content="tdplest/guia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Taller de Programación" />
+  <meta name="twitter:title" content="7 Estructuras de Datos | Taller de Programación" />
   
   <meta name="twitter:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
   
 
-<meta name="author" content="Mgs. Lic. Marcos Prunello">
+<meta name="author" content="Mgs. Lic. Marcos Prunello" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="estructuras-de-control.html">
 <link rel="next" href="archivos.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -180,21 +180,21 @@
 <div class="figure" style="text-align: center"><span id="fig:vector1"></span>
 <img src="images/10_vector1.jpg" alt="Ejemplo vector numérico" width="80%" />
 <p class="caption">
-Figure 7.1: Ejemplo vector numérico
+Figura 7.1: Ejemplo vector numérico
 </p>
 </div>
 <p>Un ejemplo de un vector de tipo caracter llamado <em>vector2</em> con 4 elementos puede ser:</p>
 <div class="figure" style="text-align: center"><span id="fig:vector2"></span>
 <img src="images/11_vector2.jpg" alt="Ejemplo vector caracter" width="80%" />
 <p class="caption">
-Figure 7.2: Ejemplo vector caracter
+Figura 7.2: Ejemplo vector caracter
 </p>
 </div>
 <p>Los elementos en cada uno de estos vectores ocupan una determinada posición y pueden ser accedidos a través del uso de <strong>índices</strong>, expresados con corchetes al lado del nombre del vector. Por ejemplo, la acción <code>ESCRIBIR vector1[3]</code> nos mostrará el valor 2.71.</p>
 <div class="figure" style="text-align: center"><span id="fig:vector1bis"></span>
 <img src="images/12_vector1.jpg" alt="Ejemplo vector numérico con posiciones indexadas" width="80%" />
 <p class="caption">
-Figure 7.3: Ejemplo vector numérico con posiciones indexadas
+Figura 7.3: Ejemplo vector numérico con posiciones indexadas
 </p>
 </div>
 <p>Como todas las variables que empleamos en nuestros algoritmos, los vectores deben ser declarados en el mismo y su tamaño debe ser especificado al comenzar. Esto se realiza a través de la acción <code>DIMENSIONAR</code>. Por ejemplo, el <em>vector1</em> visto anteriomente puede ser creado de la siguiente forma:</p>
@@ -231,7 +231,7 @@ FIN PARA</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:matriz1"></span>
 <img src="images/13_matriz1.jpg" alt="Ejemplo: matriz1" width="80%" />
 <p class="caption">
-Figure 7.4: Ejemplo: matriz1
+Figura 7.4: Ejemplo: matriz1
 </p>
 </div>
 <p>En el ejemplo anterior los valores fueron asignados recorriendo la matriz por filas como lo indican las flechas. Otra posibilidad es recorrer la matriz por columna en primer instancia, para lo cual la estructura <em>PARA… FIN PARA</em> que representa a los índices de las columnas debe ser la externa y la que representa a los índices de columnas, la interna:</p>
@@ -244,7 +244,7 @@ FIN PARA</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:matriz1bis"></span>
 <img src="images/13_matriz1bis.jpg" alt="Ejemplo: matriz1 recorrida por columnas" width="80%" />
 <p class="caption">
-Figure 7.5: Ejemplo: matriz1 recorrida por columnas
+Figura 7.5: Ejemplo: matriz1 recorrida por columnas
 </p>
 </div>
 </div>
@@ -260,33 +260,33 @@ Figure 7.5: Ejemplo: matriz1 recorrida por columnas
 <div class="figure" style="text-align: center"><span id="fig:inv1"></span>
 <img src="images/14_invertir1.jpg" alt="Vector v original" width="80%" />
 <p class="caption">
-Figure 7.6: Vector v original
+Figura 7.6: Vector v original
 </p>
 </div>
 <p>Queremos modificarlo para obtener:</p>
 <div class="figure" style="text-align: center"><span id="fig:inv2"></span>
 <img src="images/15_invertir1.jpg" alt="Vector v reordenado" width="80%" />
 <p class="caption">
-Figure 7.7: Vector v reordenado
+Figura 7.7: Vector v reordenado
 </p>
 </div>
 <p>Si bien podemos pensar en distintas formas para resolver este problema, probablemente la más sencilla requiere que intercambiemos de a dos los valores en ciertas posiciones del vector, por ejemplo, el primero y el último. Para esto podemos emplear una variable auxiliar para guardar el valor de alguna de las celdas temporariamente (por eso lo vamos a llamar <code>tmp</code>) y poder realizar el intercambio:</p>
 <div class="figure" style="text-align: center"><span id="fig:inv3"></span>
 <img src="images/16_invertir.jpg" alt="Vector v reordenado" width="80%" />
 <p class="caption">
-Figure 7.8: Vector v reordenado
+Figura 7.8: Vector v reordenado
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:inv4"></span>
 <img src="images/17_invertir.jpg" alt="Vector v reordenado" width="80%" />
 <p class="caption">
-Figure 7.9: Vector v reordenado
+Figura 7.9: Vector v reordenado
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:inv5"></span>
 <img src="images/18_invertir.jpg" alt="Vector v reordenado" width="80%" />
 <p class="caption">
-Figure 7.10: Vector v reordenado
+Figura 7.10: Vector v reordenado
 </p>
 </div>
 <p>Ahora sólo resta realizar el mismo procedimiento para los valores de las posiciones 2 y 4. Como el número de elementos en el vector es impar, el valor en la posición central queda en su lugar. Podemos definir el siguiente algorimo para resolver este problema de manera general:</p>
@@ -358,7 +358,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -370,6 +370,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/tdplest/guia/edit/master/06-EstructurasDeDatos.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["guia-tdp.pdf", "guia-tdp.epub"],
 "toc": {
@@ -384,8 +388,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

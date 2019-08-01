@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Taller de Programación</title>
-  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Problemas, algoritmos y lenguajes de programación | Taller de Programación</title>
+  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Taller de Programación" />
+  <meta property="og:title" content="3 Problemas, algoritmos y lenguajes de programación | Taller de Programación" />
   <meta property="og:type" content="book" />
   
   
@@ -17,24 +16,25 @@
   <meta name="github-repo" content="tdplest/guia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Taller de Programación" />
+  <meta name="twitter:title" content="3 Problemas, algoritmos y lenguajes de programación | Taller de Programación" />
   
   <meta name="twitter:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
   
 
-<meta name="author" content="Mgs. Lic. Marcos Prunello">
+<meta name="author" content="Mgs. Lic. Marcos Prunello" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="introduccion.html">
 <link rel="next" href="primeros-pasos-en-sasiml.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -220,11 +220,12 @@ FIN</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:lenguajes"></span>
 <img src="images/07_lenguajes.jpg" alt="Distintos lenguajes de programación y sus logos." width="50%" />
 <p class="caption">
-Figure 3.1: Distintos lenguajes de programación y sus logos.
+Figura 3.1: Distintos lenguajes de programación y sus logos.
 </p>
 </div>
 <p>Cada una de las acciones que componen al algoritmo son codificadas con una o varias <strong>instrucciones</strong> o <strong>sentencias</strong>, expresadas en el lenguaje de programación elegido, y el conjunto de todas ellas constituye un <strong>programa</strong>. El programa se guarda en un <strong>archivo</strong> con un nombre generalmente dividido en dos partes por un punto, por ejemplo: <code>miPrimerPrograma.sas</code>. La primera parte es la <strong>raíz</strong> del nombre con la cual podemos describir el contenido del archivo. La segunda parte es indicativa del uso del archivo, por ejemplo, <code>.sas</code> indica que contiene un programa escrito en el lenguaje de SAS. El proceso general de ingresar o modificar el contenido de un archivo se denomina <strong>edición</strong>.</p>
-<p>Existen distintos tipos de lenguajes de programación que cumplen la función de intermediarios entre el desarrollador y el hardware. Simplificando esta gran variedad, podemos decir que hay dos grupos generales. Por un lado, se encuentran los lenguajes más próximos a la arquitectura del hardware, denominados <strong>lenguajes de bajo nivel</strong>, que son más rígidos y complicados de entender para nosotros. Por otro lado, están aquellos más cercanos a los programadores y usuarios, denominados <strong>lenguajes de alto nivel</strong>, diseñados para que sea fácil para los humanos expresar los algoritmos sin necesidad de entender en detalle cómo hace exactamente el hardware para ejecutarlos. El lenguaje que utilizaremos en este taller, IML, es de alto nivel.</p>
+<p>Existen distintos tipos de lenguajes de programación que cumplen la función
+de intermediarios entre el desarrollador y el hardware. Simplificando esta gran variedad, podemos decir que hay dos grupos generales. Por un lado, se encuentran los lenguajes más próximos a la arquitectura del hardware, denominados <strong>lenguajes de bajo nivel</strong>, que son más rígidos y complicados de entender para nosotros. Por otro lado, están aquellos más cercanos a los programadores y usuarios, denominados <strong>lenguajes de alto nivel</strong>, diseñados para que sea fácil para los humanos expresar los algoritmos sin necesidad de entender en detalle cómo hace exactamente el hardware para ejecutarlos. El lenguaje que utilizaremos en este taller, IML, es de alto nivel.</p>
 <p>Para que un programa escrito en un lenguaje de alto nivel pueda ser ejecutado, se necesita de <strong>compiladores</strong> o <strong>intérpretes</strong> que básicamente lo traducen al lenguaje de bajo nivel que es apropiado para el hardware que se dispone. Un <em>compilador</em> toma un programa escrito en lenguaje de alto nivel y produce como resultado un programa escrito en otro lenguaje, que luego puede ser ejecutado, mientras que un <em>intérprete</em> traduce y ejecuta simultáneamente.</p>
 </div>
 <div id="errores-de-programacion-y-depuracion" class="section level2">
@@ -236,7 +237,7 @@ Figure 3.1: Distintos lenguajes de programación y sus logos.
 <div class="figure" style="text-align: center"><span id="fig:bug"></span>
 <img src="images/08_bug.jpg" alt="Encontrando un &quot;bug&quot; en un programa." width="50%" />
 <p class="caption">
-Figure 3.2: Encontrando un “bug” en un programa.
+Figura 3.2: Encontrando un “bug” en un programa.
 </p>
 </div>
 </div>
@@ -281,7 +282,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -293,6 +294,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/tdplest/guia/edit/master/02-ProblAlgLengUTF8.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["guia-tdp.pdf", "guia-tdp.epub"],
 "toc": {
@@ -307,8 +312,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

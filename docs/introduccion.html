@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Taller de Programación</title>
-  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Introducción | Taller de Programación</title>
+  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Taller de Programación" />
+  <meta property="og:title" content="2 Introducción | Taller de Programación" />
   <meta property="og:type" content="book" />
   
   
@@ -17,24 +16,25 @@
   <meta name="github-repo" content="tdplest/guia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Taller de Programación" />
+  <meta name="twitter:title" content="2 Introducción | Taller de Programación" />
   
   <meta name="twitter:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
   
 
-<meta name="author" content="Mgs. Lic. Marcos Prunello">
+<meta name="author" content="Mgs. Lic. Marcos Prunello" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="index.html">
 <link rel="next" href="problemas-algoritmos-y-lenguajes-de-programacion.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -174,28 +174,28 @@
 <div class="figure" style="text-align: center"><span id="fig:calculadora"></span>
 <img src="images/01_calculadora.JPG" alt="Réplica de la máquina calculadora de Schickard." width="50%" />
 <p class="caption">
-Figure 2.1: Réplica de la máquina calculadora de Schickard.
+Figura 2.1: Réplica de la máquina calculadora de Schickard.
 </p>
 </div>
 <p>Durante la Revolución Industrial, el rápido crecimiento de la tecnología hizo posible considerar nuevas formas para realizar cálculos matemáticos, tomando provecho de que las máquinas de vapor podían proveer energía para hacer funcionar nuevos mecanismos. En este tiempo, se destacó el matemático británico Charles Babbage, quien diseñó dos tipos de máquinas calculadoras, una para crear tablas de funciones matemáticas (llamada <em>máquina diferencial</em>), y otra que concibió como de uso general, capaz de realizar distintas funciones de acuerdo a cómo fuese “programada” (<em>máquina analítica</em>). La operación de esta máquina era controlada por un patrón de perforaciones hechas sobre una tarjeta que la misma podía leer. Al cambiar el patrón de las perforaciones, se podía cambiar el comportamiento de la máquina para que resuelva diferentes tipos de cálculos. Si bien no llegó a concretar sus diseños en vida y fueron finalizados por otras personas, sentó bases importantes en la historia de la computación.</p>
 <div class="figure" style="text-align: center"><span id="fig:maqanalitica"></span>
 <img src="images/02_maqanalitica.jpg" alt="La máquina analítica de Babbage." width="50%" />
 <p class="caption">
-Figure 2.2: La máquina analítica de Babbage.
+Figura 2.2: La máquina analítica de Babbage.
 </p>
 </div>
 <p>En 1890, Herman Hollerith utilizó tarjetas perforadas para automatizar la tabulación de datos para el censo de Estados Unidos, y con el fin de comercializar esta tecnología fundó una compañía que terminaría siendo la famosa International Business Machine (IBM). Sin embargo, la visión de Babbage de una computadora programable no se hizo realidad hasta los años 1940, cuando el advenimiento de la electrónica hizo posible superar a los dispositivos mecánicos existentes. El primer prototipo de una computadora electrónica fue armado por John Atanasoff y Clifford Barry en Iowa State College en 1939, que contaba con 300 tubos de vacíos, componentes electrónicos que pueden modificar una señal eléctrica mediante el control del movimiento de los electrones produciendo una respuesta.</p>
 <div class="figure" style="text-align: center"><span id="fig:berry"></span>
 <img src="images/03_berry.jpg" alt="Réplica de la máquina calculadora de Schickard." width="50%" />
 <p class="caption">
-Figure 2.3: Réplica de la máquina calculadora de Schickard.
+Figura 2.3: Réplica de la máquina calculadora de Schickard.
 </p>
 </div>
 <p>La primera computadora electrónica a gran escala fue la ENIAC, <em>Electronic Numerical Integrator and Computer</em>, completada por Presper Eckert y John Mauchly en Pennsylvania. Tenía más de 18000 tubos de vacío, ocupaba una sala de 9x15 metros y era controlada conectando ciertos cables en un panel, pero poder programarla resultó ser más difícil de lo que los inventores esperaban. Sin embargo, un gran avance se produjo en 1946, cuando John von Neumann en Princeton propuso que los programas, es decir, las instrucciones para que la máquina opere, y los datos necesarios podrían ser representados y guardados en una memoria interna.</p>
 <div class="figure" style="text-align: center"><span id="fig:eniac"></span>
 <img src="images/04_eniac.jpg" alt="La ENIAC en Filadelfia, Pennsylvania." width="50%" />
 <p class="caption">
-Figure 2.4: La ENIAC en Filadelfia, Pennsylvania.
+Figura 2.4: La ENIAC en Filadelfia, Pennsylvania.
 </p>
 </div>
 <p>Desde entonces, la computación ha evolucionado muy rápidamente, con la introducción de nuevos sistemas y conceptos. Algunos historiadores dividen al desarrollo de las computadoras modernas en cuatro generaciones:</p>
@@ -208,7 +208,7 @@ Figure 2.4: La ENIAC en Filadelfia, Pennsylvania.
 <div class="figure" style="text-align: center"><span id="fig:evolucion"></span>
 <img src="images/05_tubovacio_transistor_chip.jpg" alt="De derecha a izquierda: un tubo de vacío, un transistor y un chip." width="50%" />
 <p class="caption">
-Figure 2.5: De derecha a izquierda: un tubo de vacío, un transistor y un chip.
+Figura 2.5: De derecha a izquierda: un tubo de vacío, un transistor y un chip.
 </p>
 </div>
 </div>
@@ -218,7 +218,7 @@ Figure 2.5: De derecha a izquierda: un tubo de vacío, un transistor y un chip.
 <div class="figure" style="text-align: center"><span id="fig:hardvssoft"></span>
 <img src="images/06_hardsoft.jpg" alt="Representación de la diferencia entre hardware y software." width="50%" />
 <p class="caption">
-Figure 2.6: Representación de la diferencia entre hardware y software.
+Figura 2.6: Representación de la diferencia entre hardware y software.
 </p>
 </div>
 <p>A diferencia del hardware, el software es una entidad abstracta, intangible. Se trata de una secuencia de pasos simples y operaciones, especificadas en un lenguaje que el hardware puede interpretar. En nuestro <strong>Taller de Programación</strong> nos concentraremos en el diseño de la solución de un problema y cómo transmitírsela a la computadora para que la misma pueda ejecutarla.</p>
@@ -251,7 +251,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -263,6 +263,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/tdplest/guia/edit/master/01-intro.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["guia-tdp.pdf", "guia-tdp.epub"],
 "toc": {
@@ -277,8 +281,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
