@@ -252,7 +252,7 @@ Ejemplo: expresar con símbolos la expresión "x no es igual a 2 ni a 3".
 Expresiones correctas:
 
 ```{r, tidy=FALSE, eval=FALSE, highlight=FALSE, echo=T}
-x ^> 2 Y x ^> 3
+x ^= 2 Y x ^= 3
 NO(x = 2 O x = 3)
 ```
 

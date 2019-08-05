@@ -20,7 +20,7 @@ SI <condición> ENTONCES
 FIN SI
 ```
 
-La palabra `SI` indica el comando de comparación, `<condición>` indica la condición a evaluar y `Acción/es` son las instrucciones que se realizarán sólo si se cumple la condición. Si la condición no se verifica, no se ejecuta ninguna acción y el algorimo sigue su estructura secuencial a continuación del `FIN SI`.
+La palabra `SI` indica el comando de comparación, `<condición>` indica la condición a evaluar y `Acción/es` son las instrucciones que se realizarán sólo si se cumple la condición. Si la condición no se verifica, no se ejecuta ninguna acción y el algoritmo sigue su estructura secuencial a continuación del `FIN SI`.
 
 En el siguiente ejemplo utilizaremos esta estructura para determinar si una persona es mayor de edad o no.
 
