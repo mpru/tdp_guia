@@ -21,7 +21,6 @@
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
             pdftitle={Taller de Programación},
@@ -86,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{31-07-2019}
+    \date{14-09-2019}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -1545,6 +1544,127 @@ Al escribir los algoritmos en pseudo-código, se puede hacer uso de las siguient
 \item
   \texttt{FINDE\ (nombre\ del\ archivo)}: es la función lógica que devuelve el valor \texttt{FALSO} mientras resten más registros por leer en el archivo y el valor \texttt{VERDADERO} cuando se llega al final del archivo y ya no quedan más registros por leer.
 \end{itemize}
+
+\hypertarget{ejemplo-lectura-de-un-archivo}{%
+\subsection{Ejemplo: lectura de un archivo}\label{ejemplo-lectura-de-un-archivo}}
+
+Siendo \texttt{nombreArchivo} el nombre del archivo que se desea leer, compuesto por \texttt{m} campos llamados \texttt{campo1}, \texttt{campo2}, \ldots{}, \texttt{campom}, entonces, el pseudocódigo necesario para leer el archivo es:
+
+\begin{verbatim}
+ABRIR(nombreArchivo) secuencial, de entrada
+MIENTRAS FINDE(nombreArchivo) = FALSO ENTONCES
+    LEER(nombreArchivo) campo1, campo2, ..., campom
+    
+    ... realizar operaciones con las variables campo1, campo2, ..., campom...
+    
+FIN MIENTRAS
+CERRAR(nombreArchivo)
+\end{verbatim}
+
+En IML, podemos seguir los siguientes pasos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Haciendo uso de un \texttt{proc\ import}, se importa el archivo en la librería temporal \texttt{Work} (podría guardarse en otra), creando un dataset cuyo nombre se indica en \texttt{out} (en este caso, \texttt{nombreDataset}):
+\end{enumerate}
+
+\begin{verbatim}
+* Si se trata de un archivo de texto;
+proc import out = nombreDataset
+            datafile = "C:\direccion\hasta\la\carpeta\nombreArchivo.txt"
+            dbms = TAB REPLACE;
+run;
+            
+* Si se trata de un archivo de Excel;
+proc import out = nombreDataset
+            datafile = "C:\direccion\hasta\la\carpeta\nombreArchivo.txt"
+            dbms = EXCEL REPLACE;
+run;
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Dentro del \texttt{proc\ iml}, leer línea por línea los registros del data set que hemos creado (en este ejemplo, \texttt{nombreDataset}) a través de un \texttt{do\ data;}:
+\end{enumerate}
+
+\begin{verbatim}
+proc iml;
+
+    ...
+
+    use nombreDataset;
+    do data;
+    
+        * Se lee de a una línea (registro) por vez, los campos del archivo son usados como
+            variables que tienen los respectivos valores para la línea en cuestión;
+        
+       ... realizar operaciones con los valores de cada registro del archivo...
+            
+    end;
+    close nombreDataset;
+
+    ...
+
+quit;
+\end{verbatim}
+
+\hypertarget{ejemplo-escritura-de-un-archivo}{%
+\subsection{Ejemplo: escritura de un archivo}\label{ejemplo-escritura-de-un-archivo}}
+
+Supongamos que la información que se desea guardar en un nuevo archivo se encuentra en una matriz llamada \texttt{tabla}, que tiene \texttt{n} filas correspondientes a \texttt{n} registros y \texttt{m} columnas referidos a \texttt{m} campos llamados \texttt{campo1}, \texttt{campo2}, \ldots{}, \texttt{campom}. Entonces, el pseudocódigo necesario para crear y escribir el nuevo archivo es:
+
+\begin{verbatim}
+CREAR(nombreArchivo)
+ABRIR(nombreArchivo) secuencial, de salida
+PARA i DESDE 1 HASTA n HACER
+    campo1 <- tabla[i, 1]
+    campo2 <- tabla[i, 2]
+    ...
+    campom <- tabla[i, m]
+    ESCRIBIR(nombreArchivo) campo1, campo2, ..., campom
+FIN PARA
+CERRRAR(nombreArchivo)
+\end{verbatim}
+
+En IML, a partir de la matriz que tiene la información que se desea guardar en un archivo, se deben seguir dos pasos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Dentro del mismo \texttt{proc\ iml}, crear un dataset de SAS a partir de la matriz. En este ejemplo, la matriz se llama \texttt{tabla}, el nuevo dataset \texttt{datos} y se guarda en la librería temporal \texttt{Work} (podría guardarse en otra):
+\end{enumerate}
+
+\begin{verbatim}
+proc iml;
+    
+    ... todo el código necesario ...
+
+    create datos from tabla[colname = ("campo1" || "campo2" || ... || "campom")];
+    append from tabla;
+    close datos;
+quit;
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Haciendo uso de un \texttt{proc\ export}, se exporta el dataset desde la librería Work hasta una carpeta de la computadora, en este ejemplo, como archivo de texto:
+\end{enumerate}
+
+\begin{verbatim}
+proc export data = datos
+            outfile = "C:\direccion\hasta\la\carpeta\deseada\nombreArchivo.txt" 
+            dbms = TAB REPLACE;
+run;
+\end{verbatim}
 
 \hypertarget{archivos-de-texto}{%
 \section{Archivos de texto}\label{archivos-de-texto}}

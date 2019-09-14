@@ -78,6 +78,104 @@ Al escribir los algoritmos en pseudo-código, se puede hacer uso de las siguient
 - Las tres acciones de `LEER` anteriores tienen su acción análoga de `ESCRIBIR`, para modificar o añadir registros al archivo.
 - `FINDE (nombre del archivo)`: es la función lógica que devuelve el valor `FALSO` mientras resten más registros por leer en el archivo y el valor `VERDADERO` cuando se llega al final del archivo y ya no quedan más registros por leer.
 
+### Ejemplo: lectura de un archivo
+
+Siendo `nombreArchivo` el nombre del archivo que se desea leer, compuesto por `m` campos llamados `campo1`, `campo2`, ..., `campom`, entonces, el pseudocódigo necesario para leer el archivo es:
+
+```{r, tidy=T, eval=FALSE, highlight=FALSE, echo=TRUE}
+ABRIR(nombreArchivo) secuencial, de entrada
+MIENTRAS FINDE(nombreArchivo) = FALSO ENTONCES
+    LEER(nombreArchivo) campo1, campo2, ..., campom
+    
+    ... realizar operaciones con las variables campo1, campo2, ..., campom...
+    
+FIN MIENTRAS
+CERRAR(nombreArchivo)
+```
+
+En IML, podemos seguir los siguientes pasos:
+
+1. Haciendo uso de un `proc import`, se importa el archivo en la librería temporal `Work` (podría guardarse en otra), creando un dataset cuyo nombre se indica en `out` (en este caso, `nombreDataset`):
+
+```{r, tidy=T, eval=FALSE, highlight=FALSE, echo=TRUE}
+* Si se trata de un archivo de texto;
+proc import out = nombreDataset
+            datafile = "C:\direccion\hasta\la\carpeta\nombreArchivo.txt"
+            dbms = TAB REPLACE;
+run;
+            
+* Si se trata de un archivo de Excel;
+proc import out = nombreDataset
+            datafile = "C:\direccion\hasta\la\carpeta\nombreArchivo.txt"
+            dbms = EXCEL REPLACE;
+run;
+```
+
+2. Dentro del `proc iml`, leer línea por línea los registros del data set que hemos creado (en este ejemplo, `nombreDataset`) a través de un `do data;`:
+
+```{r, tidy=T, eval=FALSE, highlight=FALSE, echo=TRUE}
+proc iml;
+
+    ...
+
+	use nombreDataset;
+	do data;
+	
+        * Se lee de a una línea (registro) por vez, los campos del archivo son usados como
+	        variables que tienen los respectivos valores para la línea en cuestión;
+	    
+	   ... realizar operaciones con los valores de cada registro del archivo...
+	        
+	end;
+	close nombreDataset;
+
+    ...
+
+quit;
+```
+
+
+### Ejemplo: escritura de un archivo
+
+Supongamos que la información que se desea guardar en un nuevo archivo se encuentra en una matriz llamada `tabla`, que tiene `n` filas correspondientes a `n` registros y `m` columnas referidos a `m` campos llamados `campo1`, `campo2`, ..., `campom`. Entonces, el pseudocódigo necesario para crear y escribir el nuevo archivo es:
+
+```{r, tidy=T, eval=FALSE, highlight=FALSE, echo=TRUE}
+CREAR(nombreArchivo)
+ABRIR(nombreArchivo) secuencial, de salida
+PARA i DESDE 1 HASTA n HACER
+	campo1 <- tabla[i, 1]
+	campo2 <- tabla[i, 2]
+	...
+	campom <- tabla[i, m]
+	ESCRIBIR(nombreArchivo) campo1, campo2, ..., campom
+FIN PARA
+CERRRAR(nombreArchivo)
+```
+
+En IML, a partir de la matriz que tiene la información que se desea guardar en un archivo, se deben seguir dos pasos:
+
+1. Dentro del mismo `proc iml`, crear un dataset de SAS a partir de la matriz. En este ejemplo, la matriz se llama `tabla`, el nuevo dataset `datos` y se guarda en la librería temporal `Work` (podría guardarse en otra):
+
+```{r, tidy=T, eval=FALSE, highlight=FALSE, echo=TRUE}
+proc iml;
+    
+    ... todo el código necesario ...
+
+	create datos from tabla[colname = ("campo1" || "campo2" || ... || "campom")];
+	append from tabla;
+	close datos;
+quit;
+```
+
+2. Haciendo uso de un `proc export`, se exporta el dataset desde la librería Work hasta una carpeta de la computadora, en este ejemplo, como archivo de texto:
+
+```{r, tidy=T, eval=FALSE, highlight=FALSE, echo=TRUE}
+proc export data = datos
+            outfile = "C:\direccion\hasta\la\carpeta\deseada\nombreArchivo.txt" 
+            dbms = TAB REPLACE;
+run;
+```
+
 ## Archivos de texto
 
 Archivos como el del ejemplo de los pasajeros suelen ser guardados como **archivos de texto**. Un **archivo de texto** (también conocido como *texto llano* o *texto simple*), es un archivo informático que contiene únicamente texto formado por una secuencia ordenada de caracteres. El texto almacenado en este tipo de archivo carece de cualquier tipo de formato tipográfico (negrita, cursiva, colores, subrayado, fuente, etc.), lo cual permite que una gran variedad de programas pueda leer y editar el contenido.
