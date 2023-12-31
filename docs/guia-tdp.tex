@@ -1,37 +1,89 @@
-\documentclass[]{book}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
-            pdftitle={Taller de Programación},
-            pdfauthor={Mgs. Lic. Marcos Prunello},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{apalike}
-\usepackage{longtable,booktabs}
-\usepackage{graphicx,grffile}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -40,53 +92,14 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\providecommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-
-  \title{Taller de Programación}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-  \subtitle{Guía para las clases}
-  \author{Mgs. Lic. Marcos Prunello}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-      \predate{\centering\large\emph}
-  \postdate{\par}
-    \date{14-09-2019}
-
 \usepackage{booktabs}
 \usepackage{amsthm}
 \usepackage{amssymb}
@@ -100,6 +113,31 @@
 \usepackage[utf8]{inputenc}
 \spanishdecimal{.}
 %\renewcommand{\contentsname}{Contenido}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+\nocite{xie2015, casale2012, roberts2008, erre2017, somolinos2010}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Introducción a la Programación con SAS IML},
+  pdfauthor={Mgs. Lic. Marcos Prunello},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Introducción a la Programación con SAS IML}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Guía para las clases}
+\author{Mgs. Lic. Marcos Prunello}
+\date{Última edición: 14-09-2019}
 
 \begin{document}
 \maketitle
@@ -111,7 +149,7 @@
 \hypertarget{bienvenidos-al-taller}{%
 \chapter{Bienvenidos al Taller}\label{bienvenidos-al-taller}}
 
-La presente es una breve guía que resume los conceptos más importantes a desarrollar en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario. La misma irá siendo revisada a lo largo del cuatrimestre y no está exenta de presentar errores o expresar ideas que puedan ser mejoradas. ¡Esperamos que juntos podamos enriquecerla al dar nuestros primeros pasos en la programación!
+La presente es una breve guía que resume los conceptos más importantes a desarrollar en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario, para las cursadas de 2017 a 2019. La misma no está exenta de presentar errores o expresar ideas que puedan ser mejoradas.
 
 \hypertarget{horario-y-lugar-de-cursado}{%
 \section*{Horario y lugar de cursado}\label{horario-y-lugar-de-cursado}}
@@ -133,8 +171,8 @@ El material de estudio está compuesto por esta guía, prácticas y algunas pres
 
 Todo el material disponible (guía, diapositivas, prácticas, publicación online) fue creado utilizando el lenguaje de programación estadística \texttt{R} y las herramientas del entorno de desarrollo integrado \texttt{RStudio}.
 
-\hypertarget{evaluacion}{%
-\section*{Evaluación}\label{evaluacion}}
+\hypertarget{evaluaciuxf3n}{%
+\section*{Evaluación}\label{evaluaciuxf3n}}
 \addcontentsline{toc}{section}{Evaluación}
 
 Tendremos tres Actividades Evaluativas (AE) cuyos detalles serán explicados oportunamente en el cuatrimestre. Las tres notas se promediarán para obtener una Nota Final con las siguientes ponderaciones: 20\% AE1, 40\% AE2 y 40\% AE3. Si la Nota Final es mayor o igual a ocho (8), se promueve la materia; si es es mayor o igual a seis (6) y menor a ocho (8), se alcanza la condición de regular; y si es menor a seis (6), el alumno es libre.
@@ -147,11 +185,11 @@ Habrá una única instancia opcional de recuperación al final del cuatrimestre 
 
 Además de alojar todo el material del curso, utilizaremos este espacio para la entrega de trabajos y para realizar consultas, que esperamos puedan ser debatidas y respondidas entre los mismos estudiantes.
 
-\hypertarget{introduccion}{%
-\chapter{Introducción}\label{introduccion}}
+\hypertarget{introducciuxf3n}{%
+\chapter{Introducción}\label{introducciuxf3n}}
 
-\hypertarget{una-breve-resena-historica-sobre-la-computacion}{%
-\section{Una breve reseña histórica sobre la computación}\label{una-breve-resena-historica-sobre-la-computacion}}
+\hypertarget{una-breve-reseuxf1a-histuxf3rica-sobre-la-computaciuxf3n}{%
+\section{Una breve reseña histórica sobre la computación}\label{una-breve-reseuxf1a-histuxf3rica-sobre-la-computaciuxf3n}}
 
 La palabra \textbf{computación} proviene del latín \emph{computatio}, que deriva del verbo \emph{computare}, cuyo significado es ``enumerar cantidades''. Computación, en este sentido, designa la acción y efecto de computar, realizar una cuenta, un cálculo matemático. De allí que antiguamente computación fuese un término usado para referirse a los cálculos realizados por una persona con un instrumento expresamente utilizado para tal fin (como el ábaco, por ejemplo) o sin él. En este sentido, la computación ha estado presente desde tiempos ancestrales.
 
@@ -238,8 +276,8 @@ La computadora en sí misma es sólo una parte de la historia. La máquina físi
 
 A diferencia del hardware, el software es una entidad abstracta, intangible. Se trata de una secuencia de pasos simples y operaciones, especificadas en un lenguaje que el hardware puede interpretar. En nuestro \textbf{Taller de Programación} nos concentraremos en el diseño de la solución de un problema y cómo transmitírsela a la computadora para que la misma pueda ejecutarla.
 
-\hypertarget{problemas-algoritmos-y-lenguajes-de-programacion}{%
-\chapter{Problemas, algoritmos y lenguajes de programación}\label{problemas-algoritmos-y-lenguajes-de-programacion}}
+\hypertarget{problemas-algoritmos-y-lenguajes-de-programaciuxf3n}{%
+\chapter{Problemas, algoritmos y lenguajes de programación}\label{problemas-algoritmos-y-lenguajes-de-programaciuxf3n}}
 
 Como seres humanos, tenemos incorporada intuitivamente la resolución de problemas cotidianos gracias a nuestra experiencia, y para intentar afrontar un inconveniente, solemos hacer un proceso rápido de selección e intentamos buscar la opción más favorable.
 
@@ -269,8 +307,8 @@ La resolución computacional de un problema consiste de dos etapas básicas:
 
 Al aprender sobre programación, comenzamos enfrentándonos a problemas simples para los cuales la primera etapa parece sencilla, mientras que la codificación se torna dificultosa ya que hay que aprender las reglas del lenguaje de programación. Sin embargo, mientras que con práctica rápidamente podemos ganar facilidad para la escritura de códigos, el diseño algorítmico se torna cada vez más desafiante al encarar problemas más complejos. Es por eso que haremos incapié en el planteo y desarrollo de algoritmos como una etapa fundamental en la programación.
 
-\hypertarget{el-diseno-algoritmico}{%
-\section{El diseño algorítmico}\label{el-diseno-algoritmico}}
+\hypertarget{el-diseuxf1o-algoruxedtmico}{%
+\section{El diseño algorítmico}\label{el-diseuxf1o-algoruxedtmico}}
 
 Frente a cada problema, el primer paso es idear una algoritmo para su solución y expresarlo por escrito, por ejemplo, en español, pero adaptando el lenguaje humano a formas lógicas que se acerquen a las tareas que puede realizar una computadora. En programación, el lenguaje artificial e informal que usan los desarrolladores en la confección de algoritmos recibe el nombre de \textbf{pseudocódigo}. Es la herramienta que utilizamos para describir los algoritmos mezclando el lenguaje común con instrucciones de programación. No es en sí mismo un lenguaje de programación, es decir, la computadora no es capaz de entenderlo, sino que el objetivo del mismo es que el programador se centre en la solución lógica y luego lo utilice como guía al escribir el programa.
 
@@ -288,37 +326,41 @@ El pseudocódigo, como cualquier otro lenguaje, está compuesto por:
 
 Además el pseudocódigo, y toda codificación en lenguajes de programación, sigue una \textbf{estructura secuencial}: define una acción o instrucción que sigue a otra en secuencia. Esta estructura puede representarse de la siguiente forma:
 
-\begin{verbatim}
-ALGORITMO: "Ejemplo"
-COMENZAR
-    Acción 1
-    Acción 2
-    ...
-    Acción N
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Ejemplo"}
+\NormalTok{COMENZAR}
+\NormalTok{    Acción 1}
+\NormalTok{    Acción 2}
+\NormalTok{    ...}
+\NormalTok{    Acción N}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Se comienza con un título que describa el problema que el algoritmo resuelve, seguido por la palabra \texttt{COMENZAR}. Luego se detallan las acciones o instrucciones a seguir y se concluye con la palabra \texttt{FIN}. Por ejemplo, si nuestro problema es poner en marcha un auto, el algoritmo para resolverlo puede ser expresado mediante el siguiente pseudocódigo:
 
-\begin{verbatim}
-ALGORITMO: "Arrancar el auto"
-COMENZAR
-    INSERTAR la llave de contacto
-    UBICAR el cambio en punto muerto
-    GIRAR la llave hasta la posición de arranque
-    SI el motor arranca 
-        ENTONCES
-            DEJAR la llave en posición "encendido"
-        SI NO
-            LLAMAR al mecánico
-    FINSI
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Arrancar el auto"}
+\NormalTok{COMENZAR}
+\NormalTok{    INSERTAR la llave de contacto}
+\NormalTok{    UBICAR el cambio en punto muerto}
+\NormalTok{    GIRAR la llave hasta la posición de arranque}
+\NormalTok{    SI el motor arranca }
+\NormalTok{        ENTONCES}
+\NormalTok{            DEJAR la llave en posición "encendido"}
+\NormalTok{        SI NO}
+\NormalTok{            LLAMAR al mecánico}
+\NormalTok{    FINSI}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Es importante destacar la presencia de sangrado (\emph{indentación}), instrucciones, verbos y estructuras de control en el ejemplo anterior.
 
-\hypertarget{codificacion-creacion-y-edicion-de-programas}{%
-\section{Codificación: creación y edición de programas}\label{codificacion-creacion-y-edicion-de-programas}}
+\hypertarget{codificaciuxf3n-creaciuxf3n-y-ediciuxf3n-de-programas}{%
+\section{Codificación: creación y edición de programas}\label{codificaciuxf3n-creaciuxf3n-y-ediciuxf3n-de-programas}}
 
 El algoritmo anterior está presentado en pseudocódigo utilizando el lenguaje español, una opción razonable para compartir esta estrategia entre personas que se comuniquen con este idioma. Claramente, si queremos presentarle nuestro algoritmo a alguien que sólo habla francés, el español ya no sería una buena elección, y mucho menos si queremos presentarle el algoritmo a una computadora.
 
@@ -340,8 +382,8 @@ de intermediarios entre el desarrollador y el hardware. Simplificando esta gran 
 
 Para que un programa escrito en un lenguaje de alto nivel pueda ser ejecutado, se necesita de \textbf{compiladores} o \textbf{intérpretes} que básicamente lo traducen al lenguaje de bajo nivel que es apropiado para el hardware que se dispone. Un \emph{compilador} toma un programa escrito en lenguaje de alto nivel y produce como resultado un programa escrito en otro lenguaje, que luego puede ser ejecutado, mientras que un \emph{intérprete} traduce y ejecuta simultáneamente.
 
-\hypertarget{errores-de-programacion-y-depuracion}{%
-\section{Errores de programación y depuración}\label{errores-de-programacion-y-depuracion}}
+\hypertarget{errores-de-programaciuxf3n-y-depuraciuxf3n}{%
+\section{Errores de programación y depuración}\label{errores-de-programaciuxf3n-y-depuraciuxf3n}}
 
 Tal como el lenguaje humano, los lenguajes de programación tienen su propio vocabulario y su propia sintaxis, que es el conjunto de reglas gramaticales que establecen cómo se pueden combinar las distintas partes del lenguaje. Estas reglas sintácticas determinan que ciertas sentencias están correctamente construidas mientras otras no.
 
@@ -386,8 +428,8 @@ A la hora de resolver un problema computacional, seguiremos los siguientes pasos
 \hypertarget{primeros-pasos-en-sasiml}{%
 \chapter{Primeros pasos en SAS/IML}\label{primeros-pasos-en-sasiml}}
 
-\hypertarget{que-es-sas}{%
-\section{Qué es SAS}\label{que-es-sas}}
+\hypertarget{quuxe9-es-sas}{%
+\section{Qué es SAS}\label{quuxe9-es-sas}}
 
 \begin{itemize}
 \tightlist
@@ -399,8 +441,8 @@ A la hora de resolver un problema computacional, seguiremos los siguientes pasos
   En 1976 se convirtió en una compañía y privada y desde entonces tomó relevancia y gran prestigio en la comunidad estadística internacional.
 \end{itemize}
 
-\hypertarget{como-instalar-sas}{%
-\section{Cómo instalar SAS}\label{como-instalar-sas}}
+\hypertarget{cuxf3mo-instalar-sas}{%
+\section{Cómo instalar SAS}\label{cuxf3mo-instalar-sas}}
 
 \begin{itemize}
 \tightlist
@@ -418,8 +460,8 @@ A la hora de resolver un problema computacional, seguiremos los siguientes pasos
 ## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
 \end{verbatim}
 
-\hypertarget{que-es-sasiml}{%
-\section{Qué es SAS/IML}\label{que-es-sasiml}}
+\hypertarget{quuxe9-es-sasiml}{%
+\section{Qué es SAS/IML}\label{quuxe9-es-sasiml}}
 
 \begin{itemize}
 \tightlist
@@ -435,8 +477,8 @@ A la hora de resolver un problema computacional, seguiremos los siguientes pasos
   Leer la guía sobre IML disponible en el Campus Virtual.
 \end{itemize}
 
-\hypertarget{como-usar-iml}{%
-\section{Cómo usar IML}\label{como-usar-iml}}
+\hypertarget{cuxf3mo-usar-iml}{%
+\section{Cómo usar IML}\label{cuxf3mo-usar-iml}}
 
 \begin{itemize}
 \tightlist
@@ -444,16 +486,18 @@ A la hora de resolver un problema computacional, seguiremos los siguientes pasos
   El procedimiento de SAS que implementa este lenguaje se llama de la misma forma, por lo cual todo el código de nuestros programas estará siempre encerrado en bloques del estilo:
 \end{itemize}
 
-\begin{verbatim}
-proc iml;
-    ...
-    líneas de código
-    ...
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proc iml;}
+\NormalTok{    ...}
+\NormalTok{    líneas de código}
+\NormalTok{    ...}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{elementos-para-la-creacion-de-algoritmos}{%
-\chapter{Elementos para la creación de algoritmos}\label{elementos-para-la-creacion-de-algoritmos}}
+\hypertarget{elementos-para-la-creaciuxf3n-de-algoritmos}{%
+\chapter{Elementos para la creación de algoritmos}\label{elementos-para-la-creaciuxf3n-de-algoritmos}}
 
 \hypertarget{procesador-ambiente-y-acciones}{%
 \section{Procesador, ambiente y acciones}\label{procesador-ambiente-y-acciones}}
@@ -481,19 +525,21 @@ Cada una de las instrucciones que componen el algoritmo modifican el entorno de 
 
 ¿Cuál es un algoritmo adecuado para solucionar este problema? Podría ser:
 
-\begin{verbatim}
-ALGORITMO: "Preparar una tortilla de 6 huevos"
-COMENZAR
-    ROMPER seis huevos en un plato
-    TIRAR las cáscaras en el tacho
-    BATIR los huevos
-    CALENTAR aceite en la sartén
-    PONER el contenido del plato en la sartén
-    ESPERAR diez minutos
-    RETIRAR la tortilla del fuego
-    APAGAR el fuego
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Preparar una tortilla de 6 huevos"}
+\NormalTok{COMENZAR}
+\NormalTok{    ROMPER seis huevos en un plato}
+\NormalTok{    TIRAR las cáscaras en el tacho}
+\NormalTok{    BATIR los huevos}
+\NormalTok{    CALENTAR aceite en la sartén}
+\NormalTok{    PONER el contenido del plato en la sartén}
+\NormalTok{    ESPERAR diez minutos}
+\NormalTok{    RETIRAR la tortilla del fuego}
+\NormalTok{    APAGAR el fuego}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{ejemplo-2}{%
 \subsection{Ejemplo 2}\label{ejemplo-2}}
@@ -512,23 +558,25 @@ FIN
 
 ¿Cuál es un algoritmo adecuado para solucionar este problema? Podría ser:
 
-\begin{verbatim}
-ALGORITMO: "Calcular 5!"
-COMENZAR
-    PULSAR [ON]
-    PULSAR [1]
-    PULSAR [X]
-    PULSAR [2]
-    PULSAR [X]
-    PULSAR [3]
-    PULSAR [X]
-    PULSAR [4]
-    PULSAR [X]
-    PULSAR [5]
-    PULSAR [=]
-    MOSTRAR la pantalla
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Calcular 5!"}
+\NormalTok{COMENZAR}
+\NormalTok{    PULSAR [ON]}
+\NormalTok{    PULSAR [1]}
+\NormalTok{    PULSAR [X]}
+\NormalTok{    PULSAR [2]}
+\NormalTok{    PULSAR [X]}
+\NormalTok{    PULSAR [3]}
+\NormalTok{    PULSAR [X]}
+\NormalTok{    PULSAR [4]}
+\NormalTok{    PULSAR [X]}
+\NormalTok{    PULSAR [5]}
+\NormalTok{    PULSAR [=]}
+\NormalTok{    MOSTRAR la pantalla}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{acciones-primitivas-o-compuestas}{%
 \subsection{Acciones primitivas o compuestas}\label{acciones-primitivas-o-compuestas}}
@@ -545,13 +593,15 @@ Las acciones del algoritmo pueden clasificarse en función de su complejidad:
 
 La descripción de un algoritmo en términos de acciones compuestas puede facilitar su comprensión, pero al desarrollar el programa será necesario descomponerlas en acciones primitivas que son las que realmente ejecuta el procesador. Por ejemplo, la acción compuesta en el ejemplo de la tortilla de ``romper seis huevos en un plato'' puede descomponerse en acciones más simples:
 
-\begin{verbatim}
-REPETIR 6 VECES
-    TOMAR un huevo
-    GOLPEAR el huevo para generar una fractura en la cáscara
-    EJERCER presión sobre la cáscara
-    DERRAMAR la clara y la yema sobre el plato
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{REPETIR 6 VECES}
+\NormalTok{    TOMAR un huevo}
+\NormalTok{    GOLPEAR el huevo para generar una fractura en la cáscara}
+\NormalTok{    EJERCER presión sobre la cáscara}
+\NormalTok{    DERRAMAR la clara y la yema sobre el plato}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{objetos-constantes-y-variables}{%
 \section{Objetos, constantes y variables}\label{objetos-constantes-y-variables}}
@@ -585,67 +635,75 @@ Ciertos objetos almacenan temporalmente un valor durante la ejecución de un pro
 
 Si un objeto tiene siempre necesariamente un valor fijo, se dice que es una \textbf{constante}. El valor es siempre el mismo para cualquier ejecución del programa, es decir, no puede cambiar de una ejecución a otra. Son ejemplos de constantes el número de meses del año, las constantes matemáticas tales como el número π, los factores de conversión de unidades de medida, etc. Las constantes pueden usarse literalmente, es decir, usando explícitamente el valor, o también a través de un objeto que asocie un identificador al valor constante (por ejemplo, asociar el nombre ``pi'' a la constante 3.14159265).
 
-\hypertarget{declaracion-de-variables-y-constantes}{%
-\subsection{Declaración de variables y constantes}\label{declaracion-de-variables-y-constantes}}
+\hypertarget{declaraciuxf3n-de-variables-y-constantes}{%
+\subsection{Declaración de variables y constantes}\label{declaraciuxf3n-de-variables-y-constantes}}
 
 Al expresar nuestros algoritmos en pseudocódigo tomaremos la costumbre de declarar al inicio del mismo las variables y constantes necesarias para resolver el problema, explicitando su identificador y determinando el tipo de valor que guarda. Muchos lenguajes de programación utilizan esta declaración para reservar en la memoria de la computadora un espacio para almacenar la información correspondiente de manera adecuada.
 
 \textbf{En IML}. IML es un lenguaje dinámico que no requiere la declaración previa de las variables que serán utilizadas, sino que estas pueden definirse dinámicamente a lo largo del programa. Por eso, incluiremos declaración de variables y constantes sólo en los algoritmos.
 
-\hypertarget{accion-de-asignacion}{%
-\subsection{Acción de asignación}\label{accion-de-asignacion}}
+\hypertarget{acciuxf3n-de-asignaciuxf3n}{%
+\subsection{Acción de asignación}\label{acciuxf3n-de-asignaciuxf3n}}
 
 Para hacer que una variable guarde un determinado valor se recurre a una \textbf{acción de asignación}. Mediante asignaciones podemos dar valores iniciales a las variables, modificar el valor que tenían hasta el momento o guardar en ellas resultados intermedios o finales del algoritmo.
 
 En pseudocódigo expresaremos a la asignación como se muestra en estos ejemplos:
 
-\begin{verbatim}
-lugarNacimiento <- "Bombal"
-pesoNacimiento <- 3.423
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lugarNacimiento \textless{}{-} "Bombal"}
+\NormalTok{pesoNacimiento \textless{}{-} 3.423}
+\end{Highlighting}
+\end{Shaded}
 
 Si intervienen variables en la expresión a la derecha de una acción de asignación, se usará el valor que tenga la variable en ese momento. Por ejemplo, la siguiente secuencia de acciones en un algoritmo:
 
-\begin{verbatim}
-meses <- 2
-dias <- meses
-meses <- 7
-saldo <- meses
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{meses \textless{}{-} 2}
+\NormalTok{dias \textless{}{-} meses}
+\NormalTok{meses \textless{}{-} 7}
+\NormalTok{saldo \textless{}{-} meses}
+\end{Highlighting}
+\end{Shaded}
 
 resultará en que las variables \texttt{meses}, \texttt{dias} y \texttt{saldo} tengan almacenados los valores 7, 2 y 7 respectivamente. Un caso particular se da cuando a una variable se le asigna el valor de una operación de la que forma parte la misma variable. Por ejemplo:
 
-\begin{verbatim}
-dias <- dias + 30
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dias \textless{}{-} dias + 30}
+\end{Highlighting}
+\end{Shaded}
 
 \textbf{En IML}. La asignación se realiza a través del símbolo =. El código para el ejemplo anterior es:
 
-\begin{verbatim}
-proc iml;
-    meses = 2;
-    dias = meses;
-    meses = 7;
-    saldo = meses;
-    print meses dias saldo;
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proc iml;}
+\NormalTok{    meses = 2;}
+\NormalTok{    dias = meses;}
+\NormalTok{    meses = 7;}
+\NormalTok{    saldo = meses;}
+\NormalTok{    print meses dias saldo;}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{operadores}{%
 \section{Operadores}\label{operadores}}
 
 El desarrollo de un algoritmo involucra la necesidad de efectuar operaciones de distinto tipo: suma, resta, concatenación, procesos lógicos, etc. Los elementos que describen el tipo de operación a realizar entre dos objetos se denominan \textbf{operadores}.
 
-\hypertarget{operadores-aritmeticos}{%
-\subsection{Operadores aritméticos}\label{operadores-aritmeticos}}
+\hypertarget{operadores-aritmuxe9ticos}{%
+\subsection{Operadores aritméticos}\label{operadores-aritmuxe9ticos}}
 
 Permiten realizar operaciones matemáticas con objetos de tipo numérico.
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:unnamed-chunk-12}Signos para operadores aritméticos que se pueden utilizar en el pseudocódigo.}
 \centering
-\begin{tabular}{l|l}
+\begin{tabular}[t]{l|l}
 \hline
 Signo & Significado\\
 \hline
@@ -679,15 +737,17 @@ Los operadores aritméticos actúan con un orden de prioridad establecido, tal c
 
 Si la expresión presenta operadores con igual nivel de prioridad, se evalúan de izquierda a derecha. Ejemplos:
 
-\begin{verbatim}
-4 + 2 * 4 = 12
-23 * 2 / 5 = 9.2
-3 + 5 * (10 - (2 + 4)) = 23
-2.1 * 1.5 + 12.3 = 15.45
-2.1 * (1.5 + 12.3) = 28.98
-1 MOD 4 = 1
-8 * (7 - 6 + 5) MOD (1 + 8 / 2) - 1 = ...
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{4 + 2 * 4 = 12}
+\NormalTok{23 * 2 / 5 = 9.2}
+\NormalTok{3 + 5 * (10 {-} (2 + 4)) = 23}
+\NormalTok{2.1 * 1.5 + 12.3 = 15.45}
+\NormalTok{2.1 * (1.5 + 12.3) = 28.98}
+\NormalTok{1 MOD 4 = 1}
+\NormalTok{8 * (7 {-} 6 + 5) MOD (1 + 8 / 2) {-} 1 = ...}
+\end{Highlighting}
+\end{Shaded}
 
 \textbf{En IML}. Se utilizan los mismos símbolos, excepto para el operador módulo, cuya sintaxis es, por ejemplo, \texttt{mod(7,\ 4)} si se quiere obtener el resto de la división de 7 por 4.
 
@@ -696,11 +756,11 @@ Si la expresión presenta operadores con igual nivel de prioridad, se evalúan d
 
 Sirven para comparar dos valores de cualquier tipo y dan como resultado un valor lógico: \emph{verdadero} (``V'') o \emph{falso} (``F'').
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:unnamed-chunk-14}Signos para operadores lógicos que se pueden utilizar en el pseudocódigo.}
 \centering
-\begin{tabular}{l|l}
+\begin{tabular}[t]{l|l}
 \hline
 Signo & Significado\\
 \hline
@@ -721,11 +781,11 @@ Signo & Significado\\
 
 Ejemplos:
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:unnamed-chunk-15}Ejemplos de la utilización de operadores relacionales.}
 \centering
-\begin{tabular}{l|l}
+\begin{tabular}[t]{l|l}
 \hline
 Operación relacional & Resultado\\
 \hline
@@ -742,8 +802,8 @@ Operación relacional & Resultado\\
 
 \textbf{En IML}. Se usan estos mismos símbolos.
 
-\hypertarget{operadores-logicos}{%
-\subsection{Operadores lógicos}\label{operadores-logicos}}
+\hypertarget{operadores-luxf3gicos}{%
+\subsection{Operadores lógicos}\label{operadores-luxf3gicos}}
 
 Mientras que los operadores relacionales comparan cualquier tipo de valores, los operadores lógicos sólo toman operandos de tipo lógico y producen también un resultado lógico. Los operadores lógicos que utilizaremos son \textbf{Y}, \textbf{O} y \textbf{NO}.
 
@@ -759,11 +819,11 @@ Mientras que los operadores relacionales comparan cualquier tipo de valores, los
 
 Las \textbf{tablas de la verdad} se utilizan para mostrar el resultado de los distintos tipos de operaciones lógicas:
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:unnamed-chunk-16}Tabla de la verdad.}
 \centering
-\begin{tabular}{l|l|l|l}
+\begin{tabular}[t]{l|l|l|l}
 \hline
 Valor1 & Operador & Valor2 & Resultado\\
 \hline
@@ -794,16 +854,20 @@ Ejemplo: expresar con símbolos la expresión ``x no es igual a 2 ni a 3''.
 
 Expresiones correctas:
 
-\begin{verbatim}
-x ^= 2 Y x ^= 3
-NO(x = 2 O x = 3)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x \^{}= 2 Y x \^{}= 3}
+\NormalTok{NO(x = 2 O x = 3)}
+\end{Highlighting}
+\end{Shaded}
 
 Expresión incorrecta:
 
-\begin{verbatim}
-x ^= 2 O x ^= 3
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x \^{}= 2 O x \^{}= 3}
+\end{Highlighting}
+\end{Shaded}
 
 Las Leyes de Morgan nos ayudan a trabajar en este tipo de casos:
 
@@ -819,8 +883,8 @@ Otra consideración es que expresiones que tienen sentido en matemática, pueden
 
 \textbf{En IML}. El operador Y se escribe como ``\&'', el operador O es ``\textbar{}'' y el operador NO es ``\^{}''.
 
-\hypertarget{entrada-y-salida-de-informacion}{%
-\section{Entrada y salida de información}\label{entrada-y-salida-de-informacion}}
+\hypertarget{entrada-y-salida-de-informaciuxf3n}{%
+\section{Entrada y salida de información}\label{entrada-y-salida-de-informaciuxf3n}}
 
 En la resolución de problemas puede ser necesario requerir que un usuario provea información, y registrar la misma como un valor que debe ser asignado a una variable. Para esto podemos utilizar la acción \texttt{LEER} dentro del algoritmo. Cuando deseamos mostrar un resultado en un mensaje empleamos la acción \texttt{ESCRIBIR}. Las palabras o frases literales que se desean mostrar en el mensaje deben estar encerradas entre comillas porque son cadenas de texto, mientras que si se desea mostrar el valor de una variable se debe escribir su identificador sin comillas.
 
@@ -831,36 +895,40 @@ En la resolución de problemas puede ser necesario requerir que un usuario prove
 
 A medida que los algoritmos se hacen más complejos, suele ser necesario añadir en el mismo ciertos comentarios que no son acciones que el procesador debe ejecutar, sino que cumplen con la función de explicar alguna característica del algoritmo a otra persona que lo esté leyendo (o a uno mismo si lo leemos nuevamente en el futuro).
 
-Cada vez que deseemos incluir un comentario, lo haremos en una línea que comience con el símbolo ``\textbackslash{}\textbackslash{}''.
+Cada vez que deseemos incluir un comentario, lo haremos en una línea que comience con el símbolo ``\textbackslash\textbackslash{}''.
 
 \hypertarget{ejemplo}{%
 \section{Ejemplo}\label{ejemplo}}
 
 Los conceptos enunciados anteriormente pueden verse ejemplificados en el siguiente algoritmo para calcular el área de un círculo
 
-\begin{verbatim}
-ALGORITMO: "Calcular área de un círculo"
-COMENZAR
-    CONSTANTE numérica pi
-    VARIABLE numérica radio, area
-    pi <- 3.1416
-    LEER radio
-    area <- pi * radio ** 2
-    ESCRIBIR "El área del círculo es " area
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Calcular área de un círculo"}
+\NormalTok{COMENZAR}
+\NormalTok{    CONSTANTE numérica pi}
+\NormalTok{    VARIABLE numérica radio, area}
+\NormalTok{    pi \textless{}{-} 3.1416}
+\NormalTok{    LEER radio}
+\NormalTok{    area \textless{}{-} pi * radio ** 2}
+\NormalTok{    ESCRIBIR "El área del círculo es " area}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 \textbf{En IML}:
 
-\begin{verbatim}
-/* PROGRAMA: Calcular área de un círculo */
-proc iml;
-    pi = 3.14159265358979;
-    radio = 5;
-    area = pi * radio ** 2;
-    print "El área del círculo es " area;
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{/* PROGRAMA: Calcular área de un círculo */}
+\NormalTok{proc iml;}
+\NormalTok{    pi = 3.14159265358979;}
+\NormalTok{    radio = 5;}
+\NormalTok{    area = pi * radio ** 2;}
+\NormalTok{    print "El área del círculo es " area;}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{estructuras-de-control}{%
 \chapter{Estructuras de Control}\label{estructuras-de-control}}
@@ -882,224 +950,254 @@ El curso de acción depende del resultado de la comparación una variable con un
 
 Representan una toma de decisión y se describen con la siguiente sintaxis:
 
-\begin{verbatim}
-SI <condición> ENTONCES
-    Acción/es
-FIN SI
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SI \textless{}condición\textgreater{} ENTONCES}
+\NormalTok{    Acción/es}
+\NormalTok{FIN SI}
+\end{Highlighting}
+\end{Shaded}
 
 La palabra \texttt{SI} indica el comando de comparación, \texttt{\textless{}condición\textgreater{}} indica la condición a evaluar y \texttt{Acción/es} son las instrucciones que se realizarán sólo si se cumple la condición. Si la condición no se verifica, no se ejecuta ninguna acción y el algoritmo sigue su estructura secuencial a continuación del \texttt{FIN\ SI}.
 
 En el siguiente ejemplo utilizaremos esta estructura para determinar si una persona es mayor de edad o no.
 
-\begin{verbatim}
-ALGORITMO: "Determinar mayoría de edad"
-COMENZAR
-    VARIABLE numérica edad
-    LEER edad
-    SI edad >= 18 ENTONCES
-        ESCRIBIR "Es mayor de edad"
-    FIN SI
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Determinar mayoría de edad"}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica edad}
+\NormalTok{    LEER edad}
+\NormalTok{    SI edad \textgreater{}= 18 ENTONCES}
+\NormalTok{        ESCRIBIR "Es mayor de edad"}
+\NormalTok{    FIN SI}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 \textbf{En IML}. Usamos la estructura \texttt{if\ ...\ then\ ...;}:
 
-\begin{verbatim}
-/* PROGRAMA: Determinar mayoría de edad */
-proc iml;
-    edad = 19;
-    if edad >= 18 then print "Es mayor de edad";
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{/* PROGRAMA: Determinar mayoría de edad */}
+\NormalTok{proc iml;}
+\NormalTok{    edad = 19;}
+\NormalTok{    if edad \textgreater{}= 18 then print "Es mayor de edad";}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
 Si necesitamos ejecutar más de una acción al cumplirse la condición evaluada, debemos encerrarlas dentro de un bloque \texttt{do}, que siempre termina con un \texttt{end}:
 
-\begin{verbatim}
-/* PROGRAMA: Determinar mayoría de edad */
-proc iml;
-    edad = 19;
-    if edad >= 18 then do;
-        print "Es mayor de edad";
-        print "Su edad es " edad " años";
-    end;
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{/* PROGRAMA: Determinar mayoría de edad */}
+\NormalTok{proc iml;}
+\NormalTok{    edad = 19;}
+\NormalTok{    if edad \textgreater{}= 18 then do;}
+\NormalTok{        print "Es mayor de edad";}
+\NormalTok{        print "Su edad es " edad " años";}
+\NormalTok{    end;}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{estructuras-condicionales-dobles}{%
 \subsection{Estructuras condicionales dobles}\label{estructuras-condicionales-dobles}}
 
 Este tipo de estructura añade una acción a ejecutarse en el caso de que la condición evaluada no se verifique. La sintaxis es:
 
-\begin{verbatim}
-SI <condición> 
-    ENTONCES
-        Acción/es
-    SI NO
-        Acción/es
-FIN SI
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SI \textless{}condición\textgreater{} }
+\NormalTok{    ENTONCES}
+\NormalTok{        Acción/es}
+\NormalTok{    SI NO}
+\NormalTok{        Acción/es}
+\NormalTok{FIN SI}
+\end{Highlighting}
+\end{Shaded}
 
 La palabra \texttt{ENTONCES} antecede a las acciones que se realizan si se cumple la condición y \texttt{SI\ NO} a las que se realizan si no se verifica la misma. Podemos ampliar el ejemplo anterior para que el algorimo indique también si la persona es menor de edad:
 
-\begin{verbatim}
-ALGORITMO: "Determinar mayoría de edad"
-COMENZAR
-    VARIABLE numérica edad
-    LEER edad
-    SI edad >= 18 
-        ENTONCES
-            ESCRIBIR "Es mayor de edad"
-        SI NO
-            ESCRIBIR "Es menor de edad"
-    FIN SI
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Determinar mayoría de edad"}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica edad}
+\NormalTok{    LEER edad}
+\NormalTok{    SI edad \textgreater{}= 18 }
+\NormalTok{        ENTONCES}
+\NormalTok{            ESCRIBIR "Es mayor de edad"}
+\NormalTok{        SI NO}
+\NormalTok{            ESCRIBIR "Es menor de edad"}
+\NormalTok{    FIN SI}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 \textbf{En IML}.
 
-\begin{verbatim}
-proc iml;
-    edad = 17;
-    if edad >= 18 then print "Es mayor de edad";
-    else print "Es menor de edad";
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proc iml;}
+\NormalTok{    edad = 17;}
+\NormalTok{    if edad \textgreater{}= 18 then print "Es mayor de edad";}
+\NormalTok{    else print "Es menor de edad";}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
 Nuevamente, si necesitamos ejecutar múltiples acciones debemos encerrarlas dentro de un bloque \texttt{do}:
 
-\begin{verbatim}
-proc iml;
-    edad = 19;
-    if edad >= 18 then do;
-        print "Es mayor de edad";
-        print "Su edad es " edad " años";
-    end;
-    else do;
-        print "Es menor de edad";
-        print "Requerir ingreso acompañado";
-    end;
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proc iml;}
+\NormalTok{    edad = 19;}
+\NormalTok{    if edad \textgreater{}= 18 then do;}
+\NormalTok{        print "Es mayor de edad";}
+\NormalTok{        print "Su edad es " edad " años";}
+\NormalTok{    end;}
+\NormalTok{    else do;}
+\NormalTok{        print "Es menor de edad";}
+\NormalTok{        print "Requerir ingreso acompañado";}
+\NormalTok{    end;}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{estructuras-condicionales-multiples-o-anidadas}{%
-\subsection{Estructuras condicionales múltiples o anidadas}\label{estructuras-condicionales-multiples-o-anidadas}}
+\hypertarget{estructuras-condicionales-muxfaltiples-o-anidadas}{%
+\subsection{Estructuras condicionales múltiples o anidadas}\label{estructuras-condicionales-muxfaltiples-o-anidadas}}
 
 Permiten combinar varias estructuras condicionales para establecer controles más complejos sobre el flujo de las acciones, representando una toma de decisión múltiple. Podemos ejemplificar la sintaxis de la siguiente forma:
 
-\begin{verbatim}
-SI <condición> 
-    ENTONCES
-        Acción/es
-    SI NO
-        SI <condición> 
-            ENTONCES
-                Acción/es
-            SI NO
-                Acción/es
-        FIN SI
-FIN SI
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SI \textless{}condición\textgreater{} }
+\NormalTok{    ENTONCES}
+\NormalTok{        Acción/es}
+\NormalTok{    SI NO}
+\NormalTok{        SI \textless{}condición\textgreater{} }
+\NormalTok{            ENTONCES}
+\NormalTok{                Acción/es}
+\NormalTok{            SI NO}
+\NormalTok{                Acción/es}
+\NormalTok{        FIN SI}
+\NormalTok{FIN SI}
+\end{Highlighting}
+\end{Shaded}
 
 Imaginemos que el ejemplo anterior de la mayoría de edad se da en el contexto de la entrada a una exhibición, donde los mayores de edad pueden ingresar pero los menores sólo pueden hacerlo si tienen la autorización de un adulto a cargo. Podemos plantear el siguiente algoritmo para determinar si una persona puede ingresar o no:
 
-\begin{verbatim}
-ALGORITMO: "Determinar ingreso"
-COMENZAR
-    VARIABLE numérica edad
-    VARIABLE caracter autorizacion
-    LEER edad
-    SI edad >= 18 
-        ENTONCES
-            ESCRIBIR "Permitir ingreso"
-        SI NO
-            LEER autorizacion
-            SI autorizacion = "OK" 
-                ENTONCES
-                    ESCRIBIR "Permitir ingreso"
-                SI NO
-                    ESCRIBIR "Denegar ingreso"
-            FIN SI
-    FIN SI
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Determinar ingreso"}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica edad}
+\NormalTok{    VARIABLE caracter autorizacion}
+\NormalTok{    LEER edad}
+\NormalTok{    SI edad \textgreater{}= 18 }
+\NormalTok{        ENTONCES}
+\NormalTok{            ESCRIBIR "Permitir ingreso"}
+\NormalTok{        SI NO}
+\NormalTok{            LEER autorizacion}
+\NormalTok{            SI autorizacion = "OK" }
+\NormalTok{                ENTONCES}
+\NormalTok{                    ESCRIBIR "Permitir ingreso"}
+\NormalTok{                SI NO}
+\NormalTok{                    ESCRIBIR "Denegar ingreso"}
+\NormalTok{            FIN SI}
+\NormalTok{    FIN SI}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{verbatim}
-/* PROGRAMA: Determinar ingreso */
-proc iml;
-    edad = 16;
-    autorizacion = "OK";
-    if edad >= 18 then print "Permitir ingreso";
-    else do;
-        if autorizacion = "OK" then print "Permitir ingreso";
-        else print "Denegar ingreso";
-    end;
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{/* PROGRAMA: Determinar ingreso */}
+\NormalTok{proc iml;}
+\NormalTok{    edad = 16;}
+\NormalTok{    autorizacion = "OK";}
+\NormalTok{    if edad \textgreater{}= 18 then print "Permitir ingreso";}
+\NormalTok{    else do;}
+\NormalTok{        if autorizacion = "OK" then print "Permitir ingreso";}
+\NormalTok{        else print "Denegar ingreso";}
+\NormalTok{    end;}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{estructuras-de-control-iterativas}{%
 \section{Estructuras de control iterativas}\label{estructuras-de-control-iterativas}}
 
 Las estructuras de control iterativas son útiles cuando la solución de un problema requiere que se ejecute repetidamente un determinado conjunto de acciones. El número de veces que se debe repetir dicha secuencia de acciones puede ser fijo o variable dependiendo de algún dato en el algoritmo.
 
-\hypertarget{estructuras-de-control-iterativas-con-un-numero-fijo-de-iteraciones}{%
-\subsection{Estructuras de control iterativas con un número fijo de iteraciones}\label{estructuras-de-control-iterativas-con-un-numero-fijo-de-iteraciones}}
+\hypertarget{estructuras-de-control-iterativas-con-un-nuxfamero-fijo-de-iteraciones}{%
+\subsection{Estructuras de control iterativas con un número fijo de iteraciones}\label{estructuras-de-control-iterativas-con-un-nuxfamero-fijo-de-iteraciones}}
 
 Se aplican cuando se conoce de antemano el número exacto de veces que se debe repetir una secuencia de acciones. Por ejemplo, si deseamos mostrar en pantalla la tabla de multiplicar del número 8 completa podríamos hacer:
 
-\begin{verbatim}
-ALGORIMO: "Mostrar tabla del 8"
-COMENZAR
-    VARIABLE numérica resultado
-    resultado <- 8 * 1
-    ESCRIBIR "8 x 1 = ", resultado
-    resultado <- 8 * 2
-    ESCRIBIR "8 x 2 = ", resultado
-    resultado <- 8 * 3
-    ESCRIBIR "8 x 3 = ", resultado
-    ...
-    resultado <- 8 * 10
-    ESCRIBIR "8 x 10 = ", resultado
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORIMO: "Mostrar tabla del 8"}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica resultado}
+\NormalTok{    resultado \textless{}{-} 8 * 1}
+\NormalTok{    ESCRIBIR "8 x 1 = ", resultado}
+\NormalTok{    resultado \textless{}{-} 8 * 2}
+\NormalTok{    ESCRIBIR "8 x 2 = ", resultado}
+\NormalTok{    resultado \textless{}{-} 8 * 3}
+\NormalTok{    ESCRIBIR "8 x 3 = ", resultado}
+\NormalTok{    ...}
+\NormalTok{    resultado \textless{}{-} 8 * 10}
+\NormalTok{    ESCRIBIR "8 x 10 = ", resultado}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Es evidente que hay dos acciones que se repiten a través de todo el algorimo con una leve variación en el número por el cual se está multiplicando al 8. Esto puede resumirse así:
 
-\begin{verbatim}
-ALGORIMO: "Mostrar tabla del 8"
-COMENZAR
-    VARIABLE numérica resultado
-    PARA i DESDE 1 HASTA 10 HACER
-        resultado <- 8 * i
-        ESCRIBIR "8 x " i " = " resultado
-    FIN PARA
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORIMO: "Mostrar tabla del 8"}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica resultado}
+\NormalTok{    PARA i DESDE 1 HASTA 10 HACER}
+\NormalTok{        resultado \textless{}{-} 8 * i}
+\NormalTok{        ESCRIBIR "8 x " i " = " resultado}
+\NormalTok{    FIN PARA}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 De manera general, la sintaxis para este tipo de estructuras es:
 
-\begin{verbatim}
-PARA <variable> DESDE <valor1> HASTA <valor2> CON PASO <valor3> HACER
-    Acción/es
-FIN PARA
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PARA \textless{}variable\textgreater{} DESDE \textless{}valor1\textgreater{} HASTA \textless{}valor2\textgreater{} CON PASO \textless{}valor3\textgreater{} HACER}
+\NormalTok{    Acción/es}
+\NormalTok{FIN PARA}
+\end{Highlighting}
+\end{Shaded}
 
 Dado un valor inicial \texttt{\textless{}valor1\textgreater{}} asignado a la \texttt{\textless{}variable\textgreater{}}, esta se irá aumentando o disminuyendo según el paso \texttt{\textless{}valor3\textgreater{}} hasta llegar a tomar el valor \texttt{\textless{}valor3\textgreater{}}. Si no se indica el paso se asume que la variable aumenta de uno en uno.
 
 \textbf{En IML}.
 
-\begin{verbatim}
-/* PROGRAMA: Mostrar tabla del 8 */
-proc iml;
-    do i = 1 to 10;
-        resultado = 8 * i;
-        print "8 x " i " = " resultado;
-    end;
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{/* PROGRAMA: Mostrar tabla del 8 */}
+\NormalTok{proc iml;}
+\NormalTok{    do i = 1 to 10;}
+\NormalTok{        resultado = 8 * i;}
+\NormalTok{        print "8 x " i " = " resultado;}
+\NormalTok{    end;}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{estructuras-de-control-iterativas-con-un-numero-indeterminado-de-iteraciones}{%
-\subsection{Estructuras de control iterativas con un número indeterminado de iteraciones}\label{estructuras-de-control-iterativas-con-un-numero-indeterminado-de-iteraciones}}
+\hypertarget{estructuras-de-control-iterativas-con-un-nuxfamero-indeterminado-de-iteraciones}{%
+\subsection{Estructuras de control iterativas con un número indeterminado de iteraciones}\label{estructuras-de-control-iterativas-con-un-nuxfamero-indeterminado-de-iteraciones}}
 
 En otras circunstancias se puede necesitar repetir un bloque de acciones sin conocer con exactitud cuántas veces, si no que esto depende de algún otro aspecto del ALGORITMO. Las iteraciones pueden continuar \emph{mientras que} o \emph{hasta que} se verifique alguna condición, dando lugar a dos tipos de estructuras.
 
@@ -1108,25 +1206,29 @@ En otras circunstancias se puede necesitar repetir un bloque de acciones sin con
 
 El conjunto de sentencias se repite mientras que se siga evaluando como \texttt{VERDADERO} una condición declarada al inicio del bloque. Cuando la condición ya no se cumple, el proceso deja de ejecutarse. La sintaxis es:
 
-\begin{verbatim}
-MIENTRAS QUE <condición> HACER
-    Acción/es
-FIN MIENTRAS
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{MIENTRAS QUE \textless{}condición\textgreater{} HACER}
+\NormalTok{    Acción/es}
+\NormalTok{FIN MIENTRAS}
+\end{Highlighting}
+\end{Shaded}
 
 El siguiente ejemplo describe el algoritmo para escribir los múltiplos de 8 menores a 150 utilizando este tipo de estructura:
 
-\begin{verbatim}
-ALGORITMO: "Múltiplos de 8 menores a 150"
-COMENZAR
-    VARIABLE numérica multiplo
-    multiplo <- 8
-    MIENTRAS QUE multiplo < 150 HACER
-        ESCRIBIR multiplo
-        multiplo <- multiplo + 8
-    FIN MIENTRAS
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Múltiplos de 8 menores a 150"}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica multiplo}
+\NormalTok{    multiplo \textless{}{-} 8}
+\NormalTok{    MIENTRAS QUE multiplo \textless{} 150 HACER}
+\NormalTok{        ESCRIBIR multiplo}
+\NormalTok{        multiplo \textless{}{-} multiplo + 8}
+\NormalTok{    FIN MIENTRAS}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Observaciones:
 
@@ -1140,56 +1242,64 @@ Observaciones:
 
 \textbf{En IML}.
 
-\begin{verbatim}
-/* PROGRAMA: Múltiplos de 8 menores a 150 */
-proc iml;
-    multiplo = 8;
-    do while (multiplo < 150);
-        print multiplo;
-        multiplo = multiplo + 8;
-    end;
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{/* PROGRAMA: Múltiplos de 8 menores a 150 */}
+\NormalTok{proc iml;}
+\NormalTok{    multiplo = 8;}
+\NormalTok{    do while (multiplo \textless{} 150);}
+\NormalTok{        print multiplo;}
+\NormalTok{        multiplo = multiplo + 8;}
+\NormalTok{    end;}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{hasta-que}{%
 \subsubsection{Hasta que}\label{hasta-que}}
 
 A diferencia de la estructura \emph{mientras que}, la estructura \emph{hasta que} repite el bloque de acciones hasta que se cumpla una condición, es decir, se ejecuta mientras que dicha condición sea evaluada como \texttt{FALSA}. La sintaxis es:
 
-\begin{verbatim}
-REPETIR
-    Acción/es
-HASTA QUE <condición>
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{REPETIR}
+\NormalTok{    Acción/es}
+\NormalTok{HASTA QUE \textless{}condición\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
 
 El algoritmo del ejemplo anterior puede ser re escrito con este tipo de estructura:
 
-\begin{verbatim}
-ALGORITMO: "Múltiplos de 8 menores a 150"
-COMENZAR
-    VARIABLE numérica multiplo
-    multiplo <- 8
-    REPETIR
-        ESCRIBIR multiplo
-        multiplo <- multiplo + 8
-    HASTA QUE multiplo >= 150
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Múltiplos de 8 menores a 150"}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica multiplo}
+\NormalTok{    multiplo \textless{}{-} 8}
+\NormalTok{    REPETIR}
+\NormalTok{        ESCRIBIR multiplo}
+\NormalTok{        multiplo \textless{}{-} multiplo + 8}
+\NormalTok{    HASTA QUE multiplo \textgreater{}= 150}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Observación: en la estructura \emph{mientras que} podría ser que el conjunto de sentencias nunca llegue a ejecutarse si desde partida la condición evaluada ya es falsa. Por el contrario, en la estructura \emph{hasta que} el proceso se realiza al menos una vez, dado que la condición se evalúa al final.
 
 \textbf{En IML}.
 
-\begin{verbatim}
-/* PROGRAMA: Múltiplos de 8 menores a 150 */
-proc iml;
-    multiplo = 8;
-    do until (multiplo >= 150);
-        print multiplo;
-        multiplo = multiplo + 8;
-    end;
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{/* PROGRAMA: Múltiplos de 8 menores a 150 */}
+\NormalTok{proc iml;}
+\NormalTok{    multiplo = 8;}
+\NormalTok{    do until (multiplo \textgreater{}= 150);}
+\NormalTok{        print multiplo;}
+\NormalTok{        multiplo = multiplo + 8;}
+\NormalTok{    end;}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{estructuras-de-datos}{%
 \chapter{Estructuras de Datos}\label{estructuras-de-datos}}
@@ -1246,52 +1356,60 @@ Los elementos en cada uno de estos vectores ocupan una determinada posición y p
 
 Como todas las variables que empleamos en nuestros algoritmos, los vectores deben ser declarados en el mismo y su tamaño debe ser especificado al comenzar. Esto se realiza a través de la acción \texttt{DIMENSIONAR}. Por ejemplo, el \emph{vector1} visto anteriomente puede ser creado de la siguiente forma:
 
-\begin{verbatim}
-DIMENSIONAR numérico vector1(5)
-vector1[1] <- -4.5
-vector1[2] <- 12
-vector1[3] <- 2.71
-vector1[4] <- -6
-vector1[5] <- 25
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DIMENSIONAR numérico vector1(5)}
+\NormalTok{vector1[1] \textless{}{-} {-}4.5}
+\NormalTok{vector1[2] \textless{}{-} 12}
+\NormalTok{vector1[3] \textless{}{-} 2.71}
+\NormalTok{vector1[4] \textless{}{-} {-}6}
+\NormalTok{vector1[5] \textless{}{-} 25}
+\end{Highlighting}
+\end{Shaded}
 
 Cuando declaramos un vector que usaremos más adelante, especificamos cuántos elementos entrarán en él poniendo su dimensión entre paréntesis al lado del nombre.
 
 Podemos asignar valores a las posiciones del vector empleando estructuras de control iterativas, por ejemplo:
 
-\begin{verbatim}
-DIMENSIONAR numérico vector3(30)
-PARA i DESDE 1 HASTA 30 HACER
-    vector3[i] <- i * 2
-FIN PARA
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DIMENSIONAR numérico vector3(30)}
+\NormalTok{PARA i DESDE 1 HASTA 30 HACER}
+\NormalTok{    vector3[i] \textless{}{-} i * 2}
+\NormalTok{FIN PARA}
+\end{Highlighting}
+\end{Shaded}
 
-En este ejemplo, la variable \texttt{i} se usa como índice para el espacio en el vector que será modificado y también para calcular el valor por asignar, resultando en un vector con los números 2, 4, 6, \ldots{}, 60.
+En este ejemplo, la variable \texttt{i} se usa como índice para el espacio en el vector que será modificado y también para calcular el valor por asignar, resultando en un vector con los números 2, 4, 6, \ldots, 60.
 
 En el próximo ejemplo, se deja que el usuario determine la dimensión del vector y que provea cada uno de los valores para el mismo:
 
-\begin{verbatim}
-VARIABLE numérico tam
-LEER tam
-DIMENSIONAR numérico vector4(tam)
-PARA i DESDE 1 HASTA tam HACER
-    LEER vector4[i]
-FIN PARA
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{VARIABLE numérico tam}
+\NormalTok{LEER tam}
+\NormalTok{DIMENSIONAR numérico vector4(tam)}
+\NormalTok{PARA i DESDE 1 HASTA tam HACER}
+\NormalTok{    LEER vector4[i]}
+\NormalTok{FIN PARA}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{arreglos-bidimensionales}{%
 \section{Arreglos bidimensionales}\label{arreglos-bidimensionales}}
 
 Un \textbf{arreglo bidimensional} representa lo que habitualmente conocemos con una \textbf{matriz} y también lo podemos llamar de esa forma. A diferencia de los vectores, las matrices requieren dos índices o parámetros para acceder a sus elementos, sobre los cuales nos referimos como \textbf{fila} y \textbf{columna}. Se pueden utilizar dos estructuras \emph{PARA\ldots{} FIN PARA} anidadas para recorrer todos los elementos de la matriz, como se muestra en el siguiente ejemplo:
 
-\begin{verbatim}
-DIMENSIONAR numérico matriz1(3, 4)
-PARA i DESDE 1 HASTA 3 HACER
-    PARA j DESDE 1 HASTA 4 HACER
-        matriz1[i, j] <- i * j
-    FIN PARA
-FIN PARA
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DIMENSIONAR numérico matriz1(3, 4)}
+\NormalTok{PARA i DESDE 1 HASTA 3 HACER}
+\NormalTok{    PARA j DESDE 1 HASTA 4 HACER}
+\NormalTok{        matriz1[i, j] \textless{}{-} i * j}
+\NormalTok{    FIN PARA}
+\NormalTok{FIN PARA}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}
 
@@ -1304,14 +1422,16 @@ FIN PARA
 
 En el ejemplo anterior los valores fueron asignados recorriendo la matriz por filas como lo indican las flechas. Otra posibilidad es recorrer la matriz por columna en primer instancia, para lo cual la estructura \emph{PARA\ldots{} FIN PARA} que representa a los índices de las columnas debe ser la externa y la que representa a los índices de columnas, la interna:
 
-\begin{verbatim}
-DIMENSIONAR numérico matriz1(3, 4)
-PARA j DESDE 1 HASTA 4 HACER
-    PARA i DESDE 1 HASTA 3 HACER
-        matriz1[i, j] <- i * j
-    FIN PARA
-FIN PARA
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DIMENSIONAR numérico matriz1(3, 4)}
+\NormalTok{PARA j DESDE 1 HASTA 4 HACER}
+\NormalTok{    PARA i DESDE 1 HASTA 3 HACER}
+\NormalTok{        matriz1[i, j] \textless{}{-} i * j}
+\NormalTok{    FIN PARA}
+\NormalTok{FIN PARA}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}
 
@@ -1387,51 +1507,55 @@ Si bien podemos pensar en distintas formas para resolver este problema, probable
 
 Ahora sólo resta realizar el mismo procedimiento para los valores de las posiciones 2 y 4. Como el número de elementos en el vector es impar, el valor en la posición central queda en su lugar. Podemos definir el siguiente algorimo para resolver este problema de manera general:
 
-\begin{verbatim}
-ALGORITMO: "Invertir (dar vuelta) los elementos de un vector"
-COMENZAR
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Invertir (dar vuelta) los elementos de un vector"}
+\NormalTok{COMENZAR}
     
-    \\ Declarar variables
-    VARIABLE numérico n
-    VARIABLE caracter tmp
-    LEER n
-    DIMENSIONAR caracter v(n)
+\NormalTok{    \textbackslash{}\textbackslash{} Declarar variables}
+\NormalTok{    VARIABLE numérico n}
+\NormalTok{    VARIABLE caracter tmp}
+\NormalTok{    LEER n}
+\NormalTok{    DIMENSIONAR caracter v(n)}
     
-    \\ Asignar valores al vector
-    PARA i DESDE 1 HASTA n HACER
-        LEER v[i]
-    FIN PARA
+\NormalTok{    \textbackslash{}\textbackslash{} Asignar valores al vector}
+\NormalTok{    PARA i DESDE 1 HASTA n HACER}
+\NormalTok{        LEER v[i]}
+\NormalTok{    FIN PARA}
     
-    \\ Reordenar
-    PARA i DESDE 1 HASTA ENTERO(n / 2) HACER
-        tmp <- v[i]                 \\ Paso 1
-        v[i] <- v[n - i + 1]        \\ Paso 2
-        v[n - i + 1] <- tmp         \\ Paso 3
-    FIN PARA
+\NormalTok{    \textbackslash{}\textbackslash{} Reordenar}
+\NormalTok{    PARA i DESDE 1 HASTA ENTERO(n / 2) HACER}
+\NormalTok{        tmp \textless{}{-} v[i]                 \textbackslash{}\textbackslash{} Paso 1}
+\NormalTok{        v[i] \textless{}{-} v[n {-} i + 1]        \textbackslash{}\textbackslash{} Paso 2}
+\NormalTok{        v[n {-} i + 1] \textless{}{-} tmp         \textbackslash{}\textbackslash{} Paso 3}
+\NormalTok{    FIN PARA}
     
-    \\ Mostrar el vector reodenado
-    PARA i DESDE 1 HASTA n HACER
-        ESCRIBIR v[i]
-    FIN PARA
+\NormalTok{    \textbackslash{}\textbackslash{} Mostrar el vector reodenado}
+\NormalTok{    PARA i DESDE 1 HASTA n HACER}
+\NormalTok{        ESCRIBIR v[i]}
+\NormalTok{    FIN PARA}
     
-FIN
-\end{verbatim}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 El código correspondiente en SAS/IML es:
 
-\begin{verbatim}
-/* Invertir (dar vuelta) un vector */
-proc iml;
-    v = {"programacion" "de" "taller" "el" "aguante"};
-    n = ncol(v);
-    do i = 1 to int(n / 2);
-        tmp = v[i];
-        v[i] = v[n - i + 1];
-        v[n - i + 1] = tmp;
-    end;
-    print v;
-quit;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{/* Invertir (dar vuelta) un vector */}
+\NormalTok{proc iml;}
+\NormalTok{    v = \{"programacion" "de" "taller" "el" "aguante"\};}
+\NormalTok{    n = ncol(v);}
+\NormalTok{    do i = 1 to int(n / 2);}
+\NormalTok{        tmp = v[i];}
+\NormalTok{        v[i] = v[n {-} i + 1];}
+\NormalTok{        v[n {-} i + 1] = tmp;}
+\NormalTok{    end;}
+\NormalTok{    print v;}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{archivos}{%
 \chapter{Archivos}\label{archivos}}
@@ -1442,32 +1566,55 @@ En estos casos, el enfoque usual es recolectar la información en un todo lógic
 
 La unidad elemental que compone a un archivo o fichero es un \textbf{registro}, el cual es una colección de información relativa a una misma entidad. En general, cada registro de un mismo archivo tiene la misma estructura que los demás. Los datos individuales sobre dicha entidad ocupan \textbf{campos} dentro de los registros. Por ejemplo:
 
-\begin{verbatim}
-ARCHIVO: Pasajeros
-Campo 1: NOMBRE, tipo caracter
-Campo 2: NÚMERO DE VUELO, tipo caracter
-Campo 3: FECHA DE VUELO, tipo caracter
-Campo 4: NÚMERO DE ASIENTO, tipo caracter
-Campo 5: CIUDAD ORIGEN, tipo caracter
-Campo 6: CIUDAD DESTINO, tipo caracter
-Campo 7: PRECIO, tipo numérico
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ARCHIVO: Pasajeros}
+\NormalTok{Campo 1: NOMBRE, tipo caracter}
+\NormalTok{Campo 2: NÚMERO DE VUELO, tipo caracter}
+\NormalTok{Campo 3: FECHA DE VUELO, tipo caracter}
+\NormalTok{Campo 4: NÚMERO DE ASIENTO, tipo caracter}
+\NormalTok{Campo 5: CIUDAD ORIGEN, tipo caracter}
+\NormalTok{Campo 6: CIUDAD DESTINO, tipo caracter}
+\NormalTok{Campo 7: PRECIO, tipo numérico}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{longtable}[]{@{}cccccll@{}}
-\toprule
-Nombre & NroVuelo & FechaVuelo & NroAsiento & Origen & Destino & Precio\tabularnewline
-\midrule
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.2048}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1205}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1446}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1446}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1084}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1687}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1084}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\centering
+Nombre
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+NroVuelo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+FechaVuelo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+NroAsiento
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Origen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Destino
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Precio
+\end{minipage} \\
+\midrule()
 \endhead
-Pamela Suárez & AR6071 & 12/09/17 & 17A & Rosario & Córdoba & 1532.23\tabularnewline
-Gonzalo Echarri & AR5423 & 14/09/17 & 31B & Rosario & Buenos Aires & 1424.10\tabularnewline
-\ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{}\tabularnewline
-\bottomrule
+Pamela Suárez & AR6071 & 12/09/17 & 17A & Rosario & Córdoba & 1532.23 \\
+Gonzalo Echarri & AR5423 & 14/09/17 & 31B & Rosario & Buenos Aires & 1424.10 \\
+\ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} \\
+\bottomrule()
 \end{longtable}
 
 La forma más común de identificar un registro es eligiendo un campo dentro del registro llamado \textbf{clave} (por ejemplo, el nombre del pasajero), que contiene un único valor para cada registro. En otras casos es posible identificar un registro a través del valor de más de uno de sus campos.
 
-\hypertarget{organizacion-de-archivos}{%
-\section{Organización de archivos}\label{organizacion-de-archivos}}
+\hypertarget{organizaciuxf3n-de-archivos}{%
+\section{Organización de archivos}\label{organizaciuxf3n-de-archivos}}
 
 Existen distintos tipos de organización de los archivos según la forma en la que se pueda acceder a cada uno de sus registros:
 
@@ -1522,8 +1669,8 @@ Otras operaciones que se pueden realizar sobre los archivos incluyen acciones de
   Partición: subdividir los registros por el valor que toman en algún campo.
 \end{itemize}
 
-\hypertarget{pseudo-codigo}{%
-\section{Pseudo-código}\label{pseudo-codigo}}
+\hypertarget{pseudo-cuxf3digo}{%
+\section{Pseudo-código}\label{pseudo-cuxf3digo}}
 
 Al escribir los algoritmos en pseudo-código, se puede hacer uso de las siguientes expresiones para representar algunas operaciones a realizar sobre los archivos:
 
@@ -1548,18 +1695,20 @@ Al escribir los algoritmos en pseudo-código, se puede hacer uso de las siguient
 \hypertarget{ejemplo-lectura-de-un-archivo}{%
 \subsection{Ejemplo: lectura de un archivo}\label{ejemplo-lectura-de-un-archivo}}
 
-Siendo \texttt{nombreArchivo} el nombre del archivo que se desea leer, compuesto por \texttt{m} campos llamados \texttt{campo1}, \texttt{campo2}, \ldots{}, \texttt{campom}, entonces, el pseudocódigo necesario para leer el archivo es:
+Siendo \texttt{nombreArchivo} el nombre del archivo que se desea leer, compuesto por \texttt{m} campos llamados \texttt{campo1}, \texttt{campo2}, \ldots, \texttt{campom}, entonces, el pseudocódigo necesario para leer el archivo es:
 
-\begin{verbatim}
-ABRIR(nombreArchivo) secuencial, de entrada
-MIENTRAS FINDE(nombreArchivo) = FALSO ENTONCES
-    LEER(nombreArchivo) campo1, campo2, ..., campom
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ABRIR(nombreArchivo) secuencial, de entrada}
+\NormalTok{MIENTRAS FINDE(nombreArchivo) = FALSO ENTONCES}
+\NormalTok{    LEER(nombreArchivo) campo1, campo2, ..., campom}
     
-    ... realizar operaciones con las variables campo1, campo2, ..., campom...
+\NormalTok{    ... realizar operaciones con las variables campo1, campo2, ..., campom...}
     
-FIN MIENTRAS
-CERRAR(nombreArchivo)
-\end{verbatim}
+\NormalTok{FIN MIENTRAS}
+\NormalTok{CERRAR(nombreArchivo)}
+\end{Highlighting}
+\end{Shaded}
 
 En IML, podemos seguir los siguientes pasos:
 
@@ -1570,19 +1719,21 @@ En IML, podemos seguir los siguientes pasos:
   Haciendo uso de un \texttt{proc\ import}, se importa el archivo en la librería temporal \texttt{Work} (podría guardarse en otra), creando un dataset cuyo nombre se indica en \texttt{out} (en este caso, \texttt{nombreDataset}):
 \end{enumerate}
 
-\begin{verbatim}
-* Si se trata de un archivo de texto;
-proc import out = nombreDataset
-            datafile = "C:\direccion\hasta\la\carpeta\nombreArchivo.txt"
-            dbms = TAB REPLACE;
-run;
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{* Si se trata de un archivo de texto;}
+\NormalTok{proc import out = nombreDataset}
+\NormalTok{            datafile = "C:\textbackslash{}direccion\textbackslash{}hasta\textbackslash{}la\textbackslash{}carpeta\textbackslash{}nombreArchivo.txt"}
+\NormalTok{            dbms = TAB REPLACE;}
+\NormalTok{run;}
             
-* Si se trata de un archivo de Excel;
-proc import out = nombreDataset
-            datafile = "C:\direccion\hasta\la\carpeta\nombreArchivo.txt"
-            dbms = EXCEL REPLACE;
-run;
-\end{verbatim}
+\NormalTok{* Si se trata de un archivo de Excel;}
+\NormalTok{proc import out = nombreDataset}
+\NormalTok{            datafile = "C:\textbackslash{}direccion\textbackslash{}hasta\textbackslash{}la\textbackslash{}carpeta\textbackslash{}nombreArchivo.txt"}
+\NormalTok{            dbms = EXCEL REPLACE;}
+\NormalTok{run;}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1592,44 +1743,48 @@ run;
   Dentro del \texttt{proc\ iml}, leer línea por línea los registros del data set que hemos creado (en este ejemplo, \texttt{nombreDataset}) a través de un \texttt{do\ data;}:
 \end{enumerate}
 
-\begin{verbatim}
-proc iml;
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proc iml;}
 
-    ...
+\NormalTok{    ...}
 
-    use nombreDataset;
-    do data;
+\NormalTok{    use nombreDataset;}
+\NormalTok{    do data;}
     
-        * Se lee de a una línea (registro) por vez, los campos del archivo son usados como
-            variables que tienen los respectivos valores para la línea en cuestión;
+\NormalTok{        * Se lee de a una línea (registro) por vez, los campos del archivo son usados como}
+\NormalTok{            variables que tienen los respectivos valores para la línea en cuestión;}
         
-       ... realizar operaciones con los valores de cada registro del archivo...
+\NormalTok{       ... realizar operaciones con los valores de cada registro del archivo...}
             
-    end;
-    close nombreDataset;
+\NormalTok{    end;}
+\NormalTok{    close nombreDataset;}
 
-    ...
+\NormalTok{    ...}
 
-quit;
-\end{verbatim}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{ejemplo-escritura-de-un-archivo}{%
 \subsection{Ejemplo: escritura de un archivo}\label{ejemplo-escritura-de-un-archivo}}
 
-Supongamos que la información que se desea guardar en un nuevo archivo se encuentra en una matriz llamada \texttt{tabla}, que tiene \texttt{n} filas correspondientes a \texttt{n} registros y \texttt{m} columnas referidos a \texttt{m} campos llamados \texttt{campo1}, \texttt{campo2}, \ldots{}, \texttt{campom}. Entonces, el pseudocódigo necesario para crear y escribir el nuevo archivo es:
+Supongamos que la información que se desea guardar en un nuevo archivo se encuentra en una matriz llamada \texttt{tabla}, que tiene \texttt{n} filas correspondientes a \texttt{n} registros y \texttt{m} columnas referidos a \texttt{m} campos llamados \texttt{campo1}, \texttt{campo2}, \ldots, \texttt{campom}. Entonces, el pseudocódigo necesario para crear y escribir el nuevo archivo es:
 
-\begin{verbatim}
-CREAR(nombreArchivo)
-ABRIR(nombreArchivo) secuencial, de salida
-PARA i DESDE 1 HASTA n HACER
-    campo1 <- tabla[i, 1]
-    campo2 <- tabla[i, 2]
-    ...
-    campom <- tabla[i, m]
-    ESCRIBIR(nombreArchivo) campo1, campo2, ..., campom
-FIN PARA
-CERRRAR(nombreArchivo)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CREAR(nombreArchivo)}
+\NormalTok{ABRIR(nombreArchivo) secuencial, de salida}
+\NormalTok{PARA i DESDE 1 HASTA n HACER}
+\NormalTok{    campo1 \textless{}{-} tabla[i, 1]}
+\NormalTok{    campo2 \textless{}{-} tabla[i, 2]}
+\NormalTok{    ...}
+\NormalTok{    campom \textless{}{-} tabla[i, m]}
+\NormalTok{    ESCRIBIR(nombreArchivo) campo1, campo2, ..., campom}
+\NormalTok{FIN PARA}
+\NormalTok{CERRRAR(nombreArchivo)}
+\end{Highlighting}
+\end{Shaded}
 
 En IML, a partir de la matriz que tiene la información que se desea guardar en un archivo, se deben seguir dos pasos:
 
@@ -1640,16 +1795,18 @@ En IML, a partir de la matriz que tiene la información que se desea guardar en 
   Dentro del mismo \texttt{proc\ iml}, crear un dataset de SAS a partir de la matriz. En este ejemplo, la matriz se llama \texttt{tabla}, el nuevo dataset \texttt{datos} y se guarda en la librería temporal \texttt{Work} (podría guardarse en otra):
 \end{enumerate}
 
-\begin{verbatim}
-proc iml;
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proc iml;}
     
-    ... todo el código necesario ...
+\NormalTok{    ... todo el código necesario ...}
 
-    create datos from tabla[colname = ("campo1" || "campo2" || ... || "campom")];
-    append from tabla;
-    close datos;
-quit;
-\end{verbatim}
+\NormalTok{    create datos from tabla[colname = ("campo1" || "campo2" || ... || "campom")];}
+\NormalTok{    append from tabla;}
+\NormalTok{    close datos;}
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1659,12 +1816,14 @@ quit;
   Haciendo uso de un \texttt{proc\ export}, se exporta el dataset desde la librería Work hasta una carpeta de la computadora, en este ejemplo, como archivo de texto:
 \end{enumerate}
 
-\begin{verbatim}
-proc export data = datos
-            outfile = "C:\direccion\hasta\la\carpeta\deseada\nombreArchivo.txt" 
-            dbms = TAB REPLACE;
-run;
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proc export data = datos}
+\NormalTok{            outfile = "C:\textbackslash{}direccion\textbackslash{}hasta\textbackslash{}la\textbackslash{}carpeta\textbackslash{}deseada\textbackslash{}nombreArchivo.txt" }
+\NormalTok{            dbms = TAB REPLACE;}
+\NormalTok{run;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{archivos-de-texto}{%
 \section{Archivos de texto}\label{archivos-de-texto}}
@@ -1684,61 +1843,67 @@ Observemos el siguiente ejemplo, que presenta un algoritmo para el cálculo de u
 
 \[ {n \choose k} = \frac{n!}{(n-k)!k!} \hspace{1cm} k \le n, k \in \mathbb{N}_0, n \in \mathbb{N}\]
 
-\begin{verbatim}
-ALGORITMO: Ej 1. Cálculo de números combinatorios
-COMENZAR
-    VARIABLE numerica n, k, fact1, fact2, fact3, comb
-    LEER n, k \\ Asumimos que n y k cumplen con los requisitos
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: Ej 1. Cálculo de números combinatorios}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numerica n, k, fact1, fact2, fact3, comb}
+\NormalTok{    LEER n, k \textbackslash{}\textbackslash{} Asumimos que n y k cumplen con los requisitos}
 
-    \\ Calcular el factorial de n
-    fact1 <- 1
-    PARA i DESDE 1 HASTA n HACER
-        fact1 <- fact1 * i
-    FIN PARA
+\NormalTok{    \textbackslash{}\textbackslash{} Calcular el factorial de n}
+\NormalTok{    fact1 \textless{}{-} 1}
+\NormalTok{    PARA i DESDE 1 HASTA n HACER}
+\NormalTok{        fact1 \textless{}{-} fact1 * i}
+\NormalTok{    FIN PARA}
 
-    \\ Calcular el factorial de n-k
-    fact2 <- 1
-    PARA i DESDE 1 HASTA n - k HACER
-        fact2 <- fact2 * i
-    FIN PARA
+\NormalTok{    \textbackslash{}\textbackslash{} Calcular el factorial de n{-}k}
+\NormalTok{    fact2 \textless{}{-} 1}
+\NormalTok{    PARA i DESDE 1 HASTA n {-} k HACER}
+\NormalTok{        fact2 \textless{}{-} fact2 * i}
+\NormalTok{    FIN PARA}
 
-    \\ Calcular el factorial de k
-    fact3 <- 1
-    PARA i DESDE 1 HASTA k HACER
-        fact3 <- fact3 * i
-    FIN PARA
+\NormalTok{    \textbackslash{}\textbackslash{} Calcular el factorial de k}
+\NormalTok{    fact3 \textless{}{-} 1}
+\NormalTok{    PARA i DESDE 1 HASTA k HACER}
+\NormalTok{        fact3 \textless{}{-} fact3 * i}
+\NormalTok{    FIN PARA}
 
-    \\ Calcular el nro combinatorio
-    comb <- fact1 / (fact2 * fact3)
+\NormalTok{    \textbackslash{}\textbackslash{} Calcular el nro combinatorio}
+\NormalTok{    comb \textless{}{-} fact1 / (fact2 * fact3)}
 
-    ESCRIBIR "El nro combinatorio de " n " tomado de a " k " es " comb
-FIN
-\end{verbatim}
+\NormalTok{    ESCRIBIR "El nro combinatorio de " n " tomado de a " k " es " comb}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Como se puede observar, el cálculo del factorial requiere siempre la misma estructura y se repite tres veces. Esto constituye una parte del problema cuya resolución puede plantearse por separado, dando lugar a un subalgoritmo. El algoritmo quedaría mejor expresado de la siguiente manera:
 
-\begin{verbatim}
-ALGORITMO: Ej 2. Cálculo de números combinatorios
-COMENZAR
-    VARIABLE numérica n, k, comb
-    LEER n, k 
-    comb <- factorial(n) / (factorial(n - k) * factorial(k))
-    ESCRIBIR "El nro combinatorio de " n " tomado de a " k " es " comb
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: Ej 2. Cálculo de números combinatorios}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica n, k, comb}
+\NormalTok{    LEER n, k }
+\NormalTok{    comb \textless{}{-} factorial(n) / (factorial(n {-} k) * factorial(k))}
+\NormalTok{    ESCRIBIR "El nro combinatorio de " n " tomado de a " k " es " comb}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Aquí se puede ver cómo se simplificó la estructura del algoritmo, al hacer uso de un subalgoritmo llamado \texttt{factorial} que toma entre paréntesis un valor para el que procede a calcular y devolver el factorial. Para que esto funcione, debemos definir aparte dicho subalgoritmo, como se muestra a continuación. Más adelante veremos los detalles de esta definición y por qué, en particular, se dice que este subalgoritmo es una \emph{función}:
 
-\begin{verbatim}
-FUNCIÓN factorial(n: numérico): numérico
-    VARIABLE numérica fact
-    fact <- 1
-    PARA i DESDE 1 HASTA n HACER
-        fact <- fact * i
-    FIN PARA
-    DEVOLVER fact
-FIN FUNCIÓN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FUNCIÓN factorial(n: numérico): numérico}
+\NormalTok{    VARIABLE numérica fact}
+\NormalTok{    fact \textless{}{-} 1}
+\NormalTok{    PARA i DESDE 1 HASTA n HACER}
+\NormalTok{        fact \textless{}{-} fact * i}
+\NormalTok{    FIN PARA}
+\NormalTok{    DEVOLVER fact}
+\NormalTok{FIN FUNCIÓN}
+\end{Highlighting}
+\end{Shaded}
 
 El empleo de subalgoritmos, desarrollando por separado ciertas partes del problema, resulta especialmente ventajoso en los casos siguientes:
 
@@ -1757,70 +1922,82 @@ Los subalgoritmos se clasifican en \textbf{funciones} y \textbf{procedimientos}.
 
 Una \textbf{función} es un subalgoritmo que devuelve un único resultado. Ya hemos trabajado con funciones que asumimos predefinidas, como por ejemplo las funciones módulo (\texttt{MOD}), valor absoluto (\texttt{ABS}) o raiz cuadrada (\texttt{RAIZ}), pero ahora veremos que podemos definir nuestras propias funciones. El valor que la función devuelve como resultado define su tipo, de modo que una función puede ser de tipo numérica, caracter o lógica. En programación, la noción de función se asemeja a la idea matemática de función de una o más variables. Por ejemplo, podemos pensar en la función \(f(x, y) = x^2 + 3y\). En pseudocódigo, el subalgoritmo que se encargaría de implementarla es:
 
-\begin{verbatim}
-FUNCIÓN f(x: numérico, y: numérico): numérico
-COMENZAR
-    DEVOLVER x ** 2 + 3 * y
-FIN FUNCIÓN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FUNCIÓN f(x: numérico, y: numérico): numérico}
+\NormalTok{COMENZAR}
+\NormalTok{    DEVOLVER x ** 2 + 3 * y}
+\NormalTok{FIN FUNCIÓN}
+\end{Highlighting}
+\end{Shaded}
 
 Dado que esta función devuelve un valor numérico, decimos que la misma es de tipo numérico, lo cual se indica al final del encabezado. Se dice que \(x\) e \(y\) son los \textbf{parámetros formales} o \textbf{ficticios} y son los que permiten expresar la ``ley'' o ``forma'' de la función. También se aclara en el encabezado que estos parámetros son de tipo numérico. Los valores en los cuales se quiere evaluar la función se llaman \textbf{parámetros actuales} o \textbf{reales}. Por ejemplo, si nos interesa calcular \(f(4, 5)\), los valores \(4\) y \(5\) son los parámetros actuales y se establece una correspondencia entre el parámetro formal \(x\) y el real \(4\), así como entre la \(y\) y el \(5\). Como veremos más adelante, dicha correspondencia puede establecerse de distintas formas. En este ejemplo, el resultado que se obtiene es \(31\). A los parámetros también se les dice \textbf{argumentos}.
 
 También puede ser expresada como:
 
-\begin{verbatim}
-FUNCIÓN f(x: numérico, y: numérico): numérico
-COMENZAR
-    VARIABLE numérica rtdo
-    rtdo <- x ** 2 + 3 * y
-    DEVOLVER rtdo
-FIN FUNCIÓN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FUNCIÓN f(x: numérico, y: numérico): numérico}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica rtdo}
+\NormalTok{    rtdo \textless{}{-} x ** 2 + 3 * y}
+\NormalTok{    DEVOLVER rtdo}
+\NormalTok{FIN FUNCIÓN}
+\end{Highlighting}
+\end{Shaded}
 
 De manera general, la definición de una función es:
 
-\begin{verbatim}
-FUNCIÓN nombre(lista de parámetros formales): tipo de resultado
-COMENZAR
-    Declaración de variables
-    Acciones
-    DEVOLVER valor
-FIN FUNCIÓN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FUNCIÓN nombre(lista de parámetros formales): tipo de resultado}
+\NormalTok{COMENZAR}
+\NormalTok{    Declaración de variables}
+\NormalTok{    Acciones}
+\NormalTok{    DEVOLVER valor}
+\NormalTok{FIN FUNCIÓN}
+\end{Highlighting}
+\end{Shaded}
 
 La palabra clave \texttt{DEVOLVER} provoca la inmediata finalización de la ejecución de la función e indica cuál es el resultado de la misma, cuyo tipo debe coincidir con el tipo de función declarado antes. La acción \texttt{DEVOLVER} se puede insertar en cualquier punto de la parte ejecutable de la función y además es posible utilizar más de una sentencia \texttt{DEVOLVER} en una misma función, aunque sólo una llegue a ejecutarse. Esto puede verse en el siguiente ejemplo:
 
-\begin{verbatim}
-FUNCIÓN maximo(num1: numérico, num2: numérico): numérico
-COMENZAR
-    SI num1 >= num2
-        ENTONCES
-            DEVOLVER num1
-        SI NO
-            DEVOLVER num2
-    FIN SI
-FIN FUNCIÓN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FUNCIÓN maximo(num1: numérico, num2: numérico): numérico}
+\NormalTok{COMENZAR}
+\NormalTok{    SI num1 \textgreater{}= num2}
+\NormalTok{        ENTONCES}
+\NormalTok{            DEVOLVER num1}
+\NormalTok{        SI NO}
+\NormalTok{            DEVOLVER num2}
+\NormalTok{    FIN SI}
+\NormalTok{FIN FUNCIÓN}
+\end{Highlighting}
+\end{Shaded}
 
 Para usar una función en un algoritmo, se la invoca escribiendo su nombre seguida por los valores actuales entre paréntesis, separados por coma. Esta invocación representa un valor del tipo de la función que puede ser usado como operando en otra expresión. Al invocar una función es obligatorio que los valores suministrados para los argumentos reales correspondan en cantidad, tipo y orden con los argumentos formales de la definición de la función. Por ejemplo:
 
-\begin{verbatim}
-ALGORITMO: Ej 3. Hallar el máximo entre dos valores
-COMENZAR
-    ESCRIBIR "El máximo entre 5 y 10 es " maximo(5, 10)
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: Ej 3. Hallar el máximo entre dos valores}
+\NormalTok{COMENZAR}
+\NormalTok{    ESCRIBIR "El máximo entre 5 y 10 es " maximo(5, 10)}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 O más general:
 
-\begin{verbatim}
-ALGORITMO: Ej 3. Hallar el máximo entre dos valores
-COMENZAR
-    VARIABLE numérica x, y
-    LEER x, y
-    ESCRIBIR "El máximo es " maximo(x, y)
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: Ej 3. Hallar el máximo entre dos valores}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica x, y}
+\NormalTok{    LEER x, y}
+\NormalTok{    ESCRIBIR "El máximo es " maximo(x, y)}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{procedimientos}{%
 \section{Procedimientos}\label{procedimientos}}
@@ -1831,94 +2008,102 @@ Como en las funciones, desde el algoritmo principal se pasan valores al procedim
 
 Por ejemplo, podemos definir un procedimiento que se encargue de escribir un título para la salida de nuestro algoritmo y otro para escribir una línea que separe los resultados:
 
-\begin{verbatim}
-ALGORITMO: Ej 4. Procedimientos con y sin argumentos
-COMENZAR
-    ...
-    colocarTitulo("Primer grupo de resultados")
-    ESCRIBIR 1
-    colocarLinea()
-    ESCRIBIR 2
-    colocarLinea()
-    ESCRIBIR 3
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: Ej 4. Procedimientos con y sin argumentos}
+\NormalTok{COMENZAR}
+\NormalTok{    ...}
+\NormalTok{    colocarTitulo("Primer grupo de resultados")}
+\NormalTok{    ESCRIBIR 1}
+\NormalTok{    colocarLinea()}
+\NormalTok{    ESCRIBIR 2}
+\NormalTok{    colocarLinea()}
+\NormalTok{    ESCRIBIR 3}
 
-    colocarTitulo("Segundo grupo de resultados")
-    ESCRIBIR 4
-    colocarLinea()
-    ESCRIBIR 5
-    colocarLinea()
-    ESCRIBIR 6
-FIN
+\NormalTok{    colocarTitulo("Segundo grupo de resultados")}
+\NormalTok{    ESCRIBIR 4}
+\NormalTok{    colocarLinea()}
+\NormalTok{    ESCRIBIR 5}
+\NormalTok{    colocarLinea()}
+\NormalTok{    ESCRIBIR 6}
+\NormalTok{FIN}
 
-PROCEDIMIENTO colocarTitulo(titulo: caracter)
-    ESCRIBIR "================================="
-    ESCRIBIR titulo
-    ESCRIBIR "================================="
-FIN PROCEDIMIENTO
+\NormalTok{PROCEDIMIENTO colocarTitulo(titulo: caracter)}
+\NormalTok{    ESCRIBIR "================================="}
+\NormalTok{    ESCRIBIR titulo}
+\NormalTok{    ESCRIBIR "================================="}
+\NormalTok{FIN PROCEDIMIENTO}
 
-PROCEDIMIENTO colocarLinea()
-    ESCRIBIR "_________________________________"
-FIN PROCEDIMIENTO
-\end{verbatim}
+\NormalTok{PROCEDIMIENTO colocarLinea()}
+\NormalTok{    ESCRIBIR "\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_"}
+\NormalTok{FIN PROCEDIMIENTO}
+\end{Highlighting}
+\end{Shaded}
 
 Como resultado la salida mostrará:
 
-\begin{verbatim}
-=================================
-Primer grupo de resultados
-=================================
-1
-_________________________________
-2
-_________________________________
-3
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{=================================}
+\NormalTok{Primer grupo de resultados}
+\NormalTok{=================================}
+\NormalTok{1}
+\NormalTok{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+\NormalTok{2}
+\NormalTok{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+\NormalTok{3}
 
-=================================
-Segundo grupo de resultados
-=================================
-4
-_________________________________
-5
-_________________________________
-6
-_________________________________
-\end{verbatim}
+\NormalTok{=================================}
+\NormalTok{Segundo grupo de resultados}
+\NormalTok{=================================}
+\NormalTok{4}
+\NormalTok{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+\NormalTok{5}
+\NormalTok{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+\NormalTok{6}
+\NormalTok{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+\end{Highlighting}
+\end{Shaded}
 
 En el siguiente ejemplo podemos identificar los argumentos reales \texttt{a} (con el valor 5), \texttt{b} (con el valor 2), \texttt{c} y \texttt{d} (sin valores asignados inicialmente). Cuando el procedimiento \texttt{proced1} es invocado, se establece una correspondencia con los argumentos formales \texttt{n1}, \texttt{n2}, \texttt{n3} y \texttt{n4}, respectivamente. \texttt{n1} toma el valor 5, \texttt{n2} toma el valor 2 y el procedimiento le asigna los valores 7 a \texttt{n3} y 1 a \texttt{n4}. Al finalizar, este procedimiento habrá dejado sin cambios a las variables \texttt{a} y \texttt{b}, mientras que le habrá asignado los valores 7 a \texttt{c} y 1 a \texttt{d}. Como resultado, el algoritmo escribe ``5 2 7 1''.
 
-\begin{verbatim}
-ALGORITMO: Ejemplo 5
-COMENZAR
-    VARIABLE numérica a, b, c, d
-    a <- 5
-    b <- 2
-    proced1(a, b, c, d)
-    ESCRIBIR a b c d
-FIN
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: Ejemplo 5}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica a, b, c, d}
+\NormalTok{    a \textless{}{-} 5}
+\NormalTok{    b \textless{}{-} 2}
+\NormalTok{    proced1(a, b, c, d)}
+\NormalTok{    ESCRIBIR a b c d}
+\NormalTok{FIN}
 
-PROCEDIMIENTO proced1(n1: numérico, n2: numérico, n3: numérico, n4: numérico)
-    n3 <- n1 + n2
-    n4 <- n2 - 1
-FIN PROCEDIMIENTO
-\end{verbatim}
+\NormalTok{PROCEDIMIENTO proced1(n1: numérico, n2: numérico, n3: numérico, n4: numérico)}
+\NormalTok{    n3 \textless{}{-} n1 + n2}
+\NormalTok{    n4 \textless{}{-} n2 {-} 1}
+\NormalTok{FIN PROCEDIMIENTO}
+\end{Highlighting}
+\end{Shaded}
 
 En el siguiente ejemplo, el procedimiento \texttt{proced2} modifica las variables que actúan como argumentos reales. Al ser invocado, se establece una correspondencia entre los argumentos reales \texttt{a} (con el valor 5) y \texttt{b} (con el valor 2), y los argumentos formales \texttt{n1} y \texttt{n2}, respectivamente. De esta forma, la primera acción del procedimiento le asigna el valor 7 a \texttt{n1} y 1 a \texttt{n2}. De esta manera, al finalizar \texttt{a} vale 7 y \texttt{b} vale 1 y el algoritmo escribe ``7 1''.
 
-\begin{verbatim}
-ALGORITMO: Ejemplo 6
-COMENZAR
-    VARIABLE numérica a, b
-    a <- 5
-    b <- 2
-    proced2(a, b)
-    ESCRIBIR a b
-FIN
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: Ejemplo 6}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica a, b}
+\NormalTok{    a \textless{}{-} 5}
+\NormalTok{    b \textless{}{-} 2}
+\NormalTok{    proced2(a, b)}
+\NormalTok{    ESCRIBIR a b}
+\NormalTok{FIN}
 
-PROCEDIMIENTO proced2(n1: numérico, n2: numérico)
-    n1 <- n1 + n2
-    n2 <- n2 - 1
-FIN PROCEDIMIENTO
-\end{verbatim}
+\NormalTok{PROCEDIMIENTO proced2(n1: numérico, n2: numérico)}
+\NormalTok{    n1 \textless{}{-} n1 + n2}
+\NormalTok{    n2 \textless{}{-} n2 {-} 1}
+\NormalTok{FIN PROCEDIMIENTO}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{pasaje-de-argumentos}{%
 \section{Pasaje de argumentos}\label{pasaje-de-argumentos}}
@@ -1966,21 +2151,23 @@ En otras situaciones es deseable que el subalgoritmo pueda modificar las variabl
 
 Algunos lenguajes de programación permiten que el programador elija el modo en el que se realiza el pasaje. En el siguiente ejemplo veremos la diferencia entre ambos modos.
 
-\begin{verbatim}
-ALGORITMO: Ejemplo 7
-COMENZAR
-    VARIABLE numérica a, b, c
-    a <- 3
-    b <- 5
-    c <- fun(a, b - a)
-    ESCRIBIR a b c
-FIN
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: Ejemplo 7}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica a, b, c}
+\NormalTok{    a \textless{}{-} 3}
+\NormalTok{    b \textless{}{-} 5}
+\NormalTok{    c \textless{}{-} fun(a, b {-} a)}
+\NormalTok{    ESCRIBIR a b c}
+\NormalTok{FIN}
 
-FUNCIÓN fun(x: numérico, y: numérico): numérico
-    x <- x + 1
-    DEVOLVER x + y
-FIN FUNCIÓN
-\end{verbatim}
+\NormalTok{FUNCIÓN fun(x: numérico, y: numérico): numérico}
+\NormalTok{    x \textless{}{-} x + 1}
+\NormalTok{    DEVOLVER x + y}
+\NormalTok{FIN FUNCIÓN}
+\end{Highlighting}
+\end{Shaded}
 
 Si el pasaje de argumentos se hace por valor, los cambios producidos en el cuerpo de la función sobre los parámetros formales no son transmitidos a los parámetros actuales. Esto significa que los formales son una ``copia'' de los actuales. Los pasos que sigue el algoritmo son:
 
@@ -2020,21 +2207,23 @@ Si el pasaje de argumentos se hace por referencia, cualquier modificación reali
 
 Analicemos ahora el tipo de pasaje en el contexto de un procedimiento:
 
-\begin{verbatim}
-ALGORITMO: Ejemplo 8
-COMENZAR
-    VARIABLE numérica a, b
-    a <- 8
-    b <- 4
-    miProc(a, b)
-    ESCRIBIR a b
-FIN
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: Ejemplo 8}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE numérica a, b}
+\NormalTok{    a \textless{}{-} 8}
+\NormalTok{    b \textless{}{-} 4}
+\NormalTok{    miProc(a, b)}
+\NormalTok{    ESCRIBIR a b}
+\NormalTok{FIN}
 
-PROCEDIMIENTO miProc(x: numérico, y: numérico)
-    x <- x * 2
-    y <- x - y
-FIN PROCEDIMIENTO
-\end{verbatim}
+\NormalTok{PROCEDIMIENTO miProc(x: numérico, y: numérico)}
+\NormalTok{    x \textless{}{-} x * 2}
+\NormalTok{    y \textless{}{-} x {-} y}
+\NormalTok{FIN PROCEDIMIENTO}
+\end{Highlighting}
+\end{Shaded}
 
 Si el pasaje es por referencias, los pasos que sigue el algoritmo serían:
 
@@ -2092,25 +2281,27 @@ Las variables globales tienen la ventaja de compartir información entre diferen
 
 Analicemos el siguiente ejemplo:
 
-\begin{verbatim}
-ALGORITMO: Ejemplo 9
-COMENZAR
-    VARIABLE GLOBAL numérica z
-    VARIABLE LOCAL numérica x, y
-    x <- 2
-    z <- 10
-    y <- fcn(x)
-    ESCRIBIR x z y
-FIN
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: Ejemplo 9}
+\NormalTok{COMENZAR}
+\NormalTok{    VARIABLE GLOBAL numérica z}
+\NormalTok{    VARIABLE LOCAL numérica x, y}
+\NormalTok{    x \textless{}{-} 2}
+\NormalTok{    z \textless{}{-} 10}
+\NormalTok{    y \textless{}{-} fcn(x)}
+\NormalTok{    ESCRIBIR x z y}
+\NormalTok{FIN}
 
-FUNCIÓN fcn(l: numérico): numérico
-    VARIABLE GLOBAL numérica z
-    VARIABLE LOCAL numérica x
-    z <- 5
-    x <- 7
-    DEVOLVER l + 4
-FIN FUNCIÓN
-\end{verbatim}
+\NormalTok{FUNCIÓN fcn(l: numérico): numérico}
+\NormalTok{    VARIABLE GLOBAL numérica z}
+\NormalTok{    VARIABLE LOCAL numérica x}
+\NormalTok{    z \textless{}{-} 5}
+\NormalTok{    x \textless{}{-} 7}
+\NormalTok{    DEVOLVER l + 4}
+\NormalTok{FIN FUNCIÓN}
+\end{Highlighting}
+\end{Shaded}
 
 \texttt{z} es una variable global, es decir, puede ser accedida desde el algoritmo o desde la función. \texttt{x} es el nombre con el que se indican dos variables. Una es local al algoritmo principal y, por lo tanto, puede ser accedida sólo desde él. La otra es local a la función.
 
@@ -2146,209 +2337,211 @@ Como ya hemos mencionado, cuando se escribe un algoritmo o un programa siempre d
 
 El uso de variables globales permite escribir subalgoritmos que carecen de transparencia referencial. Si un subalgoritmo modifica alguna variable externa, se dice que produce \emph{efectos secundarios}, debe realizarse con precaución y generalmente es desaconsejable.
 
-\hypertarget{codigo-en-iml-de-los-ejemplos-vistos}{%
-\section{Código en IML de los ejemplos vistos}\label{codigo-en-iml-de-los-ejemplos-vistos}}
+\hypertarget{cuxf3digo-en-iml-de-los-ejemplos-vistos}{%
+\section{Código en IML de los ejemplos vistos}\label{cuxf3digo-en-iml-de-los-ejemplos-vistos}}
 
-\begin{verbatim}
-/* Crear una librería en mi computadora */
-libname subalg "C:\direccion\hasta\una\carpeta";
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{/* Crear una librería en mi computadora */}
+\NormalTok{libname subalg "C:\textbackslash{}direccion\textbackslash{}hasta\textbackslash{}una\textbackslash{}carpeta";}
 
-/* 
-Observaciones:
-- En su definción, las funciones deben hacer uso de la sentencia "return", 
-  los procedimientos no.
-- En su invocación, los procedimientos se corren usando run nombreProc(...); 
-  o call nombreProc(...); pero las funciones se corren directo sin usar call o run.
-- Cuando definimos los módulos, hay que decir dónde se guardarán (con "reset"). Yo los voy a
-  guardar dentro de la librería creada arriba "subalg", en un tipo especial de archivo
-  de SAS llamado "catálogo". Al catálogo le puedo poner cualquier nombre, en este caso, "ejemplos";
-- Después de crear el/los módulo/s, debo guardarlos. Puedo guardarlos todos juntos si están
-  dentro del mismo proc iml con store module = _all_ o uno por uno con store module = nombreDelModulo;
-- SAS IML usa PASAJE POR REFERENCIA!!!! Cuidado!!! Todo lo que se haga dentro del módulo 
-  modifican los respectivos objetos del programa principal.
-*/
+\NormalTok{/* }
+\NormalTok{Observaciones:}
+\NormalTok{{-} En su definción, las funciones deben hacer uso de la sentencia "return", }
+\NormalTok{  los procedimientos no.}
+\NormalTok{{-} En su invocación, los procedimientos se corren usando run nombreProc(...); }
+\NormalTok{  o call nombreProc(...); pero las funciones se corren directo sin usar call o run.}
+\NormalTok{{-} Cuando definimos los módulos, hay que decir dónde se guardarán (con "reset"). Yo los voy a}
+\NormalTok{  guardar dentro de la librería creada arriba "subalg", en un tipo especial de archivo}
+\NormalTok{  de SAS llamado "catálogo". Al catálogo le puedo poner cualquier nombre, en este caso, "ejemplos";}
+\NormalTok{{-} Después de crear el/los módulo/s, debo guardarlos. Puedo guardarlos todos juntos si están}
+\NormalTok{  dentro del mismo proc iml con store module = \_all\_ o uno por uno con store module = nombreDelModulo;}
+\NormalTok{{-} SAS IML usa PASAJE POR REFERENCIA!!!! Cuidado!!! Todo lo que se haga dentro del módulo }
+\NormalTok{  modifican los respectivos objetos del programa principal.}
+\NormalTok{*/}
 
-/* Definir todos los módulos (subalgoritmos) que usaré en un mismo proc */
-proc iml;
+\NormalTok{/* Definir todos los módulos (subalgoritmos) que usaré en un mismo proc */}
+\NormalTok{proc iml;}
 
-    reset storage = subalg.ejemplos;
+\NormalTok{    reset storage = subalg.ejemplos;}
 
-    * Ej 2. Función factorial;
-    start factorial(n);
-        fact = 1;
-        do i = 1 to n;
-            fact = fact * i;
-        end;
-        return fact;
-    finish factorial;
+\NormalTok{    * Ej 2. Función factorial;}
+\NormalTok{    start factorial(n);}
+\NormalTok{        fact = 1;}
+\NormalTok{        do i = 1 to n;}
+\NormalTok{            fact = fact * i;}
+\NormalTok{        end;}
+\NormalTok{        return fact;}
+\NormalTok{    finish factorial;}
 
-    * Ej 3. Función maximo;
-    start maximo(num1, num2);
-        if num1 >= num2 then return num1;
-        else return num2;
-    finish maximo;
+\NormalTok{    * Ej 3. Función maximo;}
+\NormalTok{    start maximo(num1, num2);}
+\NormalTok{        if num1 \textgreater{}= num2 then return num1;}
+\NormalTok{        else return num2;}
+\NormalTok{    finish maximo;}
 
-    * Ej 4. Procedimiento colocarTitulo;
-    start colocarTitulo(titulo);
-        print "=================================";
-        print titulo;
-        print "=================================";
-    finish colocarTitulo;
+\NormalTok{    * Ej 4. Procedimiento colocarTitulo;}
+\NormalTok{    start colocarTitulo(titulo);}
+\NormalTok{        print "=================================";}
+\NormalTok{        print titulo;}
+\NormalTok{        print "=================================";}
+\NormalTok{    finish colocarTitulo;}
     
-    * Ej 4. Procedimiento colocarLinea;
-    start colocarLinea;
-        print "_________________________________";
-    finish colocarLinea;
+\NormalTok{    * Ej 4. Procedimiento colocarLinea;}
+\NormalTok{    start colocarLinea;}
+\NormalTok{        print "\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_";}
+\NormalTok{    finish colocarLinea;}
 
-    * Ej 5. Procedimiento proced1;
-    start proced1(n1, n2, n3, n4);
-        n3 = n1 + n2;
-        n4 = n2 - 1;
-    finish proced1;
+\NormalTok{    * Ej 5. Procedimiento proced1;}
+\NormalTok{    start proced1(n1, n2, n3, n4);}
+\NormalTok{        n3 = n1 + n2;}
+\NormalTok{        n4 = n2 {-} 1;}
+\NormalTok{    finish proced1;}
 
-    * Ej 6. Procedimiento proced1;
-    start proced2(n1, n2);
-        n1 = n1 + n2;
-        n2 = n2 - 1;
-    finish proced2;
+\NormalTok{    * Ej 6. Procedimiento proced1;}
+\NormalTok{    start proced2(n1, n2);}
+\NormalTok{        n1 = n1 + n2;}
+\NormalTok{        n2 = n2 {-} 1;}
+\NormalTok{    finish proced2;}
 
-    * Ej 7. Pasaje por referencia en una función;
-    start fun(x, y);
-        x = x + 1;
-        return x + y;
-    finish fun;
+\NormalTok{    * Ej 7. Pasaje por referencia en una función;}
+\NormalTok{    start fun(x, y);}
+\NormalTok{        x = x + 1;}
+\NormalTok{        return x + y;}
+\NormalTok{    finish fun;}
 
-    * Ej 8. Pasaje por referencia en un procedimiento;
-    start miProc(x, y);
-        x = x * 2;
-        y = x - y;
-    finish miProc;
+\NormalTok{    * Ej 8. Pasaje por referencia en un procedimiento;}
+\NormalTok{    start miProc(x, y);}
+\NormalTok{        x = x * 2;}
+\NormalTok{        y = x {-} y;}
+\NormalTok{    finish miProc;}
 
-    * Ej 9. Variables globales;
-    start fcn(l) global(z);
-        z = 5;
-        x = 7;
-        return l + 4;
-    finish fcn;
+\NormalTok{    * Ej 9. Variables globales;}
+\NormalTok{    start fcn(l) global(z);}
+\NormalTok{        z = 5;}
+\NormalTok{        x = 7;}
+\NormalTok{        return l + 4;}
+\NormalTok{    finish fcn;}
 
-    store module = _all_;
-quit;
+\NormalTok{    store module = \_all\_;}
+\NormalTok{quit;}
 
-/* Ej 1. Cálculo de números combinatorios (sin subalgoritmos) */
-proc iml;
-    n = 10;
-    k = 2;
+\NormalTok{/* Ej 1. Cálculo de números combinatorios (sin subalgoritmos) */}
+\NormalTok{proc iml;}
+\NormalTok{    n = 10;}
+\NormalTok{    k = 2;}
 
-    fact1 = 1;
-    do i = 1 to n;
-        fact1 = fact1 * i;
-    end;
+\NormalTok{    fact1 = 1;}
+\NormalTok{    do i = 1 to n;}
+\NormalTok{        fact1 = fact1 * i;}
+\NormalTok{    end;}
 
-    fact2 = 1;
-    do i = 1 to n - k;
-        fact2 = fact2 * i;
-    end;
+\NormalTok{    fact2 = 1;}
+\NormalTok{    do i = 1 to n {-} k;}
+\NormalTok{        fact2 = fact2 * i;}
+\NormalTok{    end;}
 
-    fact3 = 1;
-    do i = 1 to k;
-        fact3 = fact3 * i;
-    end;
+\NormalTok{    fact3 = 1;}
+\NormalTok{    do i = 1 to k;}
+\NormalTok{        fact3 = fact3 * i;}
+\NormalTok{    end;}
 
-    comb = fact1 / (fact2 * fact3);
-    print "El nro combinatorio de " n " tomado de " k " es " comb; 
-quit;
+\NormalTok{    comb = fact1 / (fact2 * fact3);}
+\NormalTok{    print "El nro combinatorio de " n " tomado de " k " es " comb; }
+\NormalTok{quit;}
 
-/* Ej 2. Cálculo de números combinatorios (con subalgoritmos) */
-proc iml;
-    reset storage = subalg.ejemplos;
-    load module = factorial; * Esta línea no es necesaria;
-    n = 10;
-    k = 2;
-    comb = factorial(n) / (factorial(n - k) * factorial(k));
-    print "El nro combinatorio de " n " tomado de " k " es " comb; 
-quit;
+\NormalTok{/* Ej 2. Cálculo de números combinatorios (con subalgoritmos) */}
+\NormalTok{proc iml;}
+\NormalTok{    reset storage = subalg.ejemplos;}
+\NormalTok{    load module = factorial; * Esta línea no es necesaria;}
+\NormalTok{    n = 10;}
+\NormalTok{    k = 2;}
+\NormalTok{    comb = factorial(n) / (factorial(n {-} k) * factorial(k));}
+\NormalTok{    print "El nro combinatorio de " n " tomado de " k " es " comb; }
+\NormalTok{quit;}
 
-/* Ej 3. Hallar el máximo entre dos valores */
-proc iml;
-    reset storage = subalg.ejemplos;
-    a = 5;
-    b = 10;
-    c = 2;
-    d = -1;
-    print "El maximo entre " a " y " b " es " (maximo(a, b)); 
-    print "El maximo entre " b " y " c " es " (maximo(b, c)); 
-    print "El maximo entre " c " y " c " es " (maximo(c, c)); 
-    print "El maximo entre " d " y " c " es " (maximo(d, c)); 
-quit;
+\NormalTok{/* Ej 3. Hallar el máximo entre dos valores */}
+\NormalTok{proc iml;}
+\NormalTok{    reset storage = subalg.ejemplos;}
+\NormalTok{    a = 5;}
+\NormalTok{    b = 10;}
+\NormalTok{    c = 2;}
+\NormalTok{    d = {-}1;}
+\NormalTok{    print "El maximo entre " a " y " b " es " (maximo(a, b)); }
+\NormalTok{    print "El maximo entre " b " y " c " es " (maximo(b, c)); }
+\NormalTok{    print "El maximo entre " c " y " c " es " (maximo(c, c)); }
+\NormalTok{    print "El maximo entre " d " y " c " es " (maximo(d, c)); }
+\NormalTok{quit;}
 
-/* Ej 4. Procedimientos para colocar títulos o líneas */
-* Se ve mejor en el output (sólo caracteres) que en el Results Viewer (ya tiene formato);
-proc iml;
-    reset storage = subalg.ejemplos;
+\NormalTok{/* Ej 4. Procedimientos para colocar títulos o líneas */}
+\NormalTok{* Se ve mejor en el output (sólo caracteres) que en el Results Viewer (ya tiene formato);}
+\NormalTok{proc iml;}
+\NormalTok{    reset storage = subalg.ejemplos;}
 
-    * Cualquier cosa para mostrar;
-    a = shape(1:6, 2, 3);
-    b = shape(7:10, 2, 2);
+\NormalTok{    * Cualquier cosa para mostrar;}
+\NormalTok{    a = shape(1:6, 2, 3);}
+\NormalTok{    b = shape(7:10, 2, 2);}
 
-    run colocarTitulo("Matrices");
-    print a;
-    run colocarLinea;
-    print b;
-    run colocarLinea;
-    print a b;
-    run colocarTitulo("Matrices traspuestas");
-    print (a`);
-    run colocarLinea;
-    print (b`);
-quit;
+\NormalTok{    run colocarTitulo("Matrices");}
+\NormalTok{    print a;}
+\NormalTok{    run colocarLinea;}
+\NormalTok{    print b;}
+\NormalTok{    run colocarLinea;}
+\NormalTok{    print a b;}
+\NormalTok{    run colocarTitulo("Matrices traspuestas");}
+\NormalTok{    print (a\textasciigrave{});}
+\NormalTok{    run colocarLinea;}
+\NormalTok{    print (b\textasciigrave{});}
+\NormalTok{quit;}
 
-/* Ej 5. Procedimiento proced1 */
-proc iml;
-    reset storage = subalg.ejemplos;
-    a = 5;
-    b = 2;
-    run proced1(a, b, c, d);
-    print a b c d; 
-quit;
+\NormalTok{/* Ej 5. Procedimiento proced1 */}
+\NormalTok{proc iml;}
+\NormalTok{    reset storage = subalg.ejemplos;}
+\NormalTok{    a = 5;}
+\NormalTok{    b = 2;}
+\NormalTok{    run proced1(a, b, c, d);}
+\NormalTok{    print a b c d; }
+\NormalTok{quit;}
 
-/* Ej 6. Procedimiento proced2 */
-proc iml;
-    reset storage = subalg.ejemplos;
-    a = 5;
-    b = 2;
-    run proced2(a, b);
-    print a b; 
-quit;
+\NormalTok{/* Ej 6. Procedimiento proced2 */}
+\NormalTok{proc iml;}
+\NormalTok{    reset storage = subalg.ejemplos;}
+\NormalTok{    a = 5;}
+\NormalTok{    b = 2;}
+\NormalTok{    run proced2(a, b);}
+\NormalTok{    print a b; }
+\NormalTok{quit;}
 
-/* Ej 7. Pasaje por referencia en una función */
-proc iml;
-    reset storage = subalg.ejemplos;
-    a = 3;
-    b = 5;
-    c = fun(a, b - a);
-    print a b c; 
-quit;
+\NormalTok{/* Ej 7. Pasaje por referencia en una función */}
+\NormalTok{proc iml;}
+\NormalTok{    reset storage = subalg.ejemplos;}
+\NormalTok{    a = 3;}
+\NormalTok{    b = 5;}
+\NormalTok{    c = fun(a, b {-} a);}
+\NormalTok{    print a b c; }
+\NormalTok{quit;}
 
-/* Ej 8. Pasaje por referencia en un procedimiento */
-proc iml;
-    reset storage = subalg.ejemplos;
-    a = 8;
-    b = 4;
-    run miProc(a, b);
-    print a b ; 
-quit;
+\NormalTok{/* Ej 8. Pasaje por referencia en un procedimiento */}
+\NormalTok{proc iml;}
+\NormalTok{    reset storage = subalg.ejemplos;}
+\NormalTok{    a = 8;}
+\NormalTok{    b = 4;}
+\NormalTok{    run miProc(a, b);}
+\NormalTok{    print a b ; }
+\NormalTok{quit;}
 
-/* Ej 9. Variables globales */
-proc iml;
-    reset storage = subalg.ejemplos;
-    x = 2;
-    z = 10;
-    y = fcn(x);
-    print x z y; 
-quit;
-\end{verbatim}
+\NormalTok{/* Ej 9. Variables globales */}
+\NormalTok{proc iml;}
+\NormalTok{    reset storage = subalg.ejemplos;}
+\NormalTok{    x = 2;}
+\NormalTok{    z = 10;}
+\NormalTok{    y = fcn(x);}
+\NormalTok{    print x z y; }
+\NormalTok{quit;}
+\end{Highlighting}
+\end{Shaded}
 
-\bibliography{book.bib,packages.bib}
 
+  \bibliography{book.bib,packages.bib}
 
 \end{document}

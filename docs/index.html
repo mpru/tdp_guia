@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Taller de Programación</title>
-  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <title>Introducción a la Programación con SAS IML</title>
+  <meta name="description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario, para las cursadas de 2017 a 2019." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Taller de Programación" />
+  <meta property="og:title" content="Introducción a la Programación con SAS IML" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
+  <meta property="og:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario, para las cursadas de 2017 a 2019." />
   <meta name="github-repo" content="tdplest/guia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Taller de Programación" />
+  <meta name="twitter:title" content="Introducción a la Programación con SAS IML" />
   
-  <meta name="twitter:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario" />
+  <meta name="twitter:description" content="Esta es una breve guía que resume los conceptos más importantes desarrollados en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario, para las cursadas de 2017 a 2019." />
   
 
 <meta name="author" content="Mgs. Lic. Marcos Prunello" />
@@ -31,14 +30,16 @@
   
   
 
-<link rel="next" href="introduccion.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="introducción.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,7 +48,38 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -65,87 +97,104 @@
 <li><a href="./">Guía para el Taller de Programación</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bienvenidos al Taller</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bienvenidos al Taller</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#horario-y-lugar-de-cursado"><i class="fa fa-check"></i>Horario y lugar de cursado</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#consultas"><i class="fa fa-check"></i>Consultas</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#material-de-estudio"><i class="fa fa-check"></i>Material de estudio</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#evaluacion"><i class="fa fa-check"></i>Evaluación</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#evaluación"><i class="fa fa-check"></i>Evaluación</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#campus-virtual"><i class="fa fa-check"></i>Campus virtual</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>2</b> Introducción</a><ul>
-<li class="chapter" data-level="2.1" data-path="introduccion.html"><a href="introduccion.html#una-breve-resena-historica-sobre-la-computacion"><i class="fa fa-check"></i><b>2.1</b> Una breve reseña histórica sobre la computación</a></li>
-<li class="chapter" data-level="2.2" data-path="introduccion.html"><a href="introduccion.html#software-y-hardware"><i class="fa fa-check"></i><b>2.2</b> Software y hardware</a></li>
+<li class="chapter" data-level="2" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>2</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introducción.html"><a href="introducción.html#una-breve-reseña-histórica-sobre-la-computación"><i class="fa fa-check"></i><b>2.1</b> Una breve reseña histórica sobre la computación</a></li>
+<li class="chapter" data-level="2.2" data-path="introducción.html"><a href="introducción.html#software-y-hardware"><i class="fa fa-check"></i><b>2.2</b> Software y hardware</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html"><i class="fa fa-check"></i><b>3</b> Problemas, algoritmos y lenguajes de programación</a><ul>
-<li class="chapter" data-level="3.1" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#el-diseno-algoritmico"><i class="fa fa-check"></i><b>3.1</b> El diseño algorítmico</a></li>
-<li class="chapter" data-level="3.2" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#codificacion-creacion-y-edicion-de-programas"><i class="fa fa-check"></i><b>3.2</b> Codificación: creación y edición de programas</a></li>
-<li class="chapter" data-level="3.3" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#errores-de-programacion-y-depuracion"><i class="fa fa-check"></i><b>3.3</b> Errores de programación y depuración</a></li>
-<li class="chapter" data-level="3.4" data-path="problemas-algoritmos-y-lenguajes-de-programacion.html"><a href="problemas-algoritmos-y-lenguajes-de-programacion.html#resumiendo"><i class="fa fa-check"></i><b>3.4</b> Resumiendo</a></li>
+<li class="chapter" data-level="3" data-path="problemas-algoritmos-y-lenguajes-de-programación.html"><a href="problemas-algoritmos-y-lenguajes-de-programación.html"><i class="fa fa-check"></i><b>3</b> Problemas, algoritmos y lenguajes de programación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="problemas-algoritmos-y-lenguajes-de-programación.html"><a href="problemas-algoritmos-y-lenguajes-de-programación.html#el-diseño-algorítmico"><i class="fa fa-check"></i><b>3.1</b> El diseño algorítmico</a></li>
+<li class="chapter" data-level="3.2" data-path="problemas-algoritmos-y-lenguajes-de-programación.html"><a href="problemas-algoritmos-y-lenguajes-de-programación.html#codificación-creación-y-edición-de-programas"><i class="fa fa-check"></i><b>3.2</b> Codificación: creación y edición de programas</a></li>
+<li class="chapter" data-level="3.3" data-path="problemas-algoritmos-y-lenguajes-de-programación.html"><a href="problemas-algoritmos-y-lenguajes-de-programación.html#errores-de-programación-y-depuración"><i class="fa fa-check"></i><b>3.3</b> Errores de programación y depuración</a></li>
+<li class="chapter" data-level="3.4" data-path="problemas-algoritmos-y-lenguajes-de-programación.html"><a href="problemas-algoritmos-y-lenguajes-de-programación.html#resumiendo"><i class="fa fa-check"></i><b>3.4</b> Resumiendo</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos en SAS/IML</a><ul>
-<li class="chapter" data-level="4.1" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#que-es-sas"><i class="fa fa-check"></i><b>4.1</b> Qué es SAS</a></li>
-<li class="chapter" data-level="4.2" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#como-instalar-sas"><i class="fa fa-check"></i><b>4.2</b> Cómo instalar SAS</a></li>
-<li class="chapter" data-level="4.3" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#que-es-sasiml"><i class="fa fa-check"></i><b>4.3</b> Qué es SAS/IML</a></li>
-<li class="chapter" data-level="4.4" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#como-usar-iml"><i class="fa fa-check"></i><b>4.4</b> Cómo usar IML</a></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos en SAS/IML</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#qué-es-sas"><i class="fa fa-check"></i><b>4.1</b> Qué es SAS</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#cómo-instalar-sas"><i class="fa fa-check"></i><b>4.2</b> Cómo instalar SAS</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#qué-es-sasiml"><i class="fa fa-check"></i><b>4.3</b> Qué es SAS/IML</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos-en-sasiml.html"><a href="primeros-pasos-en-sasiml.html#cómo-usar-iml"><i class="fa fa-check"></i><b>4.4</b> Cómo usar IML</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html"><i class="fa fa-check"></i><b>5</b> Elementos para la creación de algoritmos</a><ul>
-<li class="chapter" data-level="5.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#procesador-ambiente-y-acciones"><i class="fa fa-check"></i><b>5.1</b> Procesador, ambiente y acciones</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#ejemplo-1"><i class="fa fa-check"></i><b>5.1.1</b> Ejemplo 1</a></li>
-<li class="chapter" data-level="5.1.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#ejemplo-2"><i class="fa fa-check"></i><b>5.1.2</b> Ejemplo 2</a></li>
-<li class="chapter" data-level="5.1.3" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#acciones-primitivas-o-compuestas"><i class="fa fa-check"></i><b>5.1.3</b> Acciones primitivas o compuestas</a></li>
+<li class="chapter" data-level="5" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html"><i class="fa fa-check"></i><b>5</b> Elementos para la creación de algoritmos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#procesador-ambiente-y-acciones"><i class="fa fa-check"></i><b>5.1</b> Procesador, ambiente y acciones</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#ejemplo-1"><i class="fa fa-check"></i><b>5.1.1</b> Ejemplo 1</a></li>
+<li class="chapter" data-level="5.1.2" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#ejemplo-2"><i class="fa fa-check"></i><b>5.1.2</b> Ejemplo 2</a></li>
+<li class="chapter" data-level="5.1.3" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#acciones-primitivas-o-compuestas"><i class="fa fa-check"></i><b>5.1.3</b> Acciones primitivas o compuestas</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#objetos-constantes-y-variables"><i class="fa fa-check"></i><b>5.2</b> Objetos, constantes y variables</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#declaracion-de-variables-y-constantes"><i class="fa fa-check"></i><b>5.2.1</b> Declaración de variables y constantes</a></li>
-<li class="chapter" data-level="5.2.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#accion-de-asignacion"><i class="fa fa-check"></i><b>5.2.2</b> Acción de asignación</a></li>
+<li class="chapter" data-level="5.2" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#objetos-constantes-y-variables"><i class="fa fa-check"></i><b>5.2</b> Objetos, constantes y variables</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#declaración-de-variables-y-constantes"><i class="fa fa-check"></i><b>5.2.1</b> Declaración de variables y constantes</a></li>
+<li class="chapter" data-level="5.2.2" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#acción-de-asignación"><i class="fa fa-check"></i><b>5.2.2</b> Acción de asignación</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores"><i class="fa fa-check"></i><b>5.3</b> Operadores</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores-aritmeticos"><i class="fa fa-check"></i><b>5.3.1</b> Operadores aritméticos</a></li>
-<li class="chapter" data-level="5.3.2" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores-relacionales"><i class="fa fa-check"></i><b>5.3.2</b> Operadores relacionales</a></li>
-<li class="chapter" data-level="5.3.3" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#operadores-logicos"><i class="fa fa-check"></i><b>5.3.3</b> Operadores lógicos</a></li>
+<li class="chapter" data-level="5.3" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#operadores"><i class="fa fa-check"></i><b>5.3</b> Operadores</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#operadores-aritméticos"><i class="fa fa-check"></i><b>5.3.1</b> Operadores aritméticos</a></li>
+<li class="chapter" data-level="5.3.2" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#operadores-relacionales"><i class="fa fa-check"></i><b>5.3.2</b> Operadores relacionales</a></li>
+<li class="chapter" data-level="5.3.3" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.3.3</b> Operadores lógicos</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#entrada-y-salida-de-informacion"><i class="fa fa-check"></i><b>5.4</b> Entrada y salida de información</a></li>
-<li class="chapter" data-level="5.5" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#empleo-de-comentarios-en-el-algoritmo"><i class="fa fa-check"></i><b>5.5</b> Empleo de comentarios en el algoritmo</a></li>
-<li class="chapter" data-level="5.6" data-path="elementos-para-la-creacion-de-algoritmos.html"><a href="elementos-para-la-creacion-de-algoritmos.html#ejemplo"><i class="fa fa-check"></i><b>5.6</b> Ejemplo</a></li>
+<li class="chapter" data-level="5.4" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#entrada-y-salida-de-información"><i class="fa fa-check"></i><b>5.4</b> Entrada y salida de información</a></li>
+<li class="chapter" data-level="5.5" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#empleo-de-comentarios-en-el-algoritmo"><i class="fa fa-check"></i><b>5.5</b> Empleo de comentarios en el algoritmo</a></li>
+<li class="chapter" data-level="5.6" data-path="elementos-para-la-creación-de-algoritmos.html"><a href="elementos-para-la-creación-de-algoritmos.html#ejemplo"><i class="fa fa-check"></i><b>5.6</b> Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html"><i class="fa fa-check"></i><b>6</b> Estructuras de Control</a><ul>
+<li class="chapter" data-level="6" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html"><i class="fa fa-check"></i><b>6</b> Estructuras de Control</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-secuenciales"><i class="fa fa-check"></i><b>6.1</b> Estructuras de control secuenciales</a></li>
-<li class="chapter" data-level="6.2" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-condicionales"><i class="fa fa-check"></i><b>6.2</b> Estructuras de control condicionales</a><ul>
+<li class="chapter" data-level="6.2" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-condicionales"><i class="fa fa-check"></i><b>6.2</b> Estructuras de control condicionales</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-condicionales-simples"><i class="fa fa-check"></i><b>6.2.1</b> Estructuras condicionales simples</a></li>
 <li class="chapter" data-level="6.2.2" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-condicionales-dobles"><i class="fa fa-check"></i><b>6.2.2</b> Estructuras condicionales dobles</a></li>
-<li class="chapter" data-level="6.2.3" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-condicionales-multiples-o-anidadas"><i class="fa fa-check"></i><b>6.2.3</b> Estructuras condicionales múltiples o anidadas</a></li>
+<li class="chapter" data-level="6.2.3" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-condicionales-múltiples-o-anidadas"><i class="fa fa-check"></i><b>6.2.3</b> Estructuras condicionales múltiples o anidadas</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas"><i class="fa fa-check"></i><b>6.3</b> Estructuras de control iterativas</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas-con-un-numero-fijo-de-iteraciones"><i class="fa fa-check"></i><b>6.3.1</b> Estructuras de control iterativas con un número fijo de iteraciones</a></li>
-<li class="chapter" data-level="6.3.2" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas-con-un-numero-indeterminado-de-iteraciones"><i class="fa fa-check"></i><b>6.3.2</b> Estructuras de control iterativas con un número indeterminado de iteraciones</a></li>
+<li class="chapter" data-level="6.3" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas"><i class="fa fa-check"></i><b>6.3</b> Estructuras de control iterativas</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas-con-un-número-fijo-de-iteraciones"><i class="fa fa-check"></i><b>6.3.1</b> Estructuras de control iterativas con un número fijo de iteraciones</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estructuras-de-control.html"><a href="estructuras-de-control.html#estructuras-de-control-iterativas-con-un-número-indeterminado-de-iteraciones"><i class="fa fa-check"></i><b>6.3.2</b> Estructuras de control iterativas con un número indeterminado de iteraciones</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html"><i class="fa fa-check"></i><b>7</b> Estructuras de Datos</a><ul>
+<li class="chapter" data-level="7" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html"><i class="fa fa-check"></i><b>7</b> Estructuras de Datos</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#arreglos-unidimensionales"><i class="fa fa-check"></i><b>7.1</b> Arreglos unidimensionales</a></li>
 <li class="chapter" data-level="7.2" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#arreglos-bidimensionales"><i class="fa fa-check"></i><b>7.2</b> Arreglos bidimensionales</a></li>
 <li class="chapter" data-level="7.3" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#arreglos-multidimensionales"><i class="fa fa-check"></i><b>7.3</b> Arreglos multidimensionales</a></li>
 <li class="chapter" data-level="7.4" data-path="estructuras-de-datos.html"><a href="estructuras-de-datos.html#ejemplo-invertir-los-elementos-de-un-vector"><i class="fa fa-check"></i><b>7.4</b> Ejemplo: invertir los elementos de un vector</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="archivos.html"><a href="archivos.html"><i class="fa fa-check"></i><b>8</b> Archivos</a><ul>
-<li class="chapter" data-level="8.1" data-path="archivos.html"><a href="archivos.html#organizacion-de-archivos"><i class="fa fa-check"></i><b>8.1</b> Organización de archivos</a></li>
+<li class="chapter" data-level="8" data-path="archivos.html"><a href="archivos.html"><i class="fa fa-check"></i><b>8</b> Archivos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="archivos.html"><a href="archivos.html#organización-de-archivos"><i class="fa fa-check"></i><b>8.1</b> Organización de archivos</a></li>
 <li class="chapter" data-level="8.2" data-path="archivos.html"><a href="archivos.html#operaciones-sobre-archivos"><i class="fa fa-check"></i><b>8.2</b> Operaciones sobre archivos</a></li>
-<li class="chapter" data-level="8.3" data-path="archivos.html"><a href="archivos.html#pseudo-codigo"><i class="fa fa-check"></i><b>8.3</b> Pseudo-código</a><ul>
+<li class="chapter" data-level="8.3" data-path="archivos.html"><a href="archivos.html#pseudo-código"><i class="fa fa-check"></i><b>8.3</b> Pseudo-código</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="archivos.html"><a href="archivos.html#ejemplo-lectura-de-un-archivo"><i class="fa fa-check"></i><b>8.3.1</b> Ejemplo: lectura de un archivo</a></li>
 <li class="chapter" data-level="8.3.2" data-path="archivos.html"><a href="archivos.html#ejemplo-escritura-de-un-archivo"><i class="fa fa-check"></i><b>8.3.2</b> Ejemplo: escritura de un archivo</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="archivos.html"><a href="archivos.html#archivos-de-texto"><i class="fa fa-check"></i><b>8.4</b> Archivos de texto</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="subalgortimos.html"><a href="subalgortimos.html"><i class="fa fa-check"></i><b>9</b> Subalgortimos</a><ul>
+<li class="chapter" data-level="9" data-path="subalgortimos.html"><a href="subalgortimos.html"><i class="fa fa-check"></i><b>9</b> Subalgortimos</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="subalgortimos.html"><a href="subalgortimos.html#funciones"><i class="fa fa-check"></i><b>9.1</b> Funciones</a></li>
 <li class="chapter" data-level="9.2" data-path="subalgortimos.html"><a href="subalgortimos.html#procedimientos"><i class="fa fa-check"></i><b>9.2</b> Procedimientos</a></li>
-<li class="chapter" data-level="9.3" data-path="subalgortimos.html"><a href="subalgortimos.html#pasaje-de-argumentos"><i class="fa fa-check"></i><b>9.3</b> Pasaje de argumentos</a><ul>
+<li class="chapter" data-level="9.3" data-path="subalgortimos.html"><a href="subalgortimos.html#pasaje-de-argumentos"><i class="fa fa-check"></i><b>9.3</b> Pasaje de argumentos</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="subalgortimos.html"><a href="subalgortimos.html#pasaje-por-valor"><i class="fa fa-check"></i><b>9.3.1</b> Pasaje por valor</a></li>
 <li class="chapter" data-level="9.3.2" data-path="subalgortimos.html"><a href="subalgortimos.html#pasaje-por-referencia"><i class="fa fa-check"></i><b>9.3.2</b> Pasaje por referencia</a></li>
 <li class="chapter" data-level="9.3.3" data-path="subalgortimos.html"><a href="subalgortimos.html#ejemplos"><i class="fa fa-check"></i><b>9.3.3</b> Ejemplos</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="subalgortimos.html"><a href="subalgortimos.html#variables-locales-y-globales"><i class="fa fa-check"></i><b>9.4</b> Variables locales y globales</a><ul>
+<li class="chapter" data-level="9.4" data-path="subalgortimos.html"><a href="subalgortimos.html#variables-locales-y-globales"><i class="fa fa-check"></i><b>9.4</b> Variables locales y globales</a>
+<ul>
 <li class="chapter" data-level="9.4.1" data-path="subalgortimos.html"><a href="subalgortimos.html#transparencia-referencial"><i class="fa fa-check"></i><b>9.4.1</b> Transparencia referencial</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="subalgortimos.html"><a href="subalgortimos.html#codigo-en-iml-de-los-ejemplos-vistos"><i class="fa fa-check"></i><b>9.5</b> Código en IML de los ejemplos vistos</a></li>
+<li class="chapter" data-level="9.5" data-path="subalgortimos.html"><a href="subalgortimos.html#código-en-iml-de-los-ejemplos-vistos"><i class="fa fa-check"></i><b>9.5</b> Código en IML de los ejemplos vistos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
 <li class="divider"></li>
@@ -160,7 +209,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Taller de Programación</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción a la Programación con SAS IML</a>
           </h1>
         </div>
 
@@ -169,34 +218,34 @@
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Taller de Programación</h1>
+<h1 class="title">Introducción a la Programación con SAS IML</h1>
 <h2 class="subtitle"><em>Guía para las clases</em></h2>
 <p class="author"><em>Mgs. Lic. Marcos Prunello</em></p>
-<p class="date"><em>14-09-2019</em></p>
+<p class="date"><em>Última edición: 14-09-2019</em></p>
 </div>
-<div id="bienvenidos-al-taller" class="section level1">
-<h1><span class="header-section-number">1</span> Bienvenidos al Taller</h1>
-<p>La presente es una breve guía que resume los conceptos más importantes a desarrollar en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario. La misma irá siendo revisada a lo largo del cuatrimestre y no está exenta de presentar errores o expresar ideas que puedan ser mejoradas. ¡Esperamos que juntos podamos enriquecerla al dar nuestros primeros pasos en la programación!</p>
-<div id="horario-y-lugar-de-cursado" class="section level2 unnumbered">
-<h2>Horario y lugar de cursado</h2>
+<div id="bienvenidos-al-taller" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Bienvenidos al Taller<a href="index.html#bienvenidos-al-taller" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>La presente es una breve guía que resume los conceptos más importantes a desarrollar en el Taller de Programación de la Licenciatura en Estadística en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario, para las cursadas de 2017 a 2019. La misma no está exenta de presentar errores o expresar ideas que puedan ser mejoradas.</p>
+<div id="horario-y-lugar-de-cursado" class="section level2 unnumbered hasAnchor">
+<h2>Horario y lugar de cursado<a href="index.html#horario-y-lugar-de-cursado" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Lunes de 8:00 a 12:00 en el Laboratorio de Computación de la Escuela de Estadística.</p>
 </div>
-<div id="consultas" class="section level2 unnumbered">
-<h2>Consultas</h2>
+<div id="consultas" class="section level2 unnumbered hasAnchor">
+<h2>Consultas<a href="index.html#consultas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A través del Foro de Consultas en el Campus Virtual o al finalizar las clases.</p>
 </div>
-<div id="material-de-estudio" class="section level2 unnumbered">
-<h2>Material de estudio</h2>
+<div id="material-de-estudio" class="section level2 unnumbered hasAnchor">
+<h2>Material de estudio<a href="index.html#material-de-estudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El material de estudio está compuesto por esta guía, prácticas y algunas presentaciones en diapositivas, que, junto con cualquier otro material que necesitemos, estarán disponibles en nuestro espacio en el Campus Virtual de la UNR.</p>
 <p>Todo el material disponible (guía, diapositivas, prácticas, publicación online) fue creado utilizando el lenguaje de programación estadística <code>R</code> y las herramientas del entorno de desarrollo integrado <code>RStudio</code>.</p>
 </div>
-<div id="evaluacion" class="section level2 unnumbered">
-<h2>Evaluación</h2>
+<div id="evaluación" class="section level2 unnumbered hasAnchor">
+<h2>Evaluación<a href="index.html#evaluación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Tendremos tres Actividades Evaluativas (AE) cuyos detalles serán explicados oportunamente en el cuatrimestre. Las tres notas se promediarán para obtener una Nota Final con las siguientes ponderaciones: 20% AE1, 40% AE2 y 40% AE3. Si la Nota Final es mayor o igual a ocho (8), se promueve la materia; si es es mayor o igual a seis (6) y menor a ocho (8), se alcanza la condición de regular; y si es menor a seis (6), el alumno es libre.</p>
 <p>Habrá una única instancia opcional de recuperación al final del cuatrimestre de carácter integrador para aquellos que no alcanzaron la promoción, cuya nota no reemplaza a ninguna actividad evalulativa. Si la misma es mayor o igual a ocho (8) se alcanza la promoción y en caso contrario se conserva la condición ya obtenida.</p>
 </div>
-<div id="campus-virtual" class="section level2 unnumbered">
-<h2>Campus virtual</h2>
+<div id="campus-virtual" class="section level2 unnumbered hasAnchor">
+<h2>Campus virtual<a href="index.html#campus-virtual" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Además de alojar todo el material del curso, utilizaremos este espacio para la entrega de trabajos y para realizar consultas, que esperamos puedan ser debatidas y respondidas entre los mismos estudiantes.</p>
 
 </div>
@@ -207,16 +256,17 @@
         </div>
       </div>
 
-<a href="introduccion.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introducción.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -224,12 +274,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -244,7 +294,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["guia-tdp.pdf", "guia-tdp.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -258,9 +316,10 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
